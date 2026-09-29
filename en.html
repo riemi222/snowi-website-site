@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Snowi | Hokkaido Ski Lessons at 16 Resorts・TOMAMU Officially Registered Ski School</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --snow: #F0EEE8;
+    --ice: #C8D8E4;
+    --deep: #0B1117;
+    --charcoal: #141C24;
+    --slate: #1E2A36;
+    --accent: #5B9EC9;
+    --accent-bright: #7DBDE8;
+    --rose: #D98BA0;
+    --warm: #D4A96A;
+    --muted: #8A99A8;
+    --line: rgba(138,153,168,0.18);
+  }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html { scroll-behavior: smooth; }
+  body {
+    background: var(--deep); color: var(--snow);
+    font-family: 'DM Sans','Noto Sans TC', sans-serif; font-weight:300;
+    overflow-x:hidden;
+  }
+  .cjk{ font-family:'DM Sans', sans-serif; }
+  section{ position:relative; }
+  .section-label{ font-size:0.7rem; letter-spacing:0.3em; text-transform:uppercase; color:var(--accent); margin-bottom:1rem; }
+  .section-title{
+    font-family:'DM Sans', sans-serif; font-weight:900;
+    font-size: clamp(1.9rem, 3.6vw, 3rem); color:var(--snow); line-height:1.3; margin-bottom:1rem;
+  }
+  .section-desc{ font-family:'DM Sans', sans-serif; color:var(--muted); max-width:600px; font-size:0.98rem; line-height:1.85; }
+
+  .top-ribbon{
+    background: var(--accent); color: var(--deep); text-align:center; padding:.55rem 1rem;
+    font-family:'DM Sans', sans-serif; font-size:.8rem; font-weight:500; letter-spacing:.03em;
+    position:sticky; top:0; z-index:101;
+  }
+
+  /* NAV */
+  nav{
+    position:sticky; top:0; left:0; right:0; z-index:100;
+    display:flex; align-items:center; justify-content:space-between;
+    padding: 1.1rem 6vw;
+    background: rgba(11,17,23,0.85);
+    backdrop-filter: blur(14px);
+    border-bottom: 1px solid var(--line);
+  }
+  .brand{ font-family:'Bebas Neue', sans-serif; font-size:1.4rem; letter-spacing:0.08em; color:var(--snow); display:flex; align-items:center; gap:.5rem;}
+  .brand-mark{ color:var(--snow); }
+  .brand small{ font-family:'DM Sans', sans-serif; font-size:.6rem; letter-spacing:.2em; color:var(--muted); font-weight:400; }
+  .nav-links{ display:flex; gap:1.8rem; align-items:center; }
+  .nav-links a{ color:var(--ice); font-size:.82rem; text-decoration:none; letter-spacing:.02em; opacity:.85; transition:opacity .2s;}
+  .nav-links a:hover{ opacity:1; }
+  .nav-cta{
+    font-family:'DM Sans', sans-serif; font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase;
+    color: var(--deep); background: var(--accent); padding:0.65rem 1.4rem; text-decoration:none;
+    clip-path: polygon(0 0, calc(100% - 8px) 0, 100% 8px, 100% 100%, 8px 100%, 0 calc(100% - 8px));
+  }
+  @media (max-width:860px){ .nav-links a:not(.nav-cta){ display:none; } }
+
+  /* HERO */
+  .hero{ min-height:92vh; display:flex; flex-direction:column; justify-content:center; padding:0 6vw; overflow:hidden; }
+  .hero-bg{
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 40%, rgba(91,158,201,0.14) 0%, transparent 70%),
+      radial-gradient(ellipse 55% 70% at 85% 75%, rgba(217,139,160,0.08) 0%, transparent 65%),
+      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(11,17,23,0.95) 0%, transparent 60%),
+      linear-gradient(160deg, #0B1117 0%, #141C24 50%, #0D1820 100%);
+    z-index:0;
+  }
+  .hero-bg::after{
+    content:''; position:absolute; inset:0;
+    background-image:
+      radial-gradient(1px 1px at 20% 15%, rgba(200,216,228,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 45% 8%, rgba(200,216,228,0.3) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 65% 22%, rgba(200,216,228,0.5) 0%, transparent 100%),
+      radial-gradient(1px 1px at 80% 12%, rgba(200,216,228,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 33% 35%, rgba(200,216,228,0.2) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 88% 45%, rgba(200,216,228,0.4) 0%, transparent 100%),
+      radial-gradient(1px 1px at 12% 55%, rgba(200,216,228,0.3) 0%, transparent 100%),
+      radial-gradient(2px 2px at 55% 60%, rgba(200,216,228,0.2) 0%, transparent 100%),
+      radial-gradient(1px 1px at 75% 70%, rgba(200,216,228,0.35) 0%, transparent 100%),
+      radial-gradient(1px 1px at 28% 78%, rgba(200,216,228,0.25) 0%, transparent 100%),
+      radial-gradient(1.5px 1.5px at 92% 82%, rgba(200,216,228,0.3) 0%, transparent 100%),
+      radial-gradient(1px 1px at 40% 90%, rgba(200,216,228,0.2) 0%, transparent 100%);
+  }
+  .mountain{ position:absolute; bottom:0; right:-5%; width:65%; height:75%; z-index:0; opacity:0.16; }
+  .mountain svg{ width:100%; height:100%; }
+  .hero-content{ position:relative; z-index:2; max-width:760px; }
+  .eyebrow{ font-size:0.75rem; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent); margin-bottom:1.5rem; display:flex; align-items:center; gap:0.75rem; }
+  .eyebrow::before{ content:''; display:inline-block; width:32px; height:1px; background:var(--accent); }
+  h1{ font-family:'DM Sans', sans-serif; font-weight:900; font-size:clamp(2.4rem, 6vw, 5rem); line-height:1.2; color:var(--snow); margin-bottom:2rem; }
+  h1 em{ font-style:normal; color:var(--accent-bright); }
+  .hero-sub{ font-size:clamp(1rem,1.6vw,1.15rem); line-height:1.9; color:var(--ice); max-width:540px; margin-bottom:3rem; font-weight:300; }
+  .hero-pain-list{ list-style:none; max-width:600px; margin-bottom:1.5rem; }
+  .hero-pain-list li{ font-family:'DM Sans', sans-serif; font-size:.98rem; line-height:1.8; color:var(--ice); padding-left:1.7rem; position:relative; margin-bottom:.7rem; }
+  .hero-pain-list li::before{ content:'✓'; position:absolute; left:0; top:.05em; color:var(--accent-bright); font-weight:700; }
+  .hero-pain-list li strong{ color:var(--snow); font-weight:500; }
+  .hero-pain-link{ color:var(--accent-bright); text-decoration:underline; text-underline-offset:2px; }
+  .hero-pain-link:hover{ color:var(--snow); }
+  .hero-closing{ font-family:'DM Sans', sans-serif; font-size:1.05rem; font-weight:500; color:var(--rose); max-width:560px; line-height:1.8; margin-bottom:2.4rem; }
+  .cta-group{ display:flex; gap:1rem; flex-wrap:wrap; align-items:center; }
+  .btn-primary{
+    background:var(--accent); color:var(--deep); font-family:'DM Sans', sans-serif; font-weight:500; font-size:0.9rem;
+    letter-spacing:0.08em; text-transform:uppercase; padding:1rem 2.5rem; text-decoration:none; display:inline-block;
+    transition:background .2s, transform .2s;
+    clip-path: polygon(0 0, calc(100% - 10px) 0, 100% 10px, 100% 100%, 10px 100%, 0 calc(100% - 10px));
+    cursor:pointer; border:none;
+  }
+  .btn-primary:hover{ background:var(--accent-bright); transform:translateY(-2px); }
+  .btn-secondary{ color:var(--ice); font-size:0.85rem; letter-spacing:0.06em; text-transform:uppercase; text-decoration:none; display:flex; align-items:center; gap:0.5rem; opacity:.75; transition:opacity .2s; }
+  .btn-secondary:hover{ opacity:1; }
+  .btn-secondary::after{ content:'↓'; font-size:1rem; }
+  .scroll-line{ position:absolute; bottom:2.2rem; left:6vw; display:flex; align-items:center; gap:1rem; color:var(--muted); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; z-index:2; }
+  .scroll-line::before{ content:''; width:1px; height:44px; background:linear-gradient(to bottom, transparent, var(--muted)); display:block; }
+
+  /* PAIN / FABE */
+  .pain{ padding:7rem 6vw 6rem; }
+  .pain-intro{ max-width:660px; margin-bottom:3.5rem; }
+  .pain-intro p{ font-family:'DM Sans', sans-serif; color:var(--ice); font-size:1.05rem; line-height:2; margin-top:1rem; }
+  .pain-intro strong{ color: var(--rose); font-weight:500; }
+  .fabe-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px; background:var(--line); border:1px solid var(--line); }
+  @media (max-width:900px){ .fabe-grid{ grid-template-columns:1fr; } }
+  .fabe-card{ background:var(--charcoal); padding:2.2rem 2rem; }
+  .fabe-card h3{ font-family:'DM Sans', sans-serif; font-weight:700; font-size:1.1rem; color:var(--snow); margin-bottom:1.2rem; }
+  .fabe-row{ display:flex; gap:0.6rem; margin-bottom:0.9rem; font-family:'DM Sans', sans-serif; font-size:0.85rem; line-height:1.7; }
+  .fabe-row .k{ flex-shrink:0; color:var(--warm); font-weight:500; width:3.2em; }
+  .fabe-row .v{ color:var(--ice); }
+  .fabe-row.evidence .v{ color:var(--accent-bright); }
+
+  /* COURSES */
+  .courses-section{ padding:6rem 6vw 7rem; }
+  .course-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.5px; background:var(--line); border:1px solid var(--line); margin-top:3rem; }
+  @media (max-width:1000px){ .course-grid{ grid-template-columns:repeat(2,1fr);} }
+  @media (max-width:600px){ .course-grid{ grid-template-columns:1fr;} }
+  .course-card{ background:var(--charcoal); padding:2.2rem 1.8rem; display:flex; flex-direction:column; transition:background .25s; }
+  .course-card:hover{ background:var(--slate); }
+  .course-card.featured{ background:linear-gradient(160deg, var(--slate), #1a2a38); }
+  .course-tag{ font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--warm); margin-bottom:.8rem; }
+  .course-card.featured .course-tag{ color:var(--accent-bright); }
+  .course-name{ font-family:'DM Sans', sans-serif; font-weight:700; font-size:1.25rem; color:var(--snow); margin-bottom:.4rem; }
+  .course-outcome{ font-family:'DM Sans', sans-serif; font-size:.82rem; color:var(--rose); margin-bottom:1.2rem; line-height:1.6; }
+  .course-list{ list-style:none; font-family:'DM Sans', sans-serif; font-size:.82rem; color:var(--ice); flex-grow:1; margin-bottom:1.4rem; }
+  .course-list li{ padding:.35rem 0 .35rem 1rem; position:relative; line-height:1.5; }
+  .course-list li::before{ content:'—'; position:absolute; left:0; color:var(--muted); }
+  .course-price-row{ border-top:1px solid var(--line); padding-top:1rem; margin-bottom:1rem; }
+  .course-price{ font-family:'Bebas Neue', sans-serif; font-size:1.6rem; color:var(--snow); }
+  .course-price small{ font-family:'DM Sans', sans-serif; font-size:.7rem; font-weight:300; color:var(--muted); margin-left:4px; }
+  .course-cta{ display:block; text-align:center; font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-bright); border:1px solid var(--accent); padding:.75rem; text-decoration:none; transition:.2s; background:none; width:100%; cursor:pointer; font-family:'DM Sans',sans-serif; margin-bottom:.6rem;}
+  .course-cta:hover{ background:var(--accent); color:var(--deep); }
+  .course-cta.buy{ background:var(--accent); color:var(--deep); font-weight:500; }
+  .course-cta.buy:hover{ background:var(--accent-bright); }
+  .course-note{ font-size:.68rem; color:var(--warm); text-align:center; margin-top:.4rem; line-height:1.5; }
+
+  .placeholder-flag{
+    display:inline-block; font-size:.68rem; letter-spacing:.05em; color:var(--warm);
+    border:1px dashed var(--warm); padding:3px 10px; margin:.6rem 0; font-family:'DM Sans',sans-serif;
+  }
+
+  /* PRICING TABLES */
+  .pricing-section{ padding:6rem 6vw; }
+  .pricing-note{ font-family:'DM Sans', sans-serif; font-size:.85rem; color:var(--muted); line-height:1.9; margin-bottom:2rem; }
+  .price-table-wrap{ overflow-x:auto; margin-bottom:3.5rem; }
+  table.price-table{ border-collapse:collapse; width:100%; min-width:640px; font-family:'DM Sans', sans-serif; font-size:.85rem; }
+  table.price-table caption{ text-align:left; font-family:'Bebas Neue', sans-serif; font-size:1.4rem; letter-spacing:.04em; color:var(--warm); margin-bottom:1rem; caption-side:top; }
+  table.price-table th, table.price-table td{ border:1px solid var(--line); padding:.7rem 1rem; text-align:center; }
+  table.price-table th{ background:var(--charcoal); color:var(--accent-bright); font-weight:500; }
+  table.price-table td.ratio{ background:var(--charcoal); color:var(--ice); font-weight:500; }
+  table.price-table td{ color:var(--snow); }
+
+  /* METHOD - Hand-in-Hand to Letting Go */
+  .method-section{ padding:6rem 6vw; }
+  .method-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px; background:var(--line); border:1px solid var(--line); margin-top:3rem; }
+  @media (max-width:1000px){ .method-grid{ grid-template-columns:repeat(2,1fr); } }
+  @media (max-width:600px){ .method-grid{ grid-template-columns:1fr; } }
+  .method-step{ background:var(--charcoal); padding:2rem 1.6rem; }
+  .method-num{ font-family:'Bebas Neue', sans-serif; font-size:1.8rem; color:var(--accent-bright); margin-bottom:.8rem; }
+  .method-step h4{ font-family:'DM Sans', sans-serif; font-weight:700; font-size:1rem; color:var(--snow); margin-bottom:.6rem; line-height:1.4; }
+  .method-step p{ font-family:'DM Sans', sans-serif; font-size:.82rem; color:var(--muted); line-height:1.7; }
+  .method-note{ font-family:'DM Sans', sans-serif; font-size:.82rem; color:var(--muted); line-height:1.85; margin-top:2rem; max-width:700px; }
+
+  /* ASSURANCE - Peace of Mind */
+  .assurance-section{ padding:6rem 6vw; background:var(--charcoal); }
+  .assurance-block{ display:grid; grid-template-columns:1fr 1fr; gap:2.5rem; margin-top:3rem; }
+  @media (max-width:900px){ .assurance-block{ grid-template-columns:1fr; } }
+  .assurance-fact{ font-family:'DM Sans', sans-serif; font-size:.95rem; color:var(--ice); line-height:1.9; margin-bottom:1.4rem; padding-left:1.4rem; border-left:2px solid var(--accent); }
+  .assurance-fact strong{ color:var(--snow); font-weight:700; }
+  .assurance-flow{ list-style:none; counter-reset:flow; }
+  .assurance-flow li{ counter-increment:flow; font-family:'DM Sans', sans-serif; font-size:.88rem; color:var(--ice); line-height:1.7; padding:.9rem 0 .9rem 2.4rem; position:relative; border-top:1px solid var(--line); }
+  .assurance-flow li:first-child{ border-top:none; }
+  .assurance-flow li::before{ content:counter(flow); position:absolute; left:0; top:.85rem; width:1.6rem; height:1.6rem; border:1px solid var(--accent); color:var(--accent-bright); font-family:'DM Sans',sans-serif; font-size:.75rem; display:flex; align-items:center; justify-content:center; }
+
+  /* PROOF */
+  .proof{ padding:6rem 6vw; }
+  .stat-bar{ display:flex; gap:3rem; flex-wrap:wrap; margin-bottom:1.2rem; }
+  .stat .num{ font-family:'Bebas Neue', sans-serif; font-size:2.4rem; color:var(--accent-bright); }
+  .stat .label{ font-family:'DM Sans', sans-serif; font-size:.8rem; color:var(--muted); }
+  .resort-list-line{ font-size:.78rem; color:var(--muted); line-height:1.8; margin-bottom:3.5rem; max-width:900px; }
+  .quote-scroll{ display:flex; gap:1.5rem; overflow-x:auto; padding-bottom:1.2rem; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; }
+  .quote-scroll::-webkit-scrollbar{ height:6px; }
+  .quote-scroll::-webkit-scrollbar-thumb{ background: var(--accent); border-radius:3px; }
+  .quote-scroll::-webkit-scrollbar-track{ background: var(--line); }
+  .quote-card{ background:var(--charcoal); padding:1.8rem; border-left:2px solid var(--accent); flex:0 0 300px; scroll-snap-align:start; }
+  .quote-card p{ font-family:'DM Sans', sans-serif; font-size:.92rem; color:var(--ice); line-height:1.8; margin-bottom:1rem; }
+  .quote-who{ font-family:'DM Sans', sans-serif; font-size:.75rem; color:var(--muted); letter-spacing:.03em; }
+  .stars{ color: var(--warm); font-size:.85rem; margin-bottom:.6rem; }
+
+  /* ABOUT */
+  .crm-block{ background:rgba(91,158,201,0.06); border:1px solid var(--line); padding:1.2rem 1.3rem; margin:.5rem 0 1.2rem; }
+  .crm-block-label{ font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:.9rem; font-family:'DM Sans',sans-serif; }
+
+  /* BLOG TEASER */
+  .blog-teaser{ padding:6rem 6vw; }
+  .blog-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
+  @media (max-width:900px){ .blog-grid{ grid-template-columns:1fr; } }
+  .blog-card{
+    display:block; background:var(--charcoal); border:1px solid var(--line);
+    padding:1.8rem; text-decoration:none; transition:.2s; height:100%;
+  }
+  .blog-card:hover{ border-color:var(--accent); transform:translateY(-4px); }
+  .blog-card-tag{ font-size:.65rem; letter-spacing:.1em; text-transform:uppercase; color:var(--warm); margin-bottom:.8rem; }
+  .blog-card h3{ font-family:'DM Sans', sans-serif; font-weight:700; font-size:1.05rem; color:var(--snow); line-height:1.5; margin-bottom:.8rem; }
+  .blog-card p{ font-family:'DM Sans', sans-serif; font-size:.82rem; color:var(--muted); line-height:1.7; margin-bottom:1.2rem; }
+  .blog-card-link{ font-size:.78rem; color:var(--accent-bright); }
+
+  .about-us{ padding:6rem 6vw; background:var(--charcoal); }
+  .about-grid{ max-width:780px; }
+  .about-grid p{ font-family:'DM Sans', sans-serif; font-size:.95rem; color:var(--ice); line-height:1.9; margin-bottom:1.2rem; }
+  .about-grid a{ color:var(--accent-bright); }
+
+  /* FAQ */
+  .faq-us{ padding:6rem 6vw; }
+  .faq-us-list{ max-width:780px; margin-top:2.5rem; }
+  .faq-us-item{ padding:1.4rem 0; border-top:1px solid var(--line); }
+  .faq-us-item:last-child{ border-bottom:1px solid var(--line); }
+  .faq-us-q{ font-family:'DM Sans', sans-serif; font-weight:700; font-size:.98rem; color:var(--snow); margin-bottom:.6rem; }
+  .faq-us-a{ font-family:'DM Sans', sans-serif; font-size:.88rem; color:var(--muted); line-height:1.8; }
+
+  /* POLICY */
+  .policy-section{ padding:6rem 6vw; background:var(--charcoal); }
+  .policy-section h3{ font-family:'DM Sans', sans-serif; font-weight:700; font-size:1.05rem; color:var(--accent-bright); margin:2rem 0 1rem; }
+  .policy-section h3:first-of-type{ margin-top:2.5rem; }
+  .policy-section p{ font-family:'DM Sans', sans-serif; font-size:.85rem; color:var(--muted); line-height:1.9; margin-bottom:1rem; max-width:780px; }
+  .policy-list{ font-family:'DM Sans', sans-serif; font-size:.88rem; color:var(--ice); line-height:1.9; margin-left:1.2rem; max-width:780px; }
+
+  /* BOOKING (shared form styles) */
+  .booking{ padding:6rem 6vw 8rem; position:relative; }
+  .booking-bg{ position:absolute; inset:0; background:radial-gradient(ellipse 60% 50% at 50% 0%, rgba(91,158,201,0.08), transparent 70%); z-index:0; }
+  .booking-inner{ position:relative; z-index:1; max-width:720px; margin:0 auto; text-align:center; }
+  .booking-inner .section-title, .booking-inner .section-desc{ margin-left:auto; margin-right:auto; }
+  .form-wrap{ margin-top:3rem; text-align:left; }
+  .form-grid{ display:grid; grid-template-columns:1fr 1fr; gap:1rem; margin-bottom:1rem; }
+  @media (max-width:600px){ .form-grid{ grid-template-columns:1fr; } }
+  input, select, textarea{
+    width:100%; background:var(--charcoal); border:1px solid var(--line); color:var(--snow);
+    padding:.9rem 1rem; font-family:'DM Sans', sans-serif; font-size:.9rem; outline:none; transition:border .2s;
+  }
+  .booking input, .booking select, .booking textarea{ background:var(--deep); }
+  input:focus, select:focus, textarea:focus{ border-color:var(--accent); }
+  textarea{ min-height:80px; resize:vertical; margin-bottom:1.2rem; }
+  .form-note{ font-family:'DM Sans', sans-serif; font-size:.75rem; color:var(--muted); margin-top:1rem; text-align:center; }
+  .form-fieldnote{ font-family:'DM Sans', sans-serif; font-size:.72rem; color:var(--muted); margin:-.6rem 0 1rem; }
+  .date-field{ display:flex; flex-direction:column; gap:.5rem; }
+  .date-label-text{ font-size:.75rem; color:var(--muted); }
+  .date-field input[type="date"]{ color-scheme: dark; }
+  .tab-nav{ display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin:2.5rem 0 2rem; }
+  .tab-btn{
+    background:transparent; border:1px solid var(--line); color:var(--muted);
+    font-family:'DM Sans', sans-serif; font-size:.78rem; letter-spacing:.05em; text-transform:uppercase;
+    padding:.7rem 1.3rem; cursor:pointer; transition:.2s;
+  }
+  .tab-btn.active{ background:var(--accent); border-color:var(--accent); color:var(--deep); font-weight:500; }
+  .tab-btn:not(.active):hover{ border-color:var(--accent); color:var(--ice); }
+  .checkbox-field{ display:flex; align-items:center; gap:.7rem; font-family:'DM Sans', sans-serif; font-size:.9rem; color:var(--ice); cursor:pointer; background:var(--deep); border:1px solid var(--line); padding:.9rem 1rem; }
+  .checkbox-field input[type="checkbox"]{ width:1.15rem; height:1.15rem; margin:0; padding:0; accent-color:var(--accent); background:none; border:1px solid var(--line); cursor:pointer; flex-shrink:0; }
+  .success-msg{ display:none; background:var(--slate); padding:2rem; text-align:center; font-family:'DM Sans', sans-serif; color:var(--ice); line-height:1.8; }
+
+  footer{ text-align:center; padding:3rem; font-size:.75rem; color:var(--muted); font-family:'DM Sans', sans-serif; letter-spacing:.05em; border-top:1px solid var(--line); }
+  footer a{ color:var(--accent-bright); }
+</style>
+</head>
+<body>
+
+<div class="top-ribbon cjk">TOMAMU Hoshino Officially Registered Ski School　・　Partnered with 16 Hokkaido Resorts</div>
+
+<nav>
+  <div class="brand"><span class="brand-mark">SNOWI</span><small class="cjk">｜SNOW IS NOW</small></div>
+  <div class="nav-links">
+    <a href="blog-en.html" class="cjk">Blog</a>
+    <a href="index.html" style="opacity:.7;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">中文</a>
+    <a href="https://line.me/R/ti/p/@snowi" target="_blank" rel="noopener" aria-label="Add us on LINE" style="display:flex;align-items:center;opacity:.85;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85">
+      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M12 2C6.48 2 2 5.69 2 10.24c0 4.08 3.54 7.5 8.32 8.15.32.07.76.21.87.49.1.25.06.65.03.9l-.14.86c-.04.25-.2.99.86.54 1.06-.45 5.73-3.37 7.82-5.77C21.24 13.63 22 12.03 22 10.24 22 5.69 17.52 2 12 2z" fill="#06C755"/>
+        <path d="M18.36 11.4h-1.34v1.9c0 .1-.08.18-.18.18h-.3c-.06 0-.11-.02-.15-.07l-1.44-1.95v1.85c0 .1-.08.19-.18.19h-.3c-.1 0-.18-.08-.18-.19V9.32c0-.1.08-.18.18-.18h.3c.06 0 .11.03.14.07l1.44 1.95V9.32c0-.1.08-.18.18-.18h.3c.1 0 .18.08.18.18v2.08zm-4.34 0c0 .1-.08.19-.18.19h-.3c-.1 0-.18-.08-.18-.19V9.32c0-.1.08-.18.18-.18h.3c.1 0 .18.08.18.18v2.08zm-1.11.02c0 .1-.08.18-.18.18H10.6c-.1 0-.18-.08-.18-.18v-.3c0-.1.08-.18.18-.18h1.75V9.32c0-.1.08-.18.18-.18h.3c.1 0 .18.08.18.18v2.1zm-2.35 0c0 .1-.08.18-.18.18H8.03c-.1 0-.18-.08-.18-.18V9.32c0-.1.08-.18.18-.18h.3c.1 0 .18.08.18.18v1.72h1.05c.1 0 .18.08.18.18v.2z" fill="#fff"/>
+      </svg>
+    </a>
+    <a class="nav-cta cjk" href="#booking">Book Now</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg"></div>
+  <div class="mountain">
+    <svg viewBox="0 0 600 400" xmlns="http://www.w3.org/2000/svg">
+      <polygon points="0,400 120,180 220,300 320,90 420,260 520,140 600,400" fill="#C8D8E4"/>
+    </svg>
+  </div>
+  <div class="hero-content">
+    <div class="eyebrow cjk">Hoshino TOMAMU · Official School</div>
+    <h1>Hoshino TOMAMU's Official School,<br>guiding your child <em>from holding hands to letting go</em>.</h1>
+    <ul class="hero-pain-list cjk">
+      <li><strong>Worried your child will get scared and never want to ski again?</strong>Our 6-stage "Hand-in-Hand to Letting Go" method builds their confidence step by step</li>
+      <li><strong>Worried no one's responsible if something goes wrong, or that instructors aren't insured?</strong>We're Hoshino TOMAMU's official school — every course includes accident insurance up to ¥200 million</li>
+      <li><strong>Worried your child could end up alone on the chairlift?</strong>Our instructors guarantee to ride every lift with your child — never alone</li>
+      <li><strong>Worried about a tired child, long waits, and too much luggage to carry?</strong>We offer private airport transfer service, straight to the resort with no transfers</li>
+    </ul>
+    <p class="hero-closing cjk">Everything you'd want to know before trusting us with your child — we've already thought it through.</p>
+    <div class="cta-group">
+      <a class="btn-primary cjk" href="#booking">Book a Lesson Now</a>
+      <a class="btn-secondary cjk" href="#courses">View Courses</a>
+    </div>
+  </div>
+  <div class="scroll-line">SCROLL</div>
+</section>
+
+<!-- PAIN / FABE -->
+<section class="pain">
+  <div class="section-label">WHY SNOWI</div>
+  <div class="pain-intro">
+    <h2 class="section-title">Things you might be worried about:</h2>
+    <p class="cjk">Who's actually responsible if something goes wrong? Is the instructor even insured? Am I paying an unlicensed instructor with no visa or registration? <strong>These are exactly the things we deal with every day — and most want you to feel at ease about.</strong></p>
+  </div>
+  <div class="fabe-grid">
+    <div class="fabe-card">
+      <h3 class="cjk">Emergency Response</h3>
+      <div class="fabe-row"><span class="k cjk">Approach</span><span class="v cjk">A complete response process — from on-site assessment and contacting parents, to Emi herself accompanying your child to the hospital as translator</span></div>
+      <div class="fabe-row"><span class="k cjk">Difference</span><span class="v cjk">No language barrier to worry about — an instructor is with you the whole time to help communicate and handle things</span></div>
+      <div class="fabe-row"><span class="k cjk">Outcome</span><span class="v cjk">If an accident happens, you're never facing it alone</span></div>
+      <div class="fabe-row evidence"><span class="k cjk">Proof</span><span class="v cjk">Every course includes accident insurance up to ¥200 million — see the "Peace of Mind" section below for the full response process</span></div>
+    </div>
+    <div class="fabe-card">
+      <h3 class="cjk">Preparing Your Child Emotionally</h3>
+      <div class="fabe-row"><span class="k cjk">Approach</span><span class="v cjk">Our 6-stage "Hand-in-Hand to Letting Go" method — never just leaving your child to figure it out alone</span></div>
+      <div class="fabe-row"><span class="k cjk">Difference</span><span class="v cjk">Confidence is built at every stage before moving on — never pushing your child faster than they're ready</span></div>
+      <div class="fabe-row"><span class="k cjk">Outcome</span><span class="v cjk">No scary experience to leave a bad memory — your child will want to come back and ski again</span></div>
+      <div class="fabe-row evidence"><span class="k cjk">Proof</span><span class="v cjk">After each lesson, the instructor will tell you in person which stage your child reached that day</span></div>
+    </div>
+    <div class="fabe-card">
+      <h3 class="cjk">Progress You Can See</h3>
+      <div class="fabe-row"><span class="k cjk">Approach</span><span class="v cjk">At the end of every lesson, the instructor tells you in person which stage your child has reached</span></div>
+      <div class="fabe-row"><span class="k cjk">Difference</span><span class="v cjk">You're not left guessing how much your child learned — there's something concrete to go by</span></div>
+      <div class="fabe-row"><span class="k cjk">Outcome</span><span class="v cjk">You know exactly what you paid for — it's real teaching, not just supervised play</span></div>
+      <div class="fabe-row evidence"><span class="k cjk">Proof</span><span class="v cjk">See the parent testimonials below describing their children's actual progress</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- METHOD -->
+<section class="method-section" id="method">
+  <div class="section-label">HOW WE TEACH</div>
+  <h2 class="section-title">Hand-in-Hand to Letting Go — Our Children's Ski Introduction Method</h2>
+  <p class="section-desc cjk">The biggest fear on a child's first day on snow isn't falling — it's getting scared and never wanting to ski again. This is Snowi's own named teaching method, letting your child progress step by step from having their hand held to skiing off on their own, all on day one.</p>
+  <div class="method-grid">
+    <div class="method-step">
+      <div class="method-num">01</div>
+      <h4 class="cjk">Feel the Glide</h4>
+      <p class="cjk">The instructor holds the board the whole time to control speed, while teaching your child to brake on command</p>
+    </div>
+    <div class="method-step">
+      <div class="method-num">02</div>
+      <h4 class="cjk">Gradual Release</h4>
+      <p class="cjk">The instructor gradually eases off, letting your child start moving with their own leg strength</p>
+    </div>
+    <div class="method-step">
+      <div class="method-num">03</div>
+      <h4 class="cjk">One-Hand Support</h4>
+      <p class="cjk">Your child can now control most movements themselves, so the instructor switches to one-handed support</p>
+    </div>
+    <div class="method-step">
+      <div class="method-num">04</div>
+      <h4 class="cjk">Just a Hand to Hold</h4>
+      <p class="cjk">The instructor only holds your child's hand while they glide on their own</p>
+    </div>
+    <div class="method-step">
+      <div class="method-num">05</div>
+      <h4 class="cjk">Letting Go Completely</h4>
+      <p class="cjk">Your child can glide and brake entirely on their own — this is what "letting go" really means</p>
+    </div>
+    <div class="method-step">
+      <div class="method-num">06</div>
+      <h4 class="cjk">Always By Their Side on the Lift</h4>
+      <p class="cjk">The instructor guarantees to ride every chairlift with your child — never alone, always safe</p>
+    </div>
+  </div>
+  <p class="method-note cjk">Actual timing varies with each child's confidence and muscle development, but most children complete the first five gliding stages within one day (a 6-hour 1-on-1 lesson). Riding every lift together is our safety commitment to every child, start to finish. At the end of the lesson, we'll tell you which stage your child reached that day.</p>
+</section>
+
+<!-- ASSURANCE -->
+<section class="assurance-section" id="assurance">
+  <div class="section-label">PEACE OF MIND</div>
+  <h2 class="section-title">Why Parents Can Trust Us With Their Child</h2>
+  <p class="section-desc cjk">What parents really care about isn't "how patient is the instructor" — it's who's responsible if something goes wrong. Here's exactly what we do.</p>
+  <div class="assurance-block">
+    <div>
+      <p class="assurance-fact cjk"><strong>Hoshino TOMAMU's Official School.</strong>Snowi is operated by Shinmei GK and is the officially recognized ski school of the Hoshino TOMAMU resort — our credentials are verifiable, not just any instructor off the street.</p>
+      <p class="assurance-fact cjk"><strong>Emi Herself Accompanies You to the Hospital.</strong>If an accident requires medical care, Emi personally goes with you to the hospital to translate and handle things on the spot — you're never left to figure it out alone.</p>
+      <p class="assurance-fact cjk"><strong>Verbal Progress Update After Every Lesson.</strong>At the end of each lesson, the instructor tells you in person which stage of "Hand-in-Hand to Letting Go" your child reached that day — so you can see the progress.</p>
+    </div>
+    <div>
+      <div class="section-label" style="margin-top:0;">What We Do If an Accident Happens</div>
+      <ol class="assurance-flow">
+        <li class="cjk">Assess the situation on the spot immediately, calling resort rescue if needed</li>
+        <li class="cjk">Contact the parents right away to explain the situation and next steps</li>
+        <li class="cjk">Help with insurance claims and coordinating medical contacts</li>
+        <li class="cjk">Emi herself accompanies you to the hospital to translate and help handle things on-site</li>
+        <li class="cjk">Course fees will be explained separately depending on the situation — see "Disclaimer" for details</li>
+      </ol>
+    </div>
+  </div>
+</section>
+
+<!-- PROOF -->
+<section class="proof">
+  <div class="section-label">SOCIAL PROOF</div>
+  <h2 class="section-title">What Past Guests Say</h2>
+  <div class="stat-bar">
+    <div class="stat"><div class="num">9+</div><div class="label cjk">Years of Local Teaching Experience</div></div>
+    <div class="stat"><div class="num">16</div><div class="label cjk">Partner Resorts</div></div>
+    <div class="stat"><div class="num">¥200M</div><div class="label cjk">Maximum Insurance Coverage</div></div>
+  </div>
+  <p class="resort-list-line cjk">星野TOMAMU・富良野・神居・聖誕禮物公園・旭岳・Pippu比布・canmore・Sahoro佐幌・黑岳層雲峽・Kamoi神威岳・Teine手稲・Sapporo Kokusai札幌國際・Kiroro・Rusutsu留壽都・Hidaka日高國際</p>
+  <div class="quote-scroll">
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">"The instructor was incredibly patient with our kids. We have daughters aged 4 and 6, and our 6-year-old picked it up so quickly. It wasn't just about having fun — they also made sure us total beginners stayed safe. Highly, highly recommend. Thank you for giving our family such wonderful memories."</p>
+      <div class="quote-who cjk">— Tsai Hsing-chieh, family with two children</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">"My very first instructor was Emi. From falling-leaf turns to J-turns and C-turns, it only took two lessons — her explanations were simple, clear, and detailed, always getting straight to the point. Emi's guidance started my whole skiing journey last year, and this year I'm planning to take the SAJ certification test."</p>
+      <div class="quote-who cjk">— Rio Chen</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">"Thank you Emi for the careful explanations and coaching — adjusting to our ability and going up and down the slope with us over and over to practice. Thank you."</p>
+      <div class="quote-who cjk">— Ju-Nan Huang</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">"Thank you Emi and Tommy — two days of lessons, and it was such a great experience! Everything was explained so clearly. Our 7-year-old learned alongside us adults and kept up perfectly!"</p>
+      <div class="quote-who cjk">— Chen Xiao-xi</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">"Emi is the best kind of instructor, seriously!"</p>
+      <div class="quote-who cjk">— Hanson Wang</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">"Thank you Emi for two days of lessons — from gear to getting on and off the lift to every single movement, everything was explained so carefully, and adjusted to how I was doing. Really thoughtful, and it made for a great skiing experience."</p>
+      <div class="quote-who cjk">— Chan Han-ching</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">"My first time snowboarding — thank you Emi for the careful explanations on everything from getting on and off the lift, to falling-leaf turns, to C-turns, and I ended up successfully learning S-turns. She'd point out right away where I wasn't doing well, so I could spot my own issues and fix them immediately."</p>
+      <div class="quote-who cjk">— Liao Chih-hsuan</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">"I was so lucky that Emi was my instructor the very first time I learned to ski. From putting on gear to riding the lift to actually skiing, everything was explained so clearly that even as a total beginner I learned S-turns in no time. My whole first skiing experience was amazing."</p>
+      <div class="quote-who cjk">— Wan-Yu Liao</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">"Such an enjoyable lesson — super detailed and careful explanations. Learned S-turns in a single day. I love Emi, she's the best instructor, highly recommend!"</p>
+      <div class="quote-who cjk">— Winifred Chow</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">"I'd never taken a lesson before and could only fumble along on my heel side — but with Emi's patient teaching, I learned toe side and C-turns in one day, and even managed S-turns by the end. It was amazing!"</p>
+      <div class="quote-who cjk">— Chia-Tsen Chen</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">"Thank you Emi for getting us complete beginners to S-turns in a single day — we even tried an intermediate run. Next time we're skiing in Hokkaido, we're definitely booking you again."</p>
+      <div class="quote-who cjk">— Yi-Lu Li</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">"Thank you Emi, such great teaching — and her Chinese is excellent too!"</p>
+      <div class="quote-who cjk">— Chiu Chung-sheng</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">"Our instructor was dedicated and patient — I fell in love with skiing from the very first lesson. Highly recommend!"</p>
+      <div class="quote-who cjk">— Ray Wang</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">"I've taken lessons many times before, but this was by far the most I've learned — the instructor was incredibly patient. Highly recommend."</p>
+      <div class="quote-who cjk">— Ivy Kao</div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="courses-section" id="courses">
+  <div class="section-label">THE COURSES</div>
+  <h2 class="section-title">4 Course Lengths — Find the Pace That Fits You</h2>
+  <p class="section-desc cjk">Whether it's your first time on a board, you want a relaxed pace alongside your vacation, or you already have a base and want to tackle powder and trees — there's a course designed for you.</p>
+
+  <div class="course-grid">
+    <div class="course-card">
+      <div class="course-tag">Beginner · 3 Hours</div>
+      <div class="course-name cjk">Easy Taster Lesson</div>
+      <div class="course-outcome cjk">Try it out and see if you like skiing — without wearing yourself out</div>
+      <ul class="course-list cjk">
+        <li>Morning 9:00–12:00 or afternoon 13:00–16:00 (choose one)</li>
+        <li>Snowboard or ski, your choice</li>
+        <li>Good for: short time at the resort, still deciding if you're into it, worried about physical strain</li>
+      </ul>
+      <div class="course-price-row"><span class="course-price cjk">¥55,000<small>from／low season・1-on-1</small></span></div>
+      <a class="course-cta buy cjk" href="#booking" onclick="showTab(1)">Book Now →</a>
+    </div>
+
+    <div class="course-card">
+      <div class="course-tag">Beginner · 4 Hours</div>
+      <div class="course-name cjk">Relaxed Progress Lesson</div>
+      <div class="course-outcome cjk">No early rush, a proper lunch break — skiing and vacation, both taken care of</div>
+      <ul class="course-list cjk">
+        <li>10:00–12:00 + 13:30–15:30, with a 1.5-hour lunch break</li>
+        <li>Snowboard or ski, your choice</li>
+        <li>Good for: not wanting to rush in the morning, want to keep a relaxed vacation pace</li>
+      </ul>
+      <div class="course-price-row"><span class="course-price cjk">¥70,000<small>from／low season・1-on-1</small></span></div>
+      <a class="course-cta buy cjk" href="#booking" onclick="showTab(2)">Book Now →</a>
+    </div>
+
+    <div class="course-card featured">
+      <div class="course-tag">Beginner · 6 Hours</div>
+      <div class="course-name cjk">Solid Foundations Lesson</div>
+      <div class="course-outcome cjk">The most efficient way to lock in your fundamentals — for those with a clear goal</div>
+      <ul class="course-list cjk">
+        <li>9:00–12:00 + 13:00–16:00, with a 1-hour lunch break</li>
+        <li>Snowboard or ski, your choice</li>
+        <li>Good for: genuinely interested in skiing, want to build a strong foundation fast</li>
+      </ul>
+      <div class="course-price-row"><span class="course-price cjk">¥98,000<small>from／low season・1-on-1</small></span></div>
+      <a class="course-cta buy cjk" href="#booking" onclick="showTab(3)">Book Now →</a>
+    </div>
+
+    <div class="course-card">
+      <div class="course-tag">Advanced · 6 Hours</div>
+      <div class="course-name cjk">Powder／Park Guide</div>
+      <div class="course-outcome cjk">Safely venture off-piste and feel what real powder floating is like</div>
+      <ul class="course-list cjk">
+        <li>9:00–12:00 + 13:00–16:00, with a 1-hour lunch break</li>
+        <li>Choose Park or Powder／Tree Guide</li>
+        <li>Requirement: comfortable making S-turns on red (blue) runs</li>
+        <li>Currently offered mainly at Hoshino TOMAMU</li>
+      </ul>
+      <div class="course-price-row"><span class="course-price cjk">¥98,000<small>from／low season・1-on-1</small></span></div>
+      <p class="course-note cjk">Priced the same way as the 6-hour beginner course (by group ratio and season)</p>
+      <a class="course-cta buy cjk" href="#booking" onclick="showTab(4)">Book Now →</a>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TABLES -->
+<section class="pricing-section" id="pricing">
+  <div class="section-label">PRICING</div>
+  <h2 class="section-title">Full Pricing</h2>
+  <p class="pricing-note cjk">
+    *The prices below are for lessons only and do not include lift passes or equipment. *Course hours are actual teaching time, with breaks already excluded. *"Per person" is the total course fee divided by group size — you'll still be billed as one group.<br>
+    Low season: Dec 1–22, 2026; Jan 4–Feb 2, 2027; Feb 16–25, 2027; Mar 3–Apr 1, 2027; Apr 7, 2027–resort closing.<br>
+    Peak season: Dec 23, 2026–Jan 3, 2027; Feb 3–15, 2027; Feb 26–Mar 2, 2027; Apr 2–6, 2027.
+  </p>
+
+  <div class="price-table-wrap">
+    <table class="price-table">
+      <caption class="cjk">Low Season Pricing</caption>
+      <tr><th class="cjk">Instructor : Students</th><th class="cjk">3 Hours</th><th class="cjk">4 Hours</th><th class="cjk">6 Hours (Beginner／Advanced)</th></tr>
+      <tr><td class="ratio">1:1</td><td>¥55,000</td><td>¥70,000</td><td>¥98,000</td></tr>
+      <tr><td class="ratio">1:2</td><td>¥65,000<br><small>(¥32,500/person)</small></td><td>¥80,000<br><small>(¥40,000/person)</small></td><td>¥108,000<br><small>(¥54,000/person)</small></td></tr>
+      <tr><td class="ratio">1:3</td><td>¥75,000<br><small>(¥25,000/person)</small></td><td>¥90,000<br><small>(¥30,000/person)</small></td><td>¥118,000<br><small>(¥39,333/person)</small></td></tr>
+      <tr><td class="ratio">1:4</td><td>¥85,000<br><small>(¥21,250/person)</small></td><td>¥100,000<br><small>(¥25,000/person)</small></td><td>¥128,000<br><small>(¥32,000/person)</small></td></tr>
+    </table>
+  </div>
+
+  <div class="price-table-wrap">
+    <table class="price-table">
+      <caption class="cjk">Peak Season Pricing</caption>
+      <tr><th class="cjk">Instructor : Students</th><th class="cjk">3 Hours</th><th class="cjk">4 Hours</th><th class="cjk">6 Hours (Beginner／Advanced)</th></tr>
+      <tr><td class="ratio">1:1</td><td>¥65,000</td><td>¥90,000</td><td>¥118,000</td></tr>
+      <tr><td class="ratio">1:2</td><td>¥75,000<br><small>(¥37,500/person)</small></td><td>¥100,000<br><small>(¥50,000/person)</small></td><td>¥128,000<br><small>(¥64,000/person)</small></td></tr>
+      <tr><td class="ratio">1:3</td><td>¥85,000<br><small>(¥28,333/person)</small></td><td>¥110,000<br><small>(¥36,666/person)</small></td><td>¥138,000<br><small>(¥46,000/person)</small></td></tr>
+      <tr><td class="ratio">1:4</td><td>¥95,000<br><small>(¥23,750/person)</small></td><td>¥120,000<br><small>(¥30,000/person)</small></td><td>¥148,000<br><small>(¥37,000/person)</small></td></tr>
+    </table>
+  </div>
+  <p class="pricing-note cjk">The advanced course (Park／Powder-Tree Guide, 6 hours) uses the same pricing as the 6-hour beginner course, calculated by instructor-to-student ratio and season — see the "6 Hours" column above.</p>
+</section>
+
+<!-- FAQ -->
+<section class="faq-us" id="faq">
+  <div class="section-label">FAQ</div>
+  <h2 class="section-title">Frequently Asked Questions</h2>
+  <div class="faq-us-list">
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">Can I join with zero ski experience?</div>
+      <div class="faq-us-a cjk">Yes. Our instructors adjust the pace to your actual level, starting from putting on gear and riding the lift — no prior experience needed. We recommend starting with the 3- or 4-hour beginner course.</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">Do the instructors speak Chinese?</div>
+      <div class="faq-us-a cjk">Yes. The founder and most of our instructors can teach in Chinese; you can note your preferred teaching language on the booking form and we'll match you with a suitable instructor.</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">Which resort are lessons held at?</div>
+      <div class="faq-us-a cjk">Most of our lessons currently take place at Hoshino TOMAMU, where we're deeply familiar with the terrain and conditions. If you need a different resort, just let us know in the notes and we'll do our best to arrange it.</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">Will the lesson be cancelled in bad snow or weather?</div>
+      <div class="faq-us-a cjk">We decide whether to adjust or postpone based on on-site conditions and a safety assessment — see "Snow Conditions &amp; Safety Statement" below for details. Safety always comes before keeping to schedule.</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">Do I need to bring my own ski gear?</div>
+      <div class="faq-us-a cjk">No — we can arrange equipment rental for you. Just let us know your needs in the notes field.</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">Can children join the lessons?</div>
+      <div class="faq-us-a cjk">Yes — we have extensive experience teaching families and children, adjusting our approach to each child's age and physical ability. Please note your child's age in the booking form.</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">What payment methods are accepted?</div>
+      <div class="faq-us-a cjk">Beginner courses support secure online credit card payment (via Stripe) — once your group size and date are confirmed, you can complete payment. Advanced courses involve more complex venue and instructor scheduling, so we confirm details first before payment.</div>
+    </div>
+  </div>
+</section>
+
+<!-- BLOG TEASER -->
+<section class="blog-teaser">
+  <div class="section-label">FROM THE BLOG</div>
+  <h2 class="section-title">Blog</h2>
+  <p class="section-desc cjk">Resort guides, gear know-how, powder safety — practical content, always updated.</p>
+  <div class="blog-grid">
+    <a class="blog-card" href="blog-en.html#post-ski-soreness-recovery">
+      <div class="blog-card-tag">First-Time Skiing／Beginner Lessons</div>
+      <h3 class="cjk">Is Full-Body Soreness After Skiing Normal? How Long Until Beginners Recover?</h3>
+      <p class="cjk">It's normal delayed-onset muscle soreness — most beginners feel better within a few days, and their muscles come out stronger.</p>
+      <span class="blog-card-link">Read More →</span>
+    </a>
+    <a class="blog-card" href="blog-en.html#self-teach-vs-instructor">
+      <div class="blog-card-tag">Chinese-Speaking Ski Instructors／Ski Schools</div>
+      <h3 class="cjk">Do Beginners Really Need an Instructor? How Much Faster Is Lessons vs. Figuring It Out Alone?</h3>
+      <p class="cjk">It's not mandatory, but we strongly recommend at least one day with an instructor — it's dramatically faster than figuring it out on your own.</p>
+      <span class="blog-card-link">Read More →</span>
+    </a>
+    <a class="blog-card" href="blog-en.html#ski-gear-flight-baggage">
+      <div class="blog-card-tag">Skiing in Hokkaido／First Time in Hokkaido</div>
+      <h3 class="cjk">Bringing Your Own Skis Abroad — What to Know About Baggage Rules for Ski Gear</h3>
+      <p class="cjk">Sports equipment rules vary by airline — be sure to check size limits, weight allowances, and check-in timing before you fly.</p>
+      <span class="blog-card-link">Read More →</span>
+    </a>
+  </div>
+  <div style="text-align:right; margin-top:2rem;">
+    <a href="blog-en.html" class="cjk" style="color:var(--accent-bright); font-size:.85rem; text-decoration:none;">View All Posts →</a>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-us">
+  <div class="section-label">ABOUT US</div>
+  <h2 class="section-title">About Snowi</h2>
+  <div class="about-grid">
+    <p class="cjk">Snowi was founded by Emi and is TOMAMU Hoshino's officially registered ski school, with licensed instructors at other resorts as well. All instructors hold international certifications and have 10+ years of multilingual teaching experience. Our teaching spans 16 major Hokkaido resorts — from Kamui to Furano to TOMAMU — so wherever you are in Hokkaido, there's a course time and instructor to fit you.</p>
+    <p class="cjk">If your trip needs more than lessons — airport transfers, accommodation, gear storage and maintenance — check out our sister service <a href="https://www.yukiway.com" target="_blank" class="cjk">Hokkaido Powder Club</a></p>
+  </div>
+</section>
+
+<!-- POLICY -->
+<section class="policy-section" id="policy">
+  <div class="section-label">POLICIES</div>
+  <h2 class="section-title">Disclaimer・Cancellation Policy・Snow Conditions &amp; Safety Statement</h2>
+
+  <h3 class="cjk">Cancellation Policy</h3>
+  <p class="cjk">Applies regardless of reason</p>
+  <ul class="policy-list cjk">
+    <li>Cancelled 31+ days before the course: 50% of paid amount refunded</li>
+    <li>Cancelled 8–30 days before the course: 30% of paid amount refunded</li>
+    <li>Cancelled within 7 days of the course: no refund</li>
+    <li>No-show: no refund</li>
+  </ul>
+  <p class="cjk">Please note: the refunded amount is net of Stripe processing fees deducted from the total.</p>
+
+  <h3 class="cjk">Snow Conditions &amp; Safety Statement</h3>
+  <p class="cjk">Skiing and snowboarding carry inherent risk, and accidents can occur due to snow conditions, weather, terrain, or an individual's physical condition. We reserve the right to adjust, postpone, or cancel a lesson based on on-site snow conditions, visibility, avalanche risk, and other safety factors, with participant safety always the top priority. Every course includes accident insurance up to ¥200 million; claim terms and coverage are subject to the insurer's actual policy conditions.</p>
+  <p class="cjk">Participants must honestly disclose their health condition, any prior injuries, and their skiing experience, and assess for themselves whether a particular course level is suitable — the advanced course (Park／Powder-Tree Guide) in particular requires the ability to comfortably S-turn on red (blue) runs. Minors must be accompanied by, or have the consent of, a guardian to book.</p>
+
+  <h3 class="cjk">Disclaimer</h3>
+  <p class="cjk">Course content, pricing, resort information, and schedules on this website are for reference only; actual services are governed by the officially confirmed booking. Snowi (Shinmei GK) is not liable for losses, injuries, or delays caused by force majeure, third-party service providers (such as resorts or lift operators), or participants' own actions, though we will do our best to assist with any related matters.</p>
+
+</section>
+
+<!-- BOOKING FORM -->
+<section class="booking" id="booking">
+  <div class="booking-bg"></div>
+  <div class="booking-inner">
+    <div class="section-label">BOOKING</div>
+    <h2 class="section-title">Book a Course</h2>
+    <p class="section-desc cjk">Choose your course length and fill out the form below — we'll confirm within 48 hours.</p>
+
+    <div class="tab-nav" id="tab-nav">
+      <button class="tab-btn active" onclick="showTab(1)">01 Beginner 3hr</button>
+      <button class="tab-btn" onclick="showTab(2)">02 Beginner 4hr</button>
+      <button class="tab-btn" onclick="showTab(3)">03 Beginner 6hr</button>
+      <button class="tab-btn" onclick="showTab(4)">04 Advanced 6hr</button>
+    </div>
+
+    <!-- FORM 1: Beginner 3hr -->
+    <div class="form-wrap form-panel" id="form-1">
+      <div class="form-grid">
+        <input type="text" placeholder="Full Name" id="f1-name">
+        <input type="email" placeholder="Email" id="f1-email">
+      </div>
+      <div class="form-grid">
+        <input type="text" placeholder="LINE / WhatsApp / WeChat (optional, for easier contact)" id="f1-contact">
+        <select id="f1-language">
+          <option value="" disabled selected>Preferred teaching language</option>
+          <option>Chinese</option><option>English</option><option>Japanese</option><option>Chinese &amp; English</option>
+        </select>
+      </div>
+      <div class="form-grid">
+        <div class="date-field"><span class="date-label-text cjk">Group Size</span><input type="number" min="1" value="1" id="f1-total"></div>
+        <select id="f1-board">
+          <option value="" disabled selected>Ski／Snowboard</option>
+          <option>Snowboard</option><option>Ski</option>
+        </select>
+      </div>
+      <div class="form-grid">
+        <div class="date-field"><span class="date-label-text cjk">Number of Adults</span><input type="number" min="0" value="1" id="f1-adults"></div>
+        <div class="date-field"><span class="date-label-text cjk">Number of Children</span><input type="number" min="0" value="0" id="f1-children"></div>
+      </div>
+      <div class="form-grid">
+        <select id="f1-resort">
+          <option value="" disabled selected>Preferred resort</option>
+          <option>星野TOMAMU</option><option>神居</option><option>聖誕禮物公園</option>
+          <option>Pippu比布</option><option>富良野</option><option>南富良野</option>
+          <option>Sahoro佐幌</option><option>Kamoi神威岳</option><option>Teine手稲</option>
+          <option>Sapporo Kokusai札幌國際</option><option>Kiroro</option><option>Rusutsu留壽都</option>
+          <option>名寄</option><option>Hidaka日高國際</option>
+        </select>
+        <select id="f1-level">
+          <option value="" disabled selected>Skill level (if mixed, please note in special requirements)</option>
+          <option>Complete beginner</option><option>Beginner (skied 1–2 times)</option><option>Intermediate</option><option>Advanced</option><option>Mixed levels</option>
+        </select>
+      </div>
+      <div class="form-grid">
+        <div class="date-field"><span class="date-label-text cjk">Preferred Date</span><input type="date" id="f1-date" required></div>
+        <div class="date-field"><span class="date-label-text cjk">Number of Days</span><input type="number" min="1" value="1" id="f1-days"></div>
+      </div>
+      <div class="form-grid">
+        <input type="text" placeholder="Requested instructor (optional)" id="f1-instructor">
+        <label class="checkbox-field cjk" for="f1-transfer"><input type="checkbox" id="f1-transfer"> Airport transfer service needed</label>
+      </div>
+
+      <textarea placeholder="Special requirements (children's ages, health conditions, other notes)" id="f1-notes"></textarea>
+      <button class="btn-primary cjk" onclick="handleSubmit(1)">Submit Booking →</button>
+      <p class="form-note cjk">Once your group size and date are confirmed, we'll send a Stripe payment link.</p>
+    </div>
+
+    <!-- FORM 2: Beginner 4hr -->
+    <div class="form-wrap form-panel" id="form-2" style="display:none;">
+      <div class="form-grid">
+        <input type="text" placeholder="Full Name" id="f2-name">
+        <input type="email" placeholder="Email" id="f2-email">
+      </div>
+      <div class="form-grid">
+        <input type="text" placeholder="LINE / WhatsApp / WeChat (optional, for easier contact)" id="f2-contact">
+        <select id="f2-language">
+          <option value="" disabled selected>Preferred teaching language</option>
+          <option>Chinese</option><option>English</option><option>Japanese</option><option>Chinese &amp; English</option>
+        </select>
+      </div>
+      <div class="form-grid">
+        <div class="date-field"><span class="date-label-text cjk">Group Size</span><input type="number" min="1" value="1" id="f2-total"></div>
+        <select id="f2-board">
+          <option value="" disabled selected>Ski／Snowboard</option>
+          <option>Snowboard</option><option>Ski</option>
+        </select>
+      </div>
+      <div class="form-grid">
+        <div class="date-field"><span class="date-label-text cjk">Number of Adults</span><input type="number" min="0" value="1" id="f2-adults"></div>
+        <div class="date-field"><span class="date-label-text cjk">Number of Children</span><input type="number" min="0" value="0" id="f2-children"></div>
+      </div>
+      <div class="form-grid">
+        <select id="f2-resort">
+          <option value="" disabled selected>Preferred resort</option>
+          <option>星野TOMAMU</option><option>神居</option><option>聖誕禮物公園</option>
+          <option>Pippu比布</option><option>富良野</option><option>南富良野</option>
+          <option>Sahoro佐幌</option><option>Kamoi神威岳</option><option>Teine手稲</option>
+          <option>Sapporo Kokusai札幌國際</option><option>Kiroro</option><option>Rusutsu留壽都</option>
+          <option>名寄</option><option>Hidaka日高國際</option>
+        </select>
+        <select id="f2-level">
+          <option value="" disabled selected>Skill level (if mixed, please note in special requirements)</option>
+          <option>Complete beginner</option><option>Beginner (skied 1–2 times)</option><option>Intermediate</option><option>Advanced</option><option>Mixed levels</option>
+        </select>
+      </div>
+      <div class="form-grid">
+        <div class="date-field"><span class="date-label-text cjk">Preferred Date</span><input type="date" id="f2-date" required></div>
+        <div class="date-field"><span class="date-label-text cjk">Number of Days</span><input type="number" min="1" value="1" id="f2-days"></div>
+      </div>
+      <div class="form-grid">
+        <input type="text" placeholder="Requested instructor (optional)" id="f2-instructor">
+        <label class="checkbox-field cjk" for="f2-transfer"><input type="checkbox" id="f2-transfer"> Airport transfer service needed</label>
+      </div>
+
+      <textarea placeholder="Special requirements (children's ages, health conditions, other notes)" id="f2-notes"></textarea>
+      <button class="btn-primary cjk" onclick="handleSubmit(2)">Submit Booking →</button>
+      <p class="form-note cjk">Once your group size and date are confirmed, we'll send a Stripe payment link.</p>
+    </div>
+
+    <!-- FORM 3: Beginner 6hr -->
+    <div class="form-wrap form-panel" id="form-3" style="display:none;">
+      <div class="form-grid">
+        <input type="text" placeholder="Full Name" id="f3-name">
+        <input type="email" placeholder="Email" id="f3-email">
+      </div>
+      <div class="form-grid">
+        <input type="text" placeholder="LINE / WhatsApp / WeChat (optional, for easier contact)" id="f3-contact">
+        <select id="f3-language">
+          <option value="" disabled selected>Preferred teaching language</option>
+          <option>Chinese</option><option>English</option><option>Japanese</option><option>Chinese &amp; English</option>
+        </select>
+      </div>
+      <div class="form-grid">
+        <div class="date-field"><span class="date-label-text cjk">Group Size</span><input type="number" min="1" value="1" id="f3-total"></div>
+        <select id="f3-board">
+          <option value="" disabled selected>Ski／Snowboard</option>
+          <option>Snowboard</option><option>Ski</option>
+        </select>
+      </div>
+      <div class="form-grid">
+        <div class="date-field"><span class="date-label-text cjk">Number of Adults</span><input type="number" min="0" value="1" id="f3-adults"></div>
+        <div class="date-field"><span class="date-label-text cjk">Number of Children</span><input type="number" min="0" value="0" id="f3-children"></div>
+      </div>
+      <div class="form-grid">
+        <select id="f3-resort">
+          <option value="" disabled selected>Preferred resort</option>
+          <option>星野TOMAMU</option><option>神居</option><option>聖誕禮物公園</option>
+          <option>Pippu比布</option><option>富良野</option><option>南富良野</option>
+          <option>Sahoro佐幌</option><option>Kamoi神威岳</option><option>Teine手稲</option>
+          <option>Sapporo Kokusai札幌國際</option><option>Kiroro</option><option>Rusutsu留壽都</option>
+          <option>名寄</option><option>Hidaka日高國際</option>
+        </select>
+        <select id="f3-level">
+          <option value="" disabled selected>Skill level (if mixed, please note in special requirements)</option>
+          <option>Complete beginner</option><option>Beginner (skied 1–2 times)</option><option>Intermediate</option><option>Advanced</option><option>Mixed levels</option>
+        </select>
+      </div>
+      <div class="form-grid">
+        <div class="date-field"><span class="date-label-text cjk">Preferred Date</span><input type="date" id="f3-date" required></div>
+        <div class="date-field"><span class="date-label-text cjk">Number of Days</span><input type="number" min="1" value="1" id="f3-days"></div>
+      </div>
+      <div class="form-grid">
+        <input type="text" placeholder="Requested instructor (optional)" id="f3-instructor">
+        <label class="checkbox-field cjk" for="f3-transfer"><input type="checkbox" id="f3-transfer"> Airport transfer service needed</label>
+      </div>
+
+      <textarea placeholder="Special requirements (children's ages, health conditions, other notes)" id="f3-notes"></textarea>
+      <button class="btn-primary cjk" onclick="handleSubmit(3)">Submit Booking →</button>
+      <p class="form-note cjk">Once your group size and date are confirmed, we'll send a Stripe payment link.</p>
+    </div>
+
+    <!-- FORM 4: Advanced 6hr -->
+    <div class="form-wrap form-panel" id="form-4" style="display:none;">
+      <div class="form-grid">
+        <input type="text" placeholder="Full Name" id="f4-name">
+        <input type="email" placeholder="Email" id="f4-email">
+      </div>
+      <div class="form-grid">
+        <input type="text" placeholder="LINE / WhatsApp / WeChat (optional, for easier contact)" id="f4-contact">
+        <select id="f4-language">
+          <option value="" disabled selected>Preferred teaching language</option>
+          <option>Chinese</option><option>English</option><option>Japanese</option><option>Chinese &amp; English</option>
+        </select>
+      </div>
+      <div class="form-grid">
+        <select id="f4-type">
+          <option value="" disabled selected>Course type</option>
+          <option>Park</option>
+          <option>Powder／Tree Guide</option>
+        </select>
+      </div>
+      <div class="form-grid">
+        <div class="date-field"><span class="date-label-text cjk">Group Size</span><input type="number" min="1" value="1" id="f4-total"></div>
+        <select id="f4-board">
+          <option value="" disabled selected>Ski／Snowboard</option>
+          <option>Snowboard</option><option>Ski</option>
+        </select>
+      </div>
+      <div class="form-grid">
+        <div class="date-field"><span class="date-label-text cjk">Number of Adults</span><input type="number" min="0" value="1" id="f4-adults"></div>
+        <div class="date-field"><span class="date-label-text cjk">Number of Children</span><input type="number" min="0" value="0" id="f4-children"></div>
+      </div>
+      <div class="form-grid">
+        <select id="f4-resort">
+          <option value="" disabled selected>Preferred resort (advanced course locations)</option>
+          <option>星野TOMAMU</option><option>神居</option><option>旭岳</option>
+          <option>富良野</option><option>南富良野</option><option>Sahoro佐幌</option>
+          <option>黑岳・層雲峽</option><option>Kamoi神威岳</option><option>Teine手稲</option>
+          <option>Sapporo Kokusai札幌國際</option><option>Kiroro</option><option>Rusutsu留壽都</option>
+          <option>Hidaka日高國際</option>
+        </select>
+        <select id="f4-level">
+          <option value="" disabled selected>Skill level (if mixed, please note in special requirements)</option>
+          <option>Complete beginner</option><option>Beginner (skied 1–2 times)</option><option>Intermediate</option><option>Advanced</option><option>Mixed levels</option>
+        </select>
+      </div>
+      <div class="form-grid">
+        <div class="date-field"><span class="date-label-text cjk">Preferred Date</span><input type="date" id="f4-date" required></div>
+        <div class="date-field"><span class="date-label-text cjk">Number of Days</span><input type="number" min="1" value="1" id="f4-days"></div>
+      </div>
+      <div class="form-grid">
+        <input type="text" placeholder="Requested instructor (optional)" id="f4-instructor">
+        <label class="checkbox-field cjk" for="f4-transfer"><input type="checkbox" id="f4-transfer"> Airport transfer service needed</label>
+      </div>
+      <p class="form-fieldnote cjk">*Requires comfortable S-turns on red (blue) runs</p>
+
+      <textarea placeholder="Special requirements (add-on photo/video, translation support, etc.)" id="f4-notes"></textarea>
+      <button class="btn-primary cjk" onclick="handleSubmit(4)">Submit Booking →</button>
+      <p class="form-note cjk">Advanced courses require confirming snow conditions and instructor scheduling first — we'll review and reach out to you within 48 hours.</p>
+    </div>
+
+    <div class="success-msg" id="success-msg">
+      ✓ &nbsp; We've received your booking request — thank you! We'll confirm within 48 hours. For urgent matters, contact us directly at <strong style="color:var(--accent-bright)">snowisnowjp@gmail.com</strong>
+    </div>
+  </div>
+</section>
+
+
+<footer class="cjk">Snowi | TOMAMU Hoshino Officially Registered Ski School | Shinmei GK ｜ Sister service <a href="https://www.hokkaidopowderclub.com" target="_blank">Hokkaido Powder Club</a></footer>
+
+<script>
+function showTab(n){
+  for(let i=1;i<=4;i++){
+    document.getElementById('form-'+i).style.display = (i===n) ? 'block' : 'none';
+  }
+  const btns = document.querySelectorAll('#tab-nav .tab-btn');
+  btns.forEach((b,idx)=> b.classList.toggle('active', idx === n-1));
+  document.getElementById('success-msg').style.display = 'none';
+  document.getElementById('booking').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+// ⚠️ Before deploying, replace this with your actual Railway URL and path (e.g. /snowi/submit-lead)
+const RAILWAY_URL = 'https://snowi-backend-production.up.railway.app';
+
+const COURSE_NAMES = {
+  1: 'Beginner 3hr',
+  2: 'Beginner 4hr',
+  3: 'Beginner 6hr',
+  4: 'Advanced 6hr (Park／Powder-Tree Guide)'
+};
+
+function collectPanelSummary(panelId){
+  const panel = document.getElementById(panelId);
+  if(!panel) return '';
+  const fields = panel.querySelectorAll('input, select, textarea');
+  const lines = [];
+  fields.forEach(f => {
+    if(!f.id || f.id.endsWith('-name') || f.id.endsWith('-email')) return;
+    if(f.type === 'checkbox'){
+      lines.push(f.id + ': ' + (f.checked ? 'Yes' : 'No'));
+      return;
+    }
+    if(f.value) lines.push(f.id + ': ' + f.value);
+  });
+  return lines.join('\n');
+}
+
+async function postToBackend(path, payload, btn, originalText, silent){
+  try{
+    const res = await fetch(RAILWAY_URL + path, {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(payload)
+    });
+    if(!res.ok){ throw new Error('server error'); }
+    return true;
+  } catch(e){
+    console.error('Submission failed:', e);
+    if(btn){ btn.textContent = originalText; btn.disabled = false; }
+    if(!silent){
+      alert('Something went wrong. Please try again later, or contact us directly at snowisnowjp@gmail.com');
+    }
+    return false;
+  }
+}
+
+function handleSubmit(n){
+  const name = document.getElementById('f'+n+'-name').value.trim();
+  const email = document.getElementById('f'+n+'-email').value.trim();
+  const preferredDate = document.getElementById('f'+n+'-date').value;
+  if(!name || !email){
+    alert('Please fill in at least your name and email');
+    return;
+  }
+  if(!preferredDate){
+    alert('Please select your preferred course date');
+    return;
+  }
+  const btn = document.querySelector('#form-'+n+' .btn-primary');
+  const originalText = btn.textContent;
+  btn.textContent = 'Submitting…';
+  btn.disabled = true;
+
+  const notes = collectPanelSummary('form-'+n);
+
+  postToBackend('/snowi/submit-lead', {
+    name, email,
+    course: COURSE_NAMES[n],
+    sourceForm: '0' + n,
+    preferredDate,
+    notes,
+    lang: 'en'
+  }, btn, originalText).then(ok => {
+    if(ok){
+      document.getElementById('form-'+n).style.display = 'none';
+      document.getElementById('success-msg').style.display = 'block';
+    }
+  });
+}
+</script>
+
+</body>
+</html>
