@@ -62,12 +62,12 @@
       if (!S.adults) return null;
       if (!okResort) return { ok: false, t: L(`${R[1]}不適用成果保證（保證只在星野TOMAMU、旭川）。`, `The guarantee isn't available at ${R[2]} (TOMAMU and Asahikawa only).`) };
       if (S.adults + S.kids > 2) return { ok: false, t: L('1對3以上不適用「大人一日S彎保證」（只限1對1、1對2）。', 'The One-Day S-Turn Guarantee is for 1:1 or 1:2 only.') };
-      return { ok: true, t: L('✓ 這個預約適用「大人一日S彎保證」：上完6小時，當天還不能在初級滑道連續轉彎，第二天加送3小時，不另外收費。', "✓ This booking qualifies for the One-Day S-Turn Guarantee: complete the 6 hours and still can't link turns on a beginner run? We add 3 hours free the next day.") };
+      return { ok: true, t: L('✓ 這個預約適用「大人一日S彎保證」：第一天上完6小時，還不能在初級滑道連續轉彎，加送3小時免費課程，可以排在這趟旅程任何一天，排不進去就保留到下一季。', "✓ This booking qualifies for the One-Day S-Turn Guarantee: complete the 6 hours and still can't link turns on a beginner run after your first 6 hours? We add 3 free hours on any day of your trip, or next season if your trip has no room.") };
     }
     if (S.course === 'kid6') {
       if (!okResort) return { ok: false, t: L(`${R[1]}不適用成果保證（保證只在星野TOMAMU、旭川）。`, `The guarantee isn't available at ${R[2]} (TOMAMU and Asahikawa only).`) };
       const kids = S.members.filter(m => m.kind === 'kid' && m.age !== '');
-      if (kids.some(m => +m.age >= 10)) return { ok: true, t: L('✓ 10歲以上的孩子適用「牽手到放手保證」：上完6小時還不能自己滑行和煞車，加送3小時，不另外收費。', "✓ Children 10+ qualify for the Hand-Hold to Let-Go Guarantee: can't glide and stop on their own after 6 hours? We add 3 hours free.") };
+      if (kids.some(m => +m.age >= 10)) return { ok: true, t: L('✓ 10歲以上的孩子適用「牽手到放手保證」：上完6小時還不能自己滑行和煞車，加送3小時免費課程，可以排在這趟旅程任何一天，或保留到下一季。', "✓ Children 10+ qualify for the Hand-Hold to Let-Go Guarantee: can't glide and stop on their own after 6 hours? We add 3 free hours on any day of your trip, or next season.") };
       if (kids.length) return { ok: false, t: L('「牽手到放手保證」適用10歲以上的孩子，3–9歲可以上課但不適用保證。', 'The guarantee applies to children 10+. Ages 3–9 are welcome but not covered.') };
     }
     return null;

@@ -144,7 +144,7 @@ footer{text-align:center;font-size:12px;color:var(--muted);padding:20px}
     const btn = o.payUrl ? `<div class="acts"><a class="btn" href="${o.payUrl}">${o.status === '已付款' ? L('付尾款 ', 'Pay balance ') : L('付訂金 ', 'Pay deposit ')}${yen(o.due)}</a></div>` : '';
     return `<div class="card">
       <div class="oh"><div><h3>${esc(en ? o.courseEn : o.course)}</h3><div class="sub">${esc(dates(o))}${o.resort ? '・' + esc(o.resort) : ''}${people ? '・' + people : ''}</div></div><span class="tag ${st[0]}">${L(st[1], st[2])}</span></div>
-      ${money}${members}${note}${btn}
+      ${money}${o.rentalNo ? `<div style="margin-top:12px;padding:12px 14px;border:1.5px dashed var(--accent);border-radius:12px;background:rgba(91,158,201,.1)"><div class="sub">${L('雪具預約號碼', 'Rental reservation number')}</div><div style="font-size:20px;font-weight:900;letter-spacing:.06em;margin:2px 0 4px">${esc(o.rentalNo)}</div><div class="sub">${L('上課當天拿這個號碼到雪具店兌換並試穿，不合腳可以當場換，請稍微提早到。', 'On lesson day, show this number at the rental shop to pick up and try on your gear. You can swap anything that doesn\'t fit, so arrive a little early.')}</div></div>` : ''}${members}${note}${btn}
       <div class="cancel">${L('要改期或取消，請', 'To change or cancel, please ')}<a href="${en ? WA : LINE}" target="_blank" rel="noopener">${L('聯絡我們', 'message us')}</a>${L('。', '.')}</div></div>`;
   }
   async function load(){
