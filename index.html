@@ -3,15 +3,16 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Snowi | 北海道16大雪場滑雪教學・TOMAMU星野官方註冊滑雪學校</title>
+<title>Snowi｜零基礎滑雪學校・大人一天學會S彎・兒童一對一｜星野TOMAMU官方註冊</title>
+<meta name="description" content="只教新手的中文滑雪學校。成人一日S彎課、兒童牽手到放手一對一課、家庭同場課，全程中文、含最高2億日圓意外保險。">
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=DM+Sans:ital,wght@0,300;0,400;0,500;1,300&family=Noto+Sans+TC:wght@300;400;500;700;900&display=swap" rel="stylesheet">
 <style>
   :root {
     --snow: #F0EEE8;
     --ice: #C8D8E4;
-    --deep: #0B1117;
-    --charcoal: #141C24;
-    --slate: #1E2A36;
+    --deep: #0f2a44;
+    --charcoal: #162e50;
+    --slate: #1e3f68;
     --accent: #5B9EC9;
     --accent-bright: #7DBDE8;
     --rose: #D98BA0;
@@ -46,7 +47,7 @@
     position:sticky; top:0; left:0; right:0; z-index:100;
     display:flex; align-items:center; justify-content:space-between;
     padding: 1.1rem 6vw;
-    background: rgba(11,17,23,0.85);
+    background: rgba(15,42,68,0.9);
     backdrop-filter: blur(14px);
     border-bottom: 1px solid var(--line);
   }
@@ -70,8 +71,8 @@
     background:
       radial-gradient(ellipse 80% 60% at 70% 40%, rgba(91,158,201,0.14) 0%, transparent 70%),
       radial-gradient(ellipse 55% 70% at 85% 75%, rgba(217,139,160,0.08) 0%, transparent 65%),
-      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(11,17,23,0.95) 0%, transparent 60%),
-      linear-gradient(160deg, #0B1117 0%, #141C24 50%, #0D1820 100%);
+      radial-gradient(ellipse 50% 80% at 10% 80%, rgba(15,42,68,0.95) 0%, transparent 60%),
+      linear-gradient(160deg, #0f2a44 0%, #162e50 50%, #0d2238 100%);
     z-index:0;
   }
   .hero-bg::after{
@@ -90,24 +91,58 @@
       radial-gradient(1.5px 1.5px at 92% 82%, rgba(200,216,228,0.3) 0%, transparent 100%),
       radial-gradient(1px 1px at 40% 90%, rgba(200,216,228,0.2) 0%, transparent 100%);
   }
-  .mountain{ position:absolute; bottom:0; right:-5%; width:65%; height:75%; z-index:0; opacity:0.16; }
+  .mountain{ position:absolute; bottom:0; right:-5%; width:65%; height:75%; z-index:0; opacity:0.1; }
   .mountain svg{ width:100%; height:100%; }
-  .hero-content{ position:relative; z-index:2; max-width:760px; }
-  @media (min-width:1300px){ .hero-content{ max-width:1200px; } .hero-content .eyebrow{ white-space:nowrap; } .hero-content h1{ white-space:nowrap; font-size:clamp(2rem,3.4vw,3.8rem); } }
+  .hero-layout{
+    position:relative; z-index:2;
+    display:flex; align-items:center; gap:3rem; max-width:1200px;
+  }
+  .hero-text{ flex:1 1 55%; }
+  .hero-video-col{ flex:0 0 300px; }
+  @media (max-width:860px){
+    .hero-layout{ flex-direction:column; }
+    .hero-video-col{ display:none; }
+  }
   .eyebrow{ font-size:0.75rem; font-weight:500; letter-spacing:0.25em; text-transform:uppercase; color:var(--accent); margin-bottom:1.5rem; display:flex; align-items:center; gap:0.75rem; }
   .eyebrow::before{ content:''; display:inline-block; width:32px; height:1px; background:var(--accent); }
-  h1{ font-family:'Noto Sans TC', sans-serif; font-weight:900; font-size:clamp(2.4rem, 6vw, 5rem); line-height:1.2; color:var(--snow); margin-bottom:2rem; }
+  h1{ font-family:'Noto Sans TC', sans-serif; font-weight:900; font-size:clamp(2rem, 4.5vw, 3.8rem); line-height:1.2; color:var(--snow); margin-bottom:1.4rem; }
   h1 em{ font-style:normal; color:var(--accent-bright); }
-  .hero-sub{ font-size:clamp(1rem,1.6vw,1.15rem); line-height:1.9; color:var(--ice); max-width:540px; margin-bottom:3rem; font-weight:300; }
-  .hero-pain-list{ list-style:none; max-width:600px; margin-bottom:1.5rem; }
-  .hero-pain-list li{ font-family:'Noto Sans TC', sans-serif; font-size:.98rem; line-height:1.8; color:var(--ice); padding-left:1.7rem; position:relative; margin-bottom:.7rem; }
-  @media (min-width:1300px){ .hero-pain-list{ max-width:none; } .hero-pain-list li{ white-space:nowrap; font-size:.92rem; } }
-  .hero-pain-list li::before{ content:'✓'; position:absolute; left:0; top:.05em; color:var(--accent-bright); font-weight:700; }
-  .hero-pain-list li strong{ color:var(--snow); font-weight:500; }
-  .hero-pain-link{ color:var(--accent-bright); text-decoration:underline; text-underline-offset:2px; }
-  .hero-pain-link:hover{ color:var(--snow); }
-  .hero-closing{ font-family:'Noto Sans TC', sans-serif; font-size:1.05rem; font-weight:500; color:var(--rose); max-width:560px; line-height:1.8; margin-bottom:2.4rem; }
-  .cta-group{ display:flex; gap:1rem; flex-wrap:wrap; align-items:center; }
+  .hero-sub{ font-size:clamp(.95rem,1.5vw,1.1rem); line-height:1.9; color:var(--ice); max-width:520px; margin-bottom:1.5rem; font-weight:300; font-family:'Noto Sans TC',sans-serif; }
+
+  /* Hero mobile video */
+  .hero-video-mobile{ display:none; width:70%; margin:0 auto 1.5rem; border-radius:16px; overflow:hidden; position:relative; }
+  .hero-video-mobile video{ width:100%; display:block; }
+  @media (max-width:860px){ .hero-video-mobile{ display:block; } }
+  .hero-video-label{
+    position:absolute; bottom:0; left:0; right:0;
+    padding:.5rem 1rem;
+    background:rgba(15,42,68,0.75); backdrop-filter:blur(4px);
+    font-size:.72rem; color:var(--ice); text-align:center;
+    font-family:'Noto Sans TC',sans-serif;
+  }
+
+  /* Hero video card (desktop) */
+  .hero-video-card{ border-radius:20px; overflow:hidden; position:relative; aspect-ratio:9/16; }
+  .hero-video-card video{ width:100%; height:100%; object-fit:cover; display:block; }
+
+  /* Choice cards */
+  .choice-cards{ display:grid; grid-template-columns:repeat(3,1fr); gap:.8rem; margin-bottom:1.4rem; }
+  @media (max-width:500px){ .choice-cards{ grid-template-columns:1fr; gap:.5rem; } }
+  .choice-card{
+    background:rgba(255,255,255,0.07); border:1px solid var(--accent);
+    border-radius:12px; padding:1rem .9rem; text-align:center;
+    cursor:pointer; text-decoration:none; display:block; color:var(--snow);
+    transition:background .2s, transform .2s;
+  }
+  .choice-card:hover{ background:rgba(91,158,201,0.18); transform:translateY(-2px); }
+  @media (max-width:500px){ .choice-card{ display:flex; align-items:center; gap:.8rem; text-align:left; padding:.8rem 1rem; } }
+  .choice-card .cc-icon{ font-size:1.4rem; margin-bottom:.35rem; display:block; }
+  @media (max-width:500px){ .choice-card .cc-icon{ margin-bottom:0; font-size:1.2rem; } }
+  .choice-card .cc-label{ font-weight:700; font-size:.88rem; color:var(--snow); display:block; }
+  .choice-card .cc-sub{ font-size:.72rem; color:var(--accent-bright); margin-top:.2rem; display:block; }
+  .hero-proof{ font-family:'Noto Sans TC',sans-serif; font-size:.75rem; color:var(--muted); line-height:1.8; }
+  .hero-proof strong{ color:var(--ice); }
+
   .btn-primary{
     background:var(--accent); color:var(--deep); font-family:'DM Sans', sans-serif; font-weight:500; font-size:0.9rem;
     letter-spacing:0.08em; text-transform:uppercase; padding:1rem 2.5rem; text-decoration:none; display:inline-block;
@@ -122,49 +157,114 @@
   .scroll-line{ position:absolute; bottom:2.2rem; left:6vw; display:flex; align-items:center; gap:1rem; color:var(--muted); font-size:.7rem; letter-spacing:.2em; text-transform:uppercase; z-index:2; }
   .scroll-line::before{ content:''; width:1px; height:44px; background:linear-gradient(to bottom, transparent, var(--muted)); display:block; }
 
-  /* PAIN / FABE */
+  /* PAIN — two-column */
   .pain{ padding:7rem 6vw 6rem; }
-  .pain-intro{ max-width:660px; margin-bottom:3.5rem; }
-  .pain-intro p{ font-family:'Noto Sans TC', sans-serif; color:var(--ice); font-size:1.05rem; line-height:2; margin-top:1rem; }
-  @media (min-width:1300px){ .pain-intro{ max-width:none; } .pain-intro .nowrap-line{ white-space:nowrap; } }
-  .pain-intro strong{ color: var(--rose); font-weight:500; }
-  .fabe-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5px; background:var(--line); border:1px solid var(--line); }
-  @media (max-width:900px){ .fabe-grid{ grid-template-columns:1fr; } }
-  .fabe-card{ background:var(--charcoal); padding:2.2rem 2rem; }
-  .fabe-card h3{ font-family:'Noto Sans TC', sans-serif; font-weight:700; font-size:1.1rem; color:var(--snow); margin-bottom:1.2rem; }
-  .fabe-row{ display:flex; gap:0.6rem; margin-bottom:0.9rem; font-family:'Noto Sans TC', sans-serif; font-size:0.85rem; line-height:1.7; }
-  .fabe-row .k{ flex-shrink:0; color:var(--warm); font-weight:500; width:3.2em; }
-  .fabe-row .v{ color:var(--ice); }
-  .fabe-row.evidence .v{ color:var(--accent-bright); }
+  .pain-intro{ max-width:660px; margin-bottom:3rem; }
+  .pain-two-col{ display:grid; grid-template-columns:1fr 1fr; gap:2rem; }
+  @media (max-width:860px){ .pain-two-col{ grid-template-columns:1fr; } }
+  .pain-col-title{ font-family:'Noto Sans TC',sans-serif; font-weight:700; font-size:1rem; color:var(--snow); margin-bottom:1.2rem; padding-bottom:.6rem; border-bottom:1px solid var(--line); }
+  .pain-item{ margin-bottom:1.2rem; padding-left:1rem; border-left:2px solid var(--line); }
+  .pain-item:last-child{ margin-bottom:0; }
+  .pain-worry{ font-family:'Noto Sans TC',sans-serif; font-size:.85rem; color:var(--muted); margin-bottom:.3rem; line-height:1.6; }
+  .pain-answer{ font-family:'Noto Sans TC',sans-serif; font-size:.9rem; color:var(--ice); font-weight:500; line-height:1.6; }
+
+  /* PROOF */
+  .proof{ padding:6rem 6vw; }
+  .stat-bar{ display:flex; gap:3rem; flex-wrap:wrap; margin-bottom:3.5rem; }
+  .stat .num{ font-family:'Bebas Neue', sans-serif; font-size:2.4rem; color:var(--accent-bright); }
+  .stat .label{ font-family:'Noto Sans TC', sans-serif; font-size:.8rem; color:var(--muted); }
+  .quote-scroll{ display:flex; gap:1.5rem; overflow-x:auto; padding-bottom:1.2rem; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; }
+  .quote-scroll::-webkit-scrollbar{ height:6px; }
+  .quote-scroll::-webkit-scrollbar-thumb{ background: var(--accent); border-radius:3px; }
+  .quote-scroll::-webkit-scrollbar-track{ background: var(--line); }
+  .quote-card{ background:var(--charcoal); padding:1.8rem; border-left:2px solid var(--accent); flex:0 0 300px; scroll-snap-align:start; }
+  .quote-card p{ font-family:'Noto Sans TC', sans-serif; font-size:.92rem; color:var(--ice); line-height:1.8; margin-bottom:1rem; }
+  .quote-who{ font-family:'DM Sans', sans-serif; font-size:.75rem; color:var(--muted); letter-spacing:.03em; }
+  .stars{ color: var(--warm); font-size:.85rem; margin-bottom:.6rem; }
 
   /* COURSES */
   .courses-section{ padding:6rem 6vw 7rem; }
-  .course-grid{ display:grid; grid-template-columns:repeat(4,1fr); gap:1.5px; background:var(--line); border:1px solid var(--line); margin-top:3rem; }
-  @media (max-width:1000px){ .course-grid{ grid-template-columns:repeat(2,1fr);} }
-  @media (max-width:600px){ .course-grid{ grid-template-columns:1fr;} }
-  .course-card{ background:var(--charcoal); padding:2.2rem 1.8rem; display:flex; flex-direction:column; transition:background .25s; }
+
+  /* Main 3-card grid */
+  .course-grid-main{
+    display:grid; grid-template-columns:repeat(3,1fr);
+    gap:1.5px; background:var(--line); border:1px solid var(--line); margin-top:3rem;
+  }
+  @media (max-width:900px){ .course-grid-main{ grid-template-columns:1fr; } }
+
+  /* Secondary 2-card grid */
+  .course-grid-secondary{
+    display:grid; grid-template-columns:1fr 1fr;
+    gap:1.5px; background:var(--line); border:1px solid var(--line); border-top:none;
+  }
+  @media (max-width:600px){ .course-grid-secondary{ grid-template-columns:1fr; } }
+
+  .course-card{ background:var(--charcoal); padding:0 1.8rem 2rem; display:flex; flex-direction:column; transition:background .25s; position:relative; }
   .course-card:hover{ background:var(--slate); }
-  .course-card.featured{ background:linear-gradient(160deg, var(--slate), #1a2a38); }
-  .course-tag{ font-size:.65rem; letter-spacing:.15em; text-transform:uppercase; color:var(--warm); margin-bottom:.8rem; }
+  .course-card.featured{ background:linear-gradient(160deg, var(--slate), #162e50); }
+
+  /* Course video */
+  .course-video-wrap{ margin:0 -1.8rem 1.5rem; overflow:hidden; position:relative; aspect-ratio:9/16; }
+  .course-video-wrap.landscape{ aspect-ratio:16/9; }
+  .course-video-wrap video{ width:100%; height:100%; object-fit:cover; display:block; }
+  .video-toggle{ position:absolute; bottom:.6rem; right:.6rem; display:flex; gap:.3rem; }
+  .vtoggle-btn{
+    background:rgba(15,42,68,0.75); border:1px solid var(--accent);
+    color:var(--ice); font-size:.7rem; padding:.3rem .65rem; cursor:pointer;
+    border-radius:4px; font-family:'Noto Sans TC',sans-serif; transition:background .2s, color .2s;
+  }
+  .vtoggle-btn.active{ background:var(--accent); color:var(--deep); font-weight:700; }
+
+  .course-best-tag{
+    position:absolute; top:0; left:0;
+    background:var(--warm); color:var(--deep);
+    font-size:.68rem; font-weight:700; padding:.3rem .9rem;
+    font-family:'Noto Sans TC',sans-serif; border-bottom-right-radius:8px;
+  }
+  .course-tag{ font-size:.65rem; letter-spacing:.12em; text-transform:uppercase; color:var(--warm); margin-bottom:.5rem; padding-top:1.4rem; }
   .course-card.featured .course-tag{ color:var(--accent-bright); }
-  .course-name{ font-family:'Noto Sans TC', sans-serif; font-weight:700; font-size:1.25rem; color:var(--snow); margin-bottom:.4rem; }
-  .course-outcome{ font-family:'Noto Sans TC', sans-serif; font-size:.82rem; color:var(--rose); margin-bottom:1.2rem; line-height:1.6; }
-  .course-list{ list-style:none; font-family:'Noto Sans TC', sans-serif; font-size:.82rem; color:var(--ice); flex-grow:1; margin-bottom:1.4rem; }
-  .course-list li{ padding:.35rem 0 .35rem 1rem; position:relative; line-height:1.5; }
+  .course-name{ font-family:'Noto Sans TC', sans-serif; font-weight:700; font-size:1.2rem; color:var(--snow); margin-bottom:.35rem; }
+  .course-outcome-big{ font-family:'Noto Sans TC',sans-serif; font-weight:900; font-size:1rem; color:var(--accent-bright); margin-bottom:.6rem; line-height:1.4; }
+  .course-outcome{ font-family:'Noto Sans TC', sans-serif; font-size:.82rem; color:var(--rose); margin-bottom:1rem; line-height:1.6; }
+  .course-for{ font-family:'Noto Sans TC',sans-serif; font-size:.76rem; color:var(--muted); margin-bottom:1rem; line-height:1.5; }
+  .course-list{ list-style:none; font-family:'Noto Sans TC', sans-serif; font-size:.82rem; color:var(--ice); flex-grow:1; margin-bottom:1.2rem; }
+  .course-list li{ padding:.3rem 0 .3rem 1rem; position:relative; line-height:1.5; }
   .course-list li::before{ content:'—'; position:absolute; left:0; color:var(--muted); }
+
+  .course-includes{
+    background:rgba(91,158,201,0.07); border:1px solid var(--line);
+    border-radius:8px; padding:.9rem 1rem; margin-bottom:1.2rem;
+  }
+  .inc-title{ font-family:'Noto Sans TC',sans-serif; font-size:.65rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:.4rem; }
+  .inc-row{ font-family:'Noto Sans TC',sans-serif; font-size:.8rem; color:var(--ice); line-height:1.8; }
+
   .course-price-row{ border-top:1px solid var(--line); padding-top:1rem; margin-bottom:1rem; }
   .course-price{ font-family:'Bebas Neue', sans-serif; font-size:1.6rem; color:var(--snow); }
   .course-price small{ font-family:'Noto Sans TC', sans-serif; font-size:.7rem; font-weight:300; color:var(--muted); margin-left:4px; }
+  .course-price-text{ font-family:'Noto Sans TC',sans-serif; font-size:.88rem; color:var(--snow); font-weight:700; }
+  .course-price-text small{ font-size:.72rem; color:var(--muted); font-weight:300; display:block; margin-top:.2rem; }
   .course-cta{ display:block; text-align:center; font-size:.75rem; letter-spacing:.08em; text-transform:uppercase; color:var(--accent-bright); border:1px solid var(--accent); padding:.75rem; text-decoration:none; transition:.2s; background:none; width:100%; cursor:pointer; font-family:'DM Sans',sans-serif; margin-bottom:.6rem;}
   .course-cta:hover{ background:var(--accent); color:var(--deep); }
   .course-cta.buy{ background:var(--accent); color:var(--deep); font-weight:500; }
   .course-cta.buy:hover{ background:var(--accent-bright); }
-  .course-note{ font-size:.68rem; color:var(--warm); text-align:center; margin-top:.4rem; line-height:1.5; }
+  .course-note{ font-size:.68rem; color:var(--warm); text-align:center; margin-top:.4rem; line-height:1.5; font-family:'Noto Sans TC',sans-serif; }
 
-  .placeholder-flag{
-    display:inline-block; font-size:.68rem; letter-spacing:.05em; color:var(--warm);
-    border:1px dashed var(--warm); padding:3px 10px; margin:.6rem 0; font-family:'DM Sans',sans-serif;
+  .course-advanced-row{
+    margin-top:0; border:1px solid var(--line); border-top:none;
+    padding:1rem 1.6rem; font-size:.88rem; color:var(--muted);
+    display:flex; align-items:center; gap:.5rem; flex-wrap:wrap;
+    font-family:'Noto Sans TC',sans-serif;
   }
+  .course-advanced-row a{ color:var(--accent-bright); font-weight:500; }
+
+  /* GUARANTEE */
+  .guarantee-section{ padding:5rem 6vw; background:var(--charcoal); }
+  .guarantee-grid{ display:grid; grid-template-columns:1fr 1fr; gap:2rem; margin-top:3rem; }
+  @media (max-width:900px){ .guarantee-grid{ grid-template-columns:1fr; } }
+  .guarantee-box{ border:2px solid var(--accent); border-radius:16px; padding:2rem; }
+  .guarantee-box h3{ font-family:'Noto Sans TC',sans-serif; font-weight:900; font-size:1.1rem; color:var(--accent-bright); margin-bottom:1rem; }
+  .guarantee-promise{ font-family:'Noto Sans TC',sans-serif; font-size:.98rem; color:var(--snow); line-height:1.85; margin-bottom:.8rem; }
+  .guarantee-condition{ font-family:'Noto Sans TC',sans-serif; font-size:.8rem; color:var(--muted); line-height:1.8; }
 
   /* PRICING TABLES */
   .pricing-section{ padding:6rem 6vw; }
@@ -199,25 +299,6 @@
   .assurance-flow li:first-child{ border-top:none; }
   .assurance-flow li::before{ content:counter(flow); position:absolute; left:0; top:.85rem; width:1.6rem; height:1.6rem; border:1px solid var(--accent); color:var(--accent-bright); font-family:'DM Sans',sans-serif; font-size:.75rem; display:flex; align-items:center; justify-content:center; }
 
-  /* PROOF */
-  .proof{ padding:6rem 6vw; }
-  .stat-bar{ display:flex; gap:3rem; flex-wrap:wrap; margin-bottom:1.2rem; }
-  .stat .num{ font-family:'Bebas Neue', sans-serif; font-size:2.4rem; color:var(--accent-bright); }
-  .stat .label{ font-family:'Noto Sans TC', sans-serif; font-size:.8rem; color:var(--muted); }
-  .resort-list-line{ font-size:.78rem; color:var(--muted); line-height:1.8; margin-bottom:3.5rem; max-width:900px; }
-  .quote-scroll{ display:flex; gap:1.5rem; overflow-x:auto; padding-bottom:1.2rem; scroll-snap-type:x mandatory; -webkit-overflow-scrolling:touch; }
-  .quote-scroll::-webkit-scrollbar{ height:6px; }
-  .quote-scroll::-webkit-scrollbar-thumb{ background: var(--accent); border-radius:3px; }
-  .quote-scroll::-webkit-scrollbar-track{ background: var(--line); }
-  .quote-card{ background:var(--charcoal); padding:1.8rem; border-left:2px solid var(--accent); flex:0 0 300px; scroll-snap-align:start; }
-  .quote-card p{ font-family:'Noto Sans TC', sans-serif; font-size:.92rem; color:var(--ice); line-height:1.8; margin-bottom:1rem; }
-  .quote-who{ font-family:'DM Sans', sans-serif; font-size:.75rem; color:var(--muted); letter-spacing:.03em; }
-  .stars{ color: var(--warm); font-size:.85rem; margin-bottom:.6rem; }
-
-  /* ABOUT */
-  .crm-block{ background:rgba(91,158,201,0.06); border:1px solid var(--line); padding:1.2rem 1.3rem; margin:.5rem 0 1.2rem; }
-  .crm-block-label{ font-size:.72rem; letter-spacing:.08em; text-transform:uppercase; color:var(--muted); margin-bottom:.9rem; font-family:'DM Sans',sans-serif; }
-
   /* BLOG TEASER */
   .blog-teaser{ padding:6rem 6vw; }
   .blog-grid{ display:grid; grid-template-columns:repeat(3,1fr); gap:1.5rem; margin-top:3rem; }
@@ -236,6 +317,7 @@
   .about-grid{ max-width:780px; }
   .about-grid p{ font-family:'Noto Sans TC', sans-serif; font-size:.95rem; color:var(--ice); line-height:1.9; margin-bottom:1.2rem; }
   .about-grid a{ color:var(--accent-bright); }
+  .resort-list-about{ font-size:.8rem; color:var(--muted); line-height:1.8; margin-top:.5rem; font-family:'Noto Sans TC',sans-serif; }
 
   /* FAQ */
   .faq-us{ padding:6rem 6vw; }
@@ -244,6 +326,7 @@
   .faq-us-item:last-child{ border-bottom:1px solid var(--line); }
   .faq-us-q{ font-family:'Noto Sans TC', sans-serif; font-weight:700; font-size:.98rem; color:var(--snow); margin-bottom:.6rem; }
   .faq-us-a{ font-family:'Noto Sans TC', sans-serif; font-size:.88rem; color:var(--muted); line-height:1.8; }
+  .faq-us-a a{ color:var(--accent-bright); }
 
   /* POLICY */
   .policy-section{ padding:6rem 6vw; background:var(--charcoal); }
@@ -275,8 +358,8 @@
   .tab-nav{ display:flex; gap:.6rem; justify-content:center; flex-wrap:wrap; margin:2.5rem 0 2rem; }
   .tab-btn{
     background:transparent; border:1px solid var(--line); color:var(--muted);
-    font-family:'DM Sans', sans-serif; font-size:.78rem; letter-spacing:.05em; text-transform:uppercase;
-    padding:.7rem 1.3rem; cursor:pointer; transition:.2s;
+    font-family:'Noto Sans TC', sans-serif; font-size:.78rem; letter-spacing:.03em;
+    padding:.7rem 1.1rem; cursor:pointer; transition:.2s;
   }
   .tab-btn.active{ background:var(--accent); border-color:var(--accent); color:var(--deep); font-weight:500; }
   .tab-btn:not(.active):hover{ border-color:var(--accent); color:var(--ice); }
@@ -290,7 +373,7 @@
 </head>
 <body>
 
-<div class="top-ribbon cjk">TOMAMU 星野官方註冊滑雪學校　・　北海道16大雪場合作教學</div>
+<div class="top-ribbon cjk">星野TOMAMU官方註冊・只教新手的中文滑雪學校・所有課程含最高2億日圓意外保險</div>
 
 <nav>
   <div class="brand"><span class="brand-mark">SNOWI</span><small class="cjk">｜SNOW IS NOW</small></div>
@@ -315,54 +398,363 @@
       <polygon points="0,400 120,180 220,300 320,90 420,260 520,140 600,400" fill="#C8D8E4"/>
     </svg>
   </div>
-  <div class="hero-content">
-    <div class="eyebrow cjk">星野TOMAMU · 官方學校</div>
-    <h1>星野TOMAMU官方學校，<br>陪孩子<em>從牽手到放手</em>。</h1>
-    <ul class="hero-pain-list cjk">
-      <li><strong>怕孩子被嚇到、不敢再滑第二次？</strong>「牽手到放手」六階段教學法，陪孩子一步步建立信心</li>
-      <li><strong>怕出事沒人負責、教練沒有保險？</strong>星野TOMAMU官方學校，所有課程皆含最高2億日圓意外保險</li>
-      <li><strong>怕搭纜車時孩子落單？</strong>教練保證全程陪同上下纜車，絕不讓孩子自己一個人</li>
-      <li><strong>怕孩子搭車太累、排隊等車、行李又多搬不動？</strong>我們有機場接送包車服務，直達雪場不用轉車</li>
-    </ul>
-    <p class="hero-closing cjk">把孩子交給我們之前，你會想知道的每件事，我們都先想過了。</p>
-    <div class="cta-group">
-      <a class="btn-primary cjk" href="#booking">立即預約課程</a>
-      <a class="btn-secondary cjk" href="#courses">看課程方案</a>
+  <div class="hero-layout">
+    <div class="hero-text">
+      <div class="eyebrow cjk">星野TOMAMU官方註冊・只教新手的中文滑雪學校</div>
+      <h1 class="cjk">完全沒滑過也沒關係。<br><em>大人一天學會S彎</em>，孩子一天自己滑。</h1>
+      <p class="hero-sub cjk">中文教練一對一帶你從穿裝備、搭纜車開始，課後告訴你今天學到哪裡。</p>
+
+      <!-- Mobile video: below sub, above choice cards -->
+      <div class="hero-video-mobile">
+        <video autoplay muted loop playsinline preload="metadata" poster="video/courses/adult-sb.jpg">
+          <source src="video/courses/adult-sb.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-label cjk">真實學員・第一天上課</div>
+      </div>
+
+      <div class="choice-cards">
+        <a class="choice-card" href="#courses" onclick="event.preventDefault(); goToCourse('course-adult', 3);">
+          <span class="cc-icon">🧑</span>
+          <span class="cc-label cjk">我是大人新手</span>
+          <span class="cc-sub cjk">→ 一日S彎課</span>
+        </a>
+        <a class="choice-card" href="#courses" onclick="event.preventDefault(); goToCourse('course-kid', 3);">
+          <span class="cc-icon">🧒</span>
+          <span class="cc-label cjk">我要帶孩子學</span>
+          <span class="cc-sub cjk">→ 牽手到放手兒童一日課</span>
+        </a>
+        <a class="choice-card" href="#courses" onclick="event.preventDefault(); goToCourse('course-family', 3);">
+          <span class="cc-icon">👨‍👩‍👧</span>
+          <span class="cc-label cjk">全家一起學</span>
+          <span class="cc-sub cjk">→ 家庭同場課</span>
+        </a>
+      </div>
+      <p class="hero-proof cjk"><strong>★★★★★ 14則真實評價</strong>｜所有課程含最高2億日圓意外保險｜全程陪同上下纜車</p>
+    </div>
+
+    <!-- Desktop video card -->
+    <div class="hero-video-col">
+      <div class="hero-video-card">
+        <video autoplay muted loop playsinline preload="metadata" poster="video/courses/adult-sb.jpg">
+          <source src="video/courses/adult-sb.mp4" type="video/mp4">
+        </video>
+        <div class="hero-video-label cjk">真實學員・第一天上課</div>
+      </div>
     </div>
   </div>
   <div class="scroll-line">SCROLL</div>
 </section>
 
-<!-- PAIN / FABE -->
+<!-- PAIN -->
 <section class="pain">
   <div class="section-label">WHY SNOWI</div>
   <div class="pain-intro">
-    <h2 class="section-title">你可能有這些擔心：</h2>
-    <p class="cjk"><span class="nowrap-line">出事了到底誰負責？教練有沒有保險？我付的錢，是不是給了一個沒有簽證、沒有登錄的黑教練？</span><br><strong>這些都是我們每天在處理、也最想讓你放心的事。</strong></p>
+    <h2 class="section-title">第一次滑雪，你可能擔心這些：</h2>
   </div>
-  <div class="fabe-grid">
-    <div class="fabe-card">
-      <h3 class="cjk">意外應變處理</h3>
-      <div class="fabe-row"><span class="k cjk">做法</span><span class="v cjk">從現場評估、聯絡家長，到由Emi本人陪同就醫翻譯的完整應變流程</span></div>
-      <div class="fabe-row"><span class="k cjk">差異</span><span class="v cjk">語言不通也不怕，教練全程在旁協助溝通與處理</span></div>
-      <div class="fabe-row"><span class="k cjk">結果</span><span class="v cjk">萬一發生意外，你不需要自己一個人面對</span></div>
-      <div class="fabe-row evidence"><span class="k cjk">佐證</span><span class="v cjk">所有課程皆含最高2億日圓意外保險，完整應變流程見「安心工程」段落</span></div>
+  <div class="pain-two-col">
+    <div class="pain-col">
+      <div class="pain-col-title cjk">🧑 大人新手</div>
+      <div class="pain-item">
+        <div class="pain-worry cjk">怕花了錢、整天都在跌倒，最後還是不會滑</div>
+        <div class="pain-answer cjk">→ 一日S彎課有明確目標：當天在初級滑道連續轉彎</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-worry cjk">怕年紀大、體力差跟不上</div>
+        <div class="pain-answer cjk">→ 依你的體力調整節奏，可以選3小時先試</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-worry cjk">怕語言不通，聽不懂日本教練</div>
+        <div class="pain-answer cjk">→ 全程中文，從裝備穿脫開始教</div>
+      </div>
     </div>
-    <div class="fabe-card">
-      <h3 class="cjk">孩子的心理準備</h3>
-      <div class="fabe-row"><span class="k cjk">做法</span><span class="v cjk">「牽手到放手」六階段教學法，不是丟給孩子自己嘗試</span></div>
-      <div class="fabe-row"><span class="k cjk">差異</span><span class="v cjk">每個階段都先建立信心，才進到下一步，不會硬逼孩子</span></div>
-      <div class="fabe-row"><span class="k cjk">結果</span><span class="v cjk">孩子不會被嚇到留下陰影，反而想要再滑第二次</span></div>
-      <div class="fabe-row evidence"><span class="k cjk">佐證</span><span class="v cjk">課後教練會口頭告訴你，孩子今天走到第幾階段</span></div>
-    </div>
-    <div class="fabe-card">
-      <h3 class="cjk">學習成果看得見</h3>
-      <div class="fabe-row"><span class="k cjk">做法</span><span class="v cjk">每堂課結束，教練會口頭告訴你孩子走到第幾階段</span></div>
-      <div class="fabe-row"><span class="k cjk">差異</span><span class="v cjk">不是憑印象猜孩子學了多少，有具體紀錄可以對照</span></div>
-      <div class="fabe-row"><span class="k cjk">結果</span><span class="v cjk">你知道這筆錢花得值不值得，不是教練陪玩過去</span></div>
-      <div class="fabe-row evidence"><span class="k cjk">佐證</span><span class="v cjk">見下方客戶見證中家長對孩子具體進步的描述</span></div>
+    <div class="pain-col">
+      <div class="pain-col-title cjk">🧒 帶孩子的家長</div>
+      <div class="pain-item">
+        <div class="pain-worry cjk">怕孩子被嚇到再也不想滑</div>
+        <div class="pain-answer cjk">→「牽手到放手」五階段，不硬逼</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-worry cjk">怕出事沒人負責</div>
+        <div class="pain-answer cjk">→ 最高2億日圓意外保險，Emi本人陪同就醫翻譯</div>
+      </div>
+      <div class="pain-item">
+        <div class="pain-worry cjk">怕孩子搭纜車落單</div>
+        <div class="pain-answer cjk">→ 教練全程陪同上下纜車</div>
+      </div>
     </div>
   </div>
+</section>
+
+<!-- PROOF (moved before courses) -->
+<section class="proof">
+  <div class="section-label">SOCIAL PROOF</div>
+  <h2 class="section-title">大人新手的真實成果：一天學會S turn</h2>
+  <div class="stat-bar">
+    <div class="stat"><div class="num cjk">10年以上</div><div class="label cjk">在地教學經驗</div></div>
+    <div class="stat"><div class="num">14則</div><div class="label cjk">五星評價</div></div>
+    <div class="stat"><div class="num">¥2億</div><div class="label cjk">最高保額保障</div></div>
+  </div>
+  <div class="quote-scroll">
+    <!-- S turn reviews first -->
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">「第一次滑snowboard，謝謝Emi教練從上下纜車、落葉飄、C turn等都細心的講解，最後也順利地就學會了S turn。哪裡做得不夠好的地方也馬上點出來，讓我們可以發現自己的問題並馬上改進。」</p>
+      <div class="quote-who cjk">— 廖芷萱</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">「很幸運第一次學滑雪就遇到Emi，從基本的裝備穿脫，到搭纜車跟滑行都講解得非常清楚，讓初學如我在短時間內就學會S turn，整個滑雪初體驗非常讚。」</p>
+      <div class="quote-who cjk">— Wan-Yu Liao</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">「課堂很愉快，解釋超詳細超細心，一天學會S turn，超喜歡Emi，Emi是最好的教練，大力推薦！」</p>
+      <div class="quote-who cjk">— Winifred Chow</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">「從沒學過滑雪、自己亂滑只會heel side的我，透過Emi耐心教學，一日學會toe side、c turn，最後連s turn都成功，真是太神奇了！」</p>
+      <div class="quote-who cjk">— Chia-Tsen Chen</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">「感謝Emi，讓我們滑雪小白一天學會S turn，還挑戰了中級山路線，下次來北海道滑雪一定要再找你。」</p>
+      <div class="quote-who cjk">— Yi-Lu Li</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">「我的第一位教練是Emi。從一開始的落葉飄，J turn到C turn，只花了兩堂課，說明簡單易懂，教學細膩，總是直接點出重點。去年在Emi教練的帶領下，開啟了自己的滑雪之旅，今年預計參加SAJ的測驗。」</p>
+      <div class="quote-who cjk">— Rio Chen</div>
+    </div>
+    <!-- Family reviews -->
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">「教練對孩子極度有耐心，我們有4跟6歲的女兒，6歲女兒跟著教練很快就上手。教練不僅要讓我們覺得好玩，還要顧我們菜鳥們生命安全，真心推薦推薦，謝謝教練給我們一家美好的回憶。」</p>
+      <div class="quote-who cjk">— 蔡杏絜，帶著兩個孩子的家庭客</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">「謝謝Emi和Tommy教練，兩天的教學，非常愉快！講解的非常清楚，我們七歲的小孩跟著我們大人一起學，也可以完全跟上進度！」</p>
+      <div class="quote-who cjk">— 陳小熹</div>
+    </div>
+    <!-- Other reviews -->
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">「謝謝Emi兩天的教學，從裝備到上下纜車跟每個動作都很細心的講解，還能夠適時根據我的情況做調整，真的很用心，讓我有很好的滑雪體驗。」</p>
+      <div class="quote-who cjk">— 詹涵晴</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">「謝謝Emi教練細心說明跟指導，根據我們的能力跟狀況調整，陪我們上上下下來回練習，謝謝。」</p>
+      <div class="quote-who cjk">— Ju-Nan Huang</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">「Emi教練最讚的那種啦！」</p>
+      <div class="quote-who cjk">— Hanson Wang</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">「謝謝Emi，教得很好，中文一級棒！」</p>
+      <div class="quote-who cjk">— 裘中昇</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">「老師教學認真且有耐心，第一次上課馬上就愛上滑雪，非常推薦！」</p>
+      <div class="quote-who cjk">— Ray Wang</div>
+    </div>
+    <div class="quote-card">
+      <div class="stars">★★★★★</div>
+      <p class="cjk">「上了許多次的教練課這次收穫最多，因為教練非常有耐心值得推薦。」</p>
+      <div class="quote-who cjk">— Ivy Kao</div>
+    </div>
+  </div>
+</section>
+
+<!-- COURSES -->
+<section class="courses-section" id="courses">
+  <div class="section-label">THE COURSES</div>
+  <h2 class="section-title">選一個你想要的結果</h2>
+
+  <!-- Main 3 courses -->
+  <div class="course-grid-main">
+
+    <!-- Adult featured course -->
+    <div class="course-card featured" id="course-adult">
+      <div class="course-video-wrap">
+        <video id="adult-video" autoplay muted loop playsinline preload="metadata" poster="video/courses/adult-sb.jpg">
+          <source id="adult-video-src" src="video/courses/adult-sb.mp4" type="video/mp4">
+        </video>
+        <div class="video-toggle">
+          <button class="vtoggle-btn active" onclick="switchAdultVideo('sb', this)">單板</button>
+          <button class="vtoggle-btn" onclick="switchAdultVideo('ski', this)">雙板</button>
+        </div>
+      </div>
+      <div class="course-best-tag cjk">⭐ 最多人選</div>
+      <div class="course-tag">大人新手 · 初階 · 6小時</div>
+      <div class="course-name cjk">一日S彎課</div>
+      <div class="course-outcome-big cjk">一天從零到在初級滑道連續轉彎</div>
+      <div class="course-for cjk">適合：完全沒滑過或只滑過1–2次的成人</div>
+      <ul class="course-list cjk">
+        <li>單板／雙板任選，1:1–1:4</li>
+        <li>9:00–12:00＋13:00–16:00，中午休息1小時</li>
+      </ul>
+      <div class="course-includes cjk">
+        <div class="inc-title">包含</div>
+        <div class="inc-row">✓ 課前：裝備租借代訂</div>
+        <div class="inc-row">✓ 課中：中文教練、全程陪同上下纜車</div>
+        <div class="inc-row">✓ 課後：教練當面告訴你今天走到第幾階段</div>
+        <div class="inc-row">✓ 最高2億日圓意外保險</div>
+      </div>
+      <div class="course-price-row">
+        <span class="course-price cjk">¥98,000<small>起／平季・1對1（實際價格見下方價格表）</small></span>
+      </div>
+      <a class="course-cta buy cjk" href="#booking" onclick="showTab(3)">預約這個課程 →</a>
+    </div>
+
+    <!-- Kids course -->
+    <div class="course-card" id="course-kid">
+      <div class="course-video-wrap">
+        <video autoplay muted loop playsinline preload="metadata" poster="video/courses/kid.jpg">
+          <source src="video/courses/kid.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="course-tag">兒童 · 只限1對1 · 6小時</div>
+      <div class="course-name cjk">牽手到放手一日課</div>
+      <div class="course-outcome-big cjk">孩子一天內自己滑、自己煞車</div>
+      <div class="course-for cjk">3歲以上可報名；成果保證適用10歲以上</div>
+      <ul class="course-list cjk">
+        <li>牽手→慢慢放力→單手→只牽手→完全放手，五階段</li>
+        <li>只開一對一，全程陪同上下纜車</li>
+        <li>9:00–12:00＋13:00–16:00</li>
+      </ul>
+      <div class="course-includes cjk">
+        <div class="inc-title">包含</div>
+        <div class="inc-row">✓ 課前：裝備租借代訂</div>
+        <div class="inc-row">✓ 課中：中文教練、全程陪同上下纜車</div>
+        <div class="inc-row">✓ 課後：告訴家長今天孩子走到第幾階段</div>
+        <div class="inc-row">✓ 最高2億日圓意外保險</div>
+      </div>
+      <div class="course-price-row">
+        <span class="course-price cjk">¥98,000<small>起／平季・1對1（實際價格見下方價格表）</small></span>
+      </div>
+      <a class="course-cta buy cjk" href="#booking" onclick="showTab(3)">預約這個課程 →</a>
+    </div>
+
+    <!-- Family course -->
+    <div class="course-card" id="course-family">
+      <div class="course-video-wrap landscape">
+        <video autoplay muted loop playsinline preload="metadata" poster="video/courses/family.jpg">
+          <source src="video/courses/family.mp4" type="video/mp4">
+        </video>
+      </div>
+      <div class="course-tag">家庭同場 · 6小時</div>
+      <div class="course-name cjk">家庭同場課</div>
+      <div class="course-outcome-big cjk">孩子和大人同時上課，全家一起滑</div>
+      <div class="course-for cjk">兩位教練同步進行：兒童1對1＋大人1對N</div>
+      <ul class="course-list cjk">
+        <li>兒童1對1（6小時）＋大人1對N（6小時）</li>
+        <li>9:00–12:00＋13:00–16:00</li>
+      </ul>
+      <div class="course-includes cjk">
+        <div class="inc-title">包含</div>
+        <div class="inc-row">✓ 課前：裝備租借代訂</div>
+        <div class="inc-row">✓ 課中：中文教練、全程陪同上下纜車</div>
+        <div class="inc-row">✓ 課後：分別告知成人和孩子今天的進度</div>
+        <div class="inc-row">✓ 最高2億日圓意外保險</div>
+        <div class="inc-row">✓ 旺季機場接送包車優先預約</div>
+      </div>
+      <div class="course-price-row">
+        <span class="course-price-text cjk">兒童1對1＋大人1對N<small>價格為兩者相加，依人數比與平旺季，見下方價格表</small></span>
+      </div>
+      <a class="course-cta buy cjk" href="#booking" onclick="showTab(3)">預約這個課程 →</a>
+    </div>
+  </div>
+
+  <!-- Secondary 2 courses -->
+  <div class="course-grid-secondary">
+    <div class="course-card">
+      <div class="course-tag" style="padding-top:2rem;">初階 · 3小時</div>
+      <div class="course-name cjk">先試試看｜3小時體驗</div>
+      <div class="course-outcome cjk">先確認自己喜不喜歡滑雪</div>
+      <ul class="course-list cjk">
+        <li>上午9:00–12:00 或下午13:00–16:00（擇一）</li>
+        <li>單板／雙板任選</li>
+      </ul>
+      <div class="course-price-row"><span class="course-price cjk">¥55,000<small>起／平季・1對1</small></span></div>
+      <a class="course-cta buy cjk" href="#booking" onclick="showTab(1)">預約這個課程 →</a>
+    </div>
+
+    <div class="course-card">
+      <div class="course-tag" style="padding-top:2rem;">初階 · 4小時</div>
+      <div class="course-name cjk">第二天｜4小時鞏固課</div>
+      <div class="course-outcome cjk">把第一天學的轉彎練穩</div>
+      <ul class="course-list cjk">
+        <li>適合上過一日課的人</li>
+        <li>10:00–12:00＋13:30–15:30，中午休息1.5小時</li>
+        <li>單板／雙板任選</li>
+      </ul>
+      <div class="course-price-row"><span class="course-price cjk">¥70,000<small>起／平季・1對1</small></span></div>
+      <a class="course-cta buy cjk" href="#booking" onclick="showTab(2)">預約這個課程 →</a>
+    </div>
+  </div>
+
+  <!-- Advanced mini-block -->
+  <div class="course-advanced-row">
+    已經會滑了？→ <a href="#booking" onclick="showTab(4)">粉雪／公園嚮導（6小時）</a>　¥98,000起／需具備紅線上能順暢S Turn
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee-section" id="guarantee">
+  <div class="section-label">OUR PROMISE</div>
+  <h2 class="section-title">成果保證</h2>
+  <div class="guarantee-grid">
+    <div class="guarantee-box">
+      <h3 class="cjk">大人一日S彎保證</h3>
+      <p class="guarantee-promise cjk">上完 6 小時全天一日S彎課，當天還是沒辦法在初級滑道連續轉彎的話，第二天加送 3 小時課程，不另外收費。</p>
+      <p class="guarantee-condition cjk">條件：只限 1對1 或 1對2 的 6 小時全天課（1對3、1對4 不適用）、完全沒滑過或只滑過1–2次、身體健康、當天全程上完 6 小時，而且雪場有正常營業。</p>
+    </div>
+    <div class="guarantee-box">
+      <h3 class="cjk">兒童牽手到放手保證</h3>
+      <p class="guarantee-promise cjk">孩子上完 6 小時一對一課程，還沒辦法自己滑行並自己煞車的話，加送 3 小時課程，不另外收費。</p>
+      <p class="guarantee-condition cjk">條件：孩子滿 10 歲以上、一對一、全程上完 6 小時。（兒童課 3 歲就可以報名，但 3–9 歲不適用保證，這點要先了解。）</p>
+    </div>
+  </div>
+</section>
+
+<!-- PRICING TABLES -->
+<section class="pricing-section" id="pricing">
+  <div class="section-label">PRICING</div>
+  <h2 class="section-title">課程報價一覽</h2>
+  <p class="pricing-note cjk">
+    ＊以下費用為課程費用，不包含雪票及裝備。＊課程時數為實際上課時數，已扣除休息時間。＊「平均每人」為課程總費用除以人數，實際仍以整組報價收費。<br>
+    平季時間：2026/12/01–12/22；2027/01/04–02/02；2027/02/16–02/25；2027/03/03–04/01；2027/04/07–雪場關閉。<br>
+    旺季時間：2026/12/23–01/03；2027/02/03–02/15；2027/02/26–03/02；2027/04/02–04/06。
+  </p>
+
+  <div class="price-table-wrap">
+    <table class="price-table">
+      <caption class="cjk">平季費用</caption>
+      <tr><th class="cjk">教練：學員</th><th class="cjk">3小時</th><th class="cjk">4小時</th><th class="cjk">6小時（初階／進階通用）</th></tr>
+      <tr><td class="ratio">1:1</td><td>¥55,000</td><td>¥70,000</td><td>¥98,000</td></tr>
+      <tr><td class="ratio">1:2</td><td>¥65,000<br><small>(¥32,500/人)</small></td><td>¥80,000<br><small>(¥40,000/人)</small></td><td>¥108,000<br><small>(¥54,000/人)</small></td></tr>
+      <tr><td class="ratio">1:3</td><td>¥75,000<br><small>(¥25,000/人)</small></td><td>¥90,000<br><small>(¥30,000/人)</small></td><td>¥119,000<br><small>(¥39,666/人)</small></td></tr>
+      <tr><td class="ratio">1:4</td><td>¥85,000<br><small>(¥21,250/人)</small></td><td>¥100,000<br><small>(¥25,000/人)</small></td><td>¥140,000<br><small>(¥35,000/人)</small></td></tr>
+    </table>
+  </div>
+
+  <div class="price-table-wrap">
+    <table class="price-table">
+      <caption class="cjk">旺季費用</caption>
+      <tr><th class="cjk">教練：學員</th><th class="cjk">3小時</th><th class="cjk">4小時</th><th class="cjk">6小時（初階／進階通用）</th></tr>
+      <tr><td class="ratio">1:1</td><td>¥65,000</td><td>¥90,000</td><td>¥118,000</td></tr>
+      <tr><td class="ratio">1:2</td><td>¥75,000<br><small>(¥37,500/人)</small></td><td>¥100,000<br><small>(¥50,000/人)</small></td><td>¥128,000<br><small>(¥64,000/人)</small></td></tr>
+      <tr><td class="ratio">1:3</td><td>¥85,000<br><small>(¥28,333/人)</small></td><td>¥110,000<br><small>(¥36,666/人)</small></td><td>¥138,000<br><small>(¥46,000/人)</small></td></tr>
+      <tr><td class="ratio">1:4</td><td>¥95,000<br><small>(¥23,750/人)</small></td><td>¥120,000<br><small>(¥30,000/人)</small></td><td>¥148,000<br><small>(¥37,000/人)</small></td></tr>
+    </table>
+  </div>
+  <p class="pricing-note cjk">進階課程（公園Park／粉雪樹林嚮導・6小時）與初階6小時課程使用同一套報價，依教練：學員人數比與平旺季計算，詳見上表「6小時」欄位。</p>
 </section>
 
 <!-- METHOD -->
@@ -412,7 +804,7 @@
   <p class="section-desc cjk">把孩子交給誰，家長真正在意的不是「有沒有耐心」，而是出事了誰負責。以下是我們具體的做法。</p>
   <div class="assurance-block">
     <div>
-      <p class="assurance-fact cjk"><strong>星野TOMAMU官方學校。</strong>Snowi 由合同会社Shinmei 營運，是星野TOMAMU度假村官方認可的滑雪學校，資格可查證，不是路邊隨便找的教練。</p>
+      <p class="assurance-fact cjk"><strong>星野TOMAMU官方學校。</strong>Snowi 由合同会社Shinemi 營運，是星野TOMAMU度假村官方認可的滑雪學校，資格可查證，不是路邊隨便找的教練。</p>
       <p class="assurance-fact cjk"><strong>由Emi本人陪同就醫。</strong>萬一發生意外需要就醫，由Emi本人陪同前往醫院，擔任翻譯並協助現場處理，不是丟給你自己想辦法。</p>
       <p class="assurance-fact cjk"><strong>課後口頭進度回饋。</strong>每堂課結束，教練會當面告訴你孩子今天走到「牽手到放手」的第幾階段，進度看得到。</p>
     </div>
@@ -429,195 +821,18 @@
   </div>
 </section>
 
-<!-- PROOF -->
-<section class="proof">
-  <div class="section-label">SOCIAL PROOF</div>
-  <h2 class="section-title">滑過的人怎麼說</h2>
-  <div class="stat-bar">
-    <div class="stat"><div class="num">9+</div><div class="label cjk">年在地教學經驗</div></div>
-    <div class="stat"><div class="num">16</div><div class="label cjk">配套雪場選擇</div></div>
-    <div class="stat"><div class="num">¥2億</div><div class="label cjk">最高保額保障</div></div>
-  </div>
-  <p class="resort-list-line cjk">星野TOMAMU・富良野・神居・聖誕禮物公園・旭岳・Pippu比布・canmore・Sahoro佐幌・黑岳層雲峽・Kamoi神威岳・Teine手稲・Sapporo Kokusai札幌國際・Kiroro・Rusutsu留壽都・Hidaka日高國際</p>
-  <div class="quote-scroll">
-    <div class="quote-card">
-      <div class="stars">★★★★★</div>
-      <p class="cjk">「教練對孩子極度有耐心，我們有4跟6歲的女兒，6歲女兒跟著教練很快就上手。教練不僅要讓我們覺得好玩，還要顧我們菜鳥們生命安全，真心推薦推薦，謝謝教練給我們一家美好的回憶。」</p>
-      <div class="quote-who cjk">— 蔡杏絜，帶著兩個孩子的家庭客</div>
-    </div>
-    <div class="quote-card">
-      <div class="stars">★★★★★</div>
-      <p class="cjk">「我的第一位教練是Emi。從一開始的落葉飄，J turn到C turn，只花了兩堂課，說明簡單易懂，教學細膩，總是直接點出重點。去年在Emi教練的帶領下，開啟了自己的滑雪之旅，今年預計參加SAJ的測驗。」</p>
-      <div class="quote-who cjk">— Rio Chen</div>
-    </div>
-    <div class="quote-card">
-      <div class="stars">★★★★★</div>
-      <p class="cjk">「謝謝Emi教練細心說明跟指導，根據我們的能力跟狀況調整，陪我們上上下下來回練習，謝謝。」</p>
-      <div class="quote-who cjk">— Ju-Nan Huang</div>
-    </div>
-    <div class="quote-card">
-      <div class="stars">★★★★★</div>
-      <p class="cjk">「謝謝Emi和Tommy教練，兩天的教學，非常愉快！講解的非常清楚，我們七歲的小孩跟著我們大人一起學，也可以完全跟上進度！」</p>
-      <div class="quote-who cjk">— 陳小熹</div>
-    </div>
-    <div class="quote-card">
-      <div class="stars">★★★★★</div>
-      <p class="cjk">「Emi教練最讚的那種啦！」</p>
-      <div class="quote-who cjk">— Hanson Wang</div>
-    </div>
-    <div class="quote-card">
-      <div class="stars">★★★★★</div>
-      <p class="cjk">「謝謝Emi兩天的教學，從裝備到上下纜車跟每個動作都很細心的講解，還能夠適時根據我的情況做調整，真的很用心，讓我有很好的滑雪體驗。」</p>
-      <div class="quote-who cjk">— 詹涵晴</div>
-    </div>
-    <div class="quote-card">
-      <div class="stars">★★★★★</div>
-      <p class="cjk">「第一次滑snowboard，謝謝Emi教練從上下纜車、落葉飄、C turn等都細心的講解，最後也順利地就學會了S turn。哪裡做得不夠好的地方也馬上點出來，讓我們可以發現自己的問題並馬上改進。」</p>
-      <div class="quote-who cjk">— 廖芷萱</div>
-    </div>
-    <div class="quote-card">
-      <div class="stars">★★★★★</div>
-      <p class="cjk">「很幸運第一次學滑雪就遇到Emi，從基本的裝備穿脫，到搭纜車跟滑行都講解得非常清楚，讓初學如我在短時間內就學會S turn，整個滑雪初體驗非常讚。」</p>
-      <div class="quote-who cjk">— Wan-Yu Liao</div>
-    </div>
-    <div class="quote-card">
-      <div class="stars">★★★★★</div>
-      <p class="cjk">「課堂很愉快，解釋超詳細超細心，一天學會S turn，超喜歡Emi，Emi是最好的教練，大力推薦！」</p>
-      <div class="quote-who cjk">— Winifred Chow</div>
-    </div>
-    <div class="quote-card">
-      <div class="stars">★★★★★</div>
-      <p class="cjk">「從沒學過滑雪、自己亂滑只會heel side的我，透過Emi耐心教學，一日學會toe side、c turn，最後連s turn都成功，真是太神奇了！」</p>
-      <div class="quote-who cjk">— Chia-Tsen Chen</div>
-    </div>
-    <div class="quote-card">
-      <div class="stars">★★★★★</div>
-      <p class="cjk">「感謝Emi，讓我們滑雪小白一天學會S turn，還挑戰了中級山路線，下次來北海道滑雪一定要再找你。」</p>
-      <div class="quote-who cjk">— Yi-Lu Li</div>
-    </div>
-    <div class="quote-card">
-      <div class="stars">★★★★★</div>
-      <p class="cjk">「謝謝Emi，教得很好，中文一級棒！」</p>
-      <div class="quote-who cjk">— 裘中昇</div>
-    </div>
-    <div class="quote-card">
-      <div class="stars">★★★★★</div>
-      <p class="cjk">「老師教學認真且有耐心，第一次上課馬上就愛上滑雪，非常推薦！」</p>
-      <div class="quote-who cjk">— Ray Wang</div>
-    </div>
-    <div class="quote-card">
-      <div class="stars">★★★★★</div>
-      <p class="cjk">「上了許多次的教練課這次收穫最多，因為教練非常有耐心值得推薦。」</p>
-      <div class="quote-who cjk">— Ivy Kao</div>
-    </div>
-  </div>
-</section>
-
-<!-- COURSES -->
-<section class="courses-section" id="courses">
-  <div class="section-label">THE COURSES</div>
-  <h2 class="section-title">4種課程時數，找到最適合你的節奏</h2>
-  <p class="section-desc cjk">不管你是第一次踩雪板、想悠閒兼顧度假，還是已經有基礎想挑戰粉雪樹林——都有一個方案是為你設計的。</p>
-
-  <div class="course-grid">
-    <div class="course-card">
-      <div class="course-tag">初階 · 3小時</div>
-      <div class="course-name cjk">輕鬆體驗課</div>
-      <div class="course-outcome cjk">先感受看看喜不喜歡滑雪，體力也不會太累</div>
-      <ul class="course-list cjk">
-        <li>上午9:00–12:00 或下午13:00–16:00（擇一）</li>
-        <li>單板／雙板任選</li>
-        <li>適合：雪場停留時間短、還在猶豫要不要投入、擔心體力負擔</li>
-      </ul>
-      <div class="course-price-row"><span class="course-price cjk">¥55,000<small>起／平季・1對1</small></span></div>
-      <a class="course-cta buy cjk" href="#booking" onclick="showTab(1)">直接預約 →</a>
-    </div>
-
-    <div class="course-card">
-      <div class="course-tag">初階 · 4小時</div>
-      <div class="course-name cjk">悠閒進度課</div>
-      <div class="course-outcome cjk">早上不趕、中午好好休息，滑雪度假兩不誤</div>
-      <ul class="course-list cjk">
-        <li>10:00–12:00＋13:30–15:30，中午休息1.5小時</li>
-        <li>單板／雙板任選</li>
-        <li>適合：不想早起趕課、想兼顧度假步調</li>
-      </ul>
-      <div class="course-price-row"><span class="course-price cjk">¥70,000<small>起／平季・1對1</small></span></div>
-      <a class="course-cta buy cjk" href="#booking" onclick="showTab(2)">直接預約 →</a>
-    </div>
-
-    <div class="course-card featured">
-      <div class="course-tag">初階 · 6小時</div>
-      <div class="course-name cjk">扎實基礎課</div>
-      <div class="course-outcome cjk">最有效率地把基礎練穩，適合有明確目標的你</div>
-      <ul class="course-list cjk">
-        <li>9:00–12:00＋13:00–16:00，中午休息1小時</li>
-        <li>單板／雙板任選</li>
-        <li>適合：對滑雪很有興趣、想快速穩固基礎</li>
-      </ul>
-      <div class="course-price-row"><span class="course-price cjk">¥98,000<small>起／平季・1對1</small></span></div>
-      <a class="course-cta buy cjk" href="#booking" onclick="showTab(3)">直接預約 →</a>
-    </div>
-
-    <div class="course-card">
-      <div class="course-tag">進階 · 6小時</div>
-      <div class="course-name cjk">粉雪／公園嚮導</div>
-      <div class="course-outcome cjk">安全進入非壓雪區，體驗真正的粉雪漂浮感</div>
-      <ul class="course-list cjk">
-        <li>9:00–12:00＋13:00–16:00，中午休息1小時</li>
-        <li>公園Park 或 粉雪／樹林嚮導，擇一</li>
-        <li>需具備：紅（藍）線上能順暢S Turn</li>
-        <li>目前主要於星野TOMAMU開班</li>
-      </ul>
-      <div class="course-price-row"><span class="course-price cjk">¥98,000<small>起／平季・1對1</small></span></div>
-      <p class="course-note cjk">報價與初階6小時課程同一套計算方式（依人數比、平旺季）</p>
-      <a class="course-cta buy cjk" href="#booking" onclick="showTab(4)">直接預約 →</a>
-    </div>
-  </div>
-</section>
-
-<!-- PRICING TABLES -->
-<section class="pricing-section" id="pricing">
-  <div class="section-label">PRICING</div>
-  <h2 class="section-title">課程報價一覽</h2>
-  <p class="pricing-note cjk">
-    ＊以下費用為課程費用，不包含雪票及裝備。＊課程時數為實際上課時數，已扣除休息時間。＊「平均每人」為課程總費用除以人數，實際仍以整組報價收費。<br>
-    平季時間：2026/12/01–12/22；2027/01/04–02/02；2027/02/16–02/25；2027/03/03–04/01；2027/04/07–雪場關閉。<br>
-    旺季時間：2026/12/23–01/03；2027/02/03–02/15；2027/02/26–03/02；2027/04/02–04/06。
-  </p>
-
-  <div class="price-table-wrap">
-    <table class="price-table">
-      <caption class="cjk">平季費用</caption>
-      <tr><th class="cjk">教練：學員</th><th class="cjk">3小時</th><th class="cjk">4小時</th><th class="cjk">6小時（初階／進階通用）</th></tr>
-      <tr><td class="ratio">1:1</td><td>¥55,000</td><td>¥70,000</td><td>¥98,000</td></tr>
-      <tr><td class="ratio">1:2</td><td>¥65,000<br><small>(¥32,500/人)</small></td><td>¥80,000<br><small>(¥40,000/人)</small></td><td>¥108,000<br><small>(¥54,000/人)</small></td></tr>
-      <tr><td class="ratio">1:3</td><td>¥75,000<br><small>(¥25,000/人)</small></td><td>¥90,000<br><small>(¥30,000/人)</small></td><td>¥119,000<br><small>(¥39,666/人)</small></td></tr>
-      <tr><td class="ratio">1:4</td><td>¥85,000<br><small>(¥21,250/人)</small></td><td>¥100,000<br><small>(¥25,000/人)</small></td><td>¥140,000<br><small>(¥35,000/人)</small></td></tr>
-    </table>
-  </div>
-
-  <div class="price-table-wrap">
-    <table class="price-table">
-      <caption class="cjk">旺季費用</caption>
-      <tr><th class="cjk">教練：學員</th><th class="cjk">3小時</th><th class="cjk">4小時</th><th class="cjk">6小時（初階／進階通用）</th></tr>
-      <tr><td class="ratio">1:1</td><td>¥65,000</td><td>¥90,000</td><td>¥118,000</td></tr>
-      <tr><td class="ratio">1:2</td><td>¥75,000<br><small>(¥37,500/人)</small></td><td>¥100,000<br><small>(¥50,000/人)</small></td><td>¥128,000<br><small>(¥64,000/人)</small></td></tr>
-      <tr><td class="ratio">1:3</td><td>¥85,000<br><small>(¥28,333/人)</small></td><td>¥110,000<br><small>(¥36,666/人)</small></td><td>¥138,000<br><small>(¥46,000/人)</small></td></tr>
-      <tr><td class="ratio">1:4</td><td>¥95,000<br><small>(¥23,750/人)</small></td><td>¥120,000<br><small>(¥30,000/人)</small></td><td>¥148,000<br><small>(¥37,000/人)</small></td></tr>
-    </table>
-  </div>
-  <p class="pricing-note cjk">進階課程（公園Park／粉雪樹林嚮導・6小時）與初階6小時課程使用同一套報價，依教練：學員人數比與平旺季計算，詳見上表「6小時」欄位。</p>
-</section>
-
 <!-- FAQ -->
 <section class="faq-us" id="faq">
   <div class="section-label">FAQ</div>
   <h2 class="section-title">常見問題</h2>
   <div class="faq-us-list">
     <div class="faq-us-item">
-      <div class="faq-us-q cjk">完全沒有滑雪經驗可以參加嗎？</div>
-      <div class="faq-us-a cjk">可以。我們的教練會依照你的實際程度調整教學節奏，從裝備穿脫、纜車搭乘開始教起，不需要任何基礎，建議先選3或4小時的初階課程。</div>
+      <div class="faq-us-q cjk">我完全沒滑過，而且年紀不小了，也可以嗎？</div>
+      <div class="faq-us-a cjk">可以。大部分學生都是第一次滑，我們會依你的體力調整節奏，建議先選一日S彎課或3小時體驗開始。年紀本身不是障礙，放鬆和信任教練比體能更重要。</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">一天真的能學會S turn嗎？</div>
+      <div class="faq-us-a cjk">多數成人新手可以在一天（6小時）內在初級滑道做出連續轉彎，實際進度依體力和膽量而定。如果沒達到，我們有<a href="#guarantee">成果保證</a>：1對1或1對2課程當天未達目標，隔天加送3小時，不另外收費。</div>
     </div>
     <div class="faq-us-item">
       <div class="faq-us-q cjk">教練會說中文嗎？</div>
@@ -637,7 +852,7 @@
     </div>
     <div class="faq-us-item">
       <div class="faq-us-q cjk">小孩可以參加課程嗎？</div>
-      <div class="faq-us-a cjk">可以，我們有豐富的親子與兒童教學經驗，會依孩子的年齡與體能調整教法，請在預約表單備註欄告訴我們孩子的年齡。</div>
+      <div class="faq-us-a cjk">可以，兒童一日課只開一對一，3 歲以上就可以報名。成果保證（達不到目標加送3小時）適用10歲以上、全程上完6小時的孩子。請在預約表單備註欄告訴我們孩子的年齡。</div>
     </div>
     <div class="faq-us-item">
       <div class="faq-us-q cjk">付款方式有哪些？</div>
@@ -682,6 +897,7 @@
   <h2 class="section-title">關於Snowi</h2>
   <div class="about-grid">
     <p class="cjk">Snowi 由Emi 創立，是TOMAMU星野官方註冊滑雪學校，與其他雪場皆有配合的合法教練，教練皆持有國際證照，具備10年以上多語滑雪教學經驗。我們的教學範圍涵蓋北海道16個主要雪場，從神居、富良野到TOMAMU，不論你人在北海道哪個角落，都能找到適合的課程時段與教練。</p>
+    <p class="cjk resort-list-about">合作雪場：星野TOMAMU・富良野・神居・聖誕禮物公園・旭岳・Pippu比布・canmore・Sahoro佐幌・黑岳層雲峽・Kamoi神威岳・Teine手稲・Sapporo Kokusai札幌國際・Kiroro・Rusutsu留壽都・Hidaka日高國際</p>
     <p class="cjk">如果你這趟旅程除了上課，還需要機場接送、住宿安排、雪具倉儲與保養等一站式服務，歡迎參考我們的姊妹服務 <a href="https://www.yukiway.com" target="_blank" class="cjk">Hokkaido Powder Club（北海道粉雪俱樂部）</a></p>
   </div>
 </section>
@@ -706,7 +922,7 @@
   <p class="cjk">參與者應如實告知自身健康狀況、既往傷病史及滑雪經驗程度，並自行評估是否適合參與特定難度之課程，尤其是進階（公園／粉雪樹林嚮導）課程須具備紅（藍）線上能順暢S Turn之能力。未成年參與者須由監護人陪同或授權同意方可報名。</p>
 
   <h3 class="cjk">免責聲明</h3>
-  <p class="cjk">本網站所載之課程內容、價格、雪場資訊與時程僅供參考，實際服務內容以正式確認之預約單為準。Snowi（合同会社Shinmei）對因不可抗力、第三方服務提供者（如雪場、纜車業者）之疏失、或參與者個人因素所導致之損失、傷害或延誤，不負連帶賠償責任，惟本公司將盡力協助處理相關事宜。</p>
+  <p class="cjk">本網站所載之課程內容、價格、雪場資訊與時程僅供參考，實際服務內容以正式確認之預約單為準。Snowi（合同会社Shinemi）對因不可抗力、第三方服務提供者（如雪場、纜車業者）之疏失、或參與者個人因素所導致之損失、傷害或延誤，不負連帶賠償責任，惟本公司將盡力協助處理相關事宜。</p>
 
 </section>
 
@@ -719,10 +935,10 @@
     <p class="section-desc cjk">選擇你要的課程時數，填寫下方表單，我們會在48小時內回覆確認。</p>
 
     <div class="tab-nav" id="tab-nav">
-      <button class="tab-btn active" onclick="showTab(1)">01 初階3小時</button>
-      <button class="tab-btn" onclick="showTab(2)">02 初階4小時</button>
-      <button class="tab-btn" onclick="showTab(3)">03 初階6小時</button>
-      <button class="tab-btn" onclick="showTab(4)">04 進階6小時</button>
+      <button class="tab-btn active cjk" onclick="showTab(1)">3小時體驗</button>
+      <button class="tab-btn cjk" onclick="showTab(2)">4小時鞏固課</button>
+      <button class="tab-btn cjk" onclick="showTab(3)">一日S彎課／兒童一日課／家庭課（6小時）</button>
+      <button class="tab-btn cjk" onclick="showTab(4)">進階嚮導（6小時）</button>
     </div>
 
     <!-- FORM 1: 初階3小時 -->
@@ -948,7 +1164,7 @@
 </section>
 
 
-<footer class="cjk">Snowi | TOMAMU星野官方註冊滑雪學校 | 合同会社Shinmei ｜ 姊妹服務 <a href="https://www.hokkaidopowderclub.com" target="_blank">Hokkaido Powder Club</a></footer>
+<footer class="cjk">Snowi | TOMAMU星野官方註冊滑雪學校 | 合同会社Shinemi ｜ 姊妹服務 <a href="https://www.hokkaidopowderclub.com" target="_blank">Hokkaido Powder Club</a></footer>
 
 <script>
 function showTab(n){
@@ -959,6 +1175,42 @@ function showTab(n){
   btns.forEach((b,idx)=> b.classList.toggle('active', idx === n-1));
   document.getElementById('success-msg').style.display = 'none';
   document.getElementById('booking').scrollIntoView({behavior:'smooth', block:'start'});
+}
+
+function goToCourse(courseId, tabNum) {
+  const el = document.getElementById(courseId);
+  if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
+  // Pre-select the booking tab silently (no scroll to booking)
+  for(let i=1;i<=4;i++){
+    document.getElementById('form-'+i).style.display = (i===tabNum) ? 'block' : 'none';
+  }
+  const btns = document.querySelectorAll('#tab-nav .tab-btn');
+  btns.forEach((b,idx)=> b.classList.toggle('active', idx === tabNum-1));
+}
+
+function switchAdultVideo(type, btn) {
+  const video = document.getElementById('adult-video');
+  const src = document.getElementById('adult-video-src');
+  video.poster = type === 'sb' ? 'video/courses/adult-sb.jpg' : 'video/courses/adult-ski.jpg';
+  src.src = type === 'sb' ? 'video/courses/adult-sb.mp4' : 'video/courses/adult-ski.mp4';
+  video.load();
+  document.querySelectorAll('.video-toggle .vtoggle-btn').forEach(b => b.classList.remove('active'));
+  btn.classList.add('active');
+}
+
+// IntersectionObserver: pause videos on mobile when off-screen
+if ('IntersectionObserver' in window) {
+  const isMobile = window.innerWidth <= 860;
+  if (isMobile) {
+    const videos = document.querySelectorAll('video');
+    const obs = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) { entry.target.play(); }
+        else { entry.target.pause(); }
+      });
+    }, { threshold: 0.25 });
+    videos.forEach(v => obs.observe(v));
+  }
 }
 
 // ⚠️ 部署前，把這裡換成你實際的 Railway 網址與路徑（例如 /snowi/submit-lead）
