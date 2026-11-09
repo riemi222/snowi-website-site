@@ -275,6 +275,27 @@
 
   footer{ text-align:center; padding:3rem; font-size:.75rem; color:var(--muted); letter-spacing:.05em; border-top:1px solid var(--line); }
   footer a{ color:var(--accent-bright); }
+
+  /* 手機版：導覽列、成果數字 */
+  .top-ribbon{ position:static !important; }
+  .m-br{ display:none; }
+  .nav-links a{ white-space:nowrap; }
+  .nav-cta{ white-space:nowrap; }
+  @media (max-width:600px){
+    .m-br{ display:inline; }
+    .top-ribbon{ font-size:.7rem !important; padding:.45rem .8rem !important; }
+    nav{ padding:.7rem 16px !important; }
+    .brand small{ display:none; }
+    .brand{ font-size:1.3rem; }
+    .nav-links{ gap:.9rem !important; }
+    .nav-links a.keep{ font-size:.8rem !important; }
+    .nav-cta{ font-size:.75rem !important; padding:.5rem .85rem !important; letter-spacing:.04em !important; }
+    .stat-bar{ flex-wrap:nowrap !important; gap:.6rem !important; justify-content:space-between; margin-bottom:2rem !important; }
+    .stat{ flex:1; min-width:0; }
+    .stat .num{ font-size:1.5rem !important; white-space:nowrap; }
+    .stat .label{ font-size:.68rem !important; }
+    .eyebrow{ letter-spacing:.12em !important; font-size:.7rem !important; }
+  }
 </style>
 </head>
 <body>
