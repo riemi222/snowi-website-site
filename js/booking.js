@@ -78,7 +78,7 @@
   // ---------- 狀態 ----------
   const KEY = 'snowi-booking-v1';
   let S = {}; try { S = JSON.parse(sessionStorage.getItem(KEY) || '{}'); } catch (_) {}
-  S = Object.assign({ course: 'adult6', adults: 0, kids: 0, members: [], start: '', days: 1, slot: 'am', advType: 'park', resort: 'tomamu', teachLang: '中文', transfer: false, coach: '', name: '', email: '', contact: '', note: '', optin: true }, S);
+  S = Object.assign({ course: 'adult6', adults: 0, kids: 0, members: [], start: '', days: 1, slot: 'am', advType: 'park', resort: 'tomamu', teachLang: EN ? 'English' : '中文', transfer: false, coach: '', name: '', email: '', contact: '', note: '', optin: true }, S);
   if (!RESORTS.some(r => r[0] === S.resort)) S.resort = 'tomamu';
   const save = () => { try { sessionStorage.setItem(KEY, JSON.stringify(S)); } catch (_) {} };
   function syncMembers() {
