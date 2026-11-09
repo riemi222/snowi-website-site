@@ -50,7 +50,7 @@ footer{text-align:center;font-size:12px;color:var(--muted);padding:20px}
 <body>
 <nav>
   <a class="brand" href="index.html" id="home">SNOWI<small>｜SNOW IS NOW</small></a>
-  <div class="nl"><a href="index.html#faq" id="faqLink"><span class="zh">常見問題</span><span class="en">FAQ</span></a><a href="#" id="langLink">EN</a></div>
+  <div class="nl"><a href="faq.html" id="faqLink"><span class="zh">常見問題</span><span class="en">FAQ</span></a><a href="#" id="langLink">EN</a></div>
 </nav>
 <main class="wrap">
   <section id="vLogin" class="hidden">
@@ -98,7 +98,7 @@ footer{text-align:center;font-size:12px;color:var(--muted);padding:20px}
   document.title = en ? 'My bookings | Snowi' : '我的訂單｜Snowi';
   const page = en ? 'en.html' : 'index.html';
   document.getElementById('home').href = page;
-  document.getElementById('faqLink').href = page + '#faq';
+  document.getElementById('faqLink').href = en ? 'faq-en.html' : 'faq.html';
   document.getElementById('bookLink').href = page + '#booking';
   const ll = document.getElementById('langLink'); ll.textContent = en ? '中文' : 'EN'; ll.href = 'account.html?lang=' + (en ? 'zh' : 'en') + location.hash;
   const L = (z, e) => en ? e : z;
