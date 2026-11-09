@@ -182,6 +182,14 @@
   .guarantee-condition{ font-size:.8rem; color:var(--muted); line-height:1.8; }
 
   .pricing-section{ padding:6rem 6vw; }
+  .west-prices{ max-width:760px; margin:1.2rem auto 0; font-size:.85rem; color:var(--muted); }
+  .west-prices summary{ cursor:pointer; text-align:right; color:var(--accent-bright); font-size:.8rem; list-style:none; }
+  .west-prices summary::-webkit-details-marker{ display:none; }
+  .west-prices .west-body{ margin-top:.8rem; padding:1rem; border:1px solid var(--line); border-radius:12px; }
+  .west-prices .west-body{ overflow-x:auto; }
+  .west-prices table.west-table{ font-size:.78rem; margin:.6rem 0; min-width:0; }
+  .west-prices table.west-table th, .west-prices table.west-table td{ padding:.5rem .4rem; }
+  .resort-note{ color:var(--ice) !important; }
   .pricing-note{ font-size:.85rem; color:var(--muted); line-height:1.9; margin-bottom:2rem; }
   .price-table-wrap{ overflow-x:auto; margin-bottom:3.5rem; }
   table.price-table{ border-collapse:collapse; width:100%; min-width:640px; font-size:.85rem; }
@@ -291,8 +299,8 @@
   <div class="hero-layout">
     <div class="hero-text">
       <div class="eyebrow">Hoshino TOMAMU Official · Beginner-Only Chinese-Speaking Ski School</div>
-      <h1>Never skied before? No problem.<br><em>Adults learn S-turns in one day.</em> Kids ski solo by sunset.</h1>
-      <p class="hero-sub">Your Chinese-speaking instructor takes you from putting on boots to riding the chairlift — and tells you exactly where you got to at the end of the day.</p>
+      <h1><em>Adults learn S-turns in one day.</em><br>Kids ski on their own in one day.</h1>
+      <p class="hero-sub">Never skied before? No problem. Your Chinese-speaking instructor takes you from putting on boots to riding the chairlift — and tells you exactly where you got to at the end of the day.</p>
 
       <div class="hero-video-mobile">
         <video autoplay muted loop playsinline preload="metadata" poster="video/courses/adult-sb.jpg">
@@ -454,28 +462,28 @@
     </div>
 
     <div class="course-card" id="course-family">
-      <div class="course-video-wrap landscape">
+      <div class="course-video-wrap">
         <video autoplay muted loop playsinline preload="metadata" poster="video/courses/family.jpg">
           <source src="video/courses/family.mp4" type="video/mp4">
         </video>
       </div>
       <div class="course-tag">Family Group · 6 hrs</div>
       <div class="course-name">Family Group Course</div>
-      <div class="course-outcome-big">Kids and adults learn at the same time — the whole family on the mountain together</div>
-      <div class="course-for">Two instructors running in parallel: kids 1:1 + adults 1:N</div>
+      <div class="course-outcome-big">One instructor teaches a parent and child together — the whole family skis as one</div>
+      <div class="course-for">1 instructor : 2 students (e.g. 1 adult + 1 child)</div>
       <ul class="course-list">
-        <li>Kids 1:1 (6 hrs) + Adults 1:N (6 hrs) simultaneously</li>
+        <li>1:2 private lesson, 6 hrs (larger families are split into pairs)</li>
         <li>9:00–12:00 + 13:00–16:00</li>
       </ul>
       <div class="course-includes">
         <div class="inc-title">Includes</div>
         <div class="inc-row">✓ Pre-lesson: equipment rental arranged</div>
         <div class="inc-row">✓ On-snow: Chinese-speaking instructors, chairlift escort every ride</div>
-        <div class="inc-row">✓ Post-lesson: separate progress reports for adults and kids</div>
+        <div class="inc-row">✓ Post-lesson: progress update for each of you</div>
         <div class="inc-row">✓ Up to ¥200M accident insurance</div>
         <div class="inc-row">✓ Peak-season airport transfer priority booking</div>
       </div>
-      <div class="course-price-row"><span class="course-price-text">Kids 1:1 + Adults 1:N<small>Priced separately and combined — see table below for breakdown</small></span></div>
+      <div class="course-price-row"><span class="course-price-text">¥108,000+ / low season · 1:2<small>Per pair, see the 1:2 row in the table below</small></span></div>
       <a class="course-cta buy" href="#booking" onclick="showTab(3,'family6')">Book this course →</a>
     </div>
   </div>
@@ -507,7 +515,7 @@
   </div>
 
   <div class="course-advanced-row">
-    Already can ski? → <a href="#booking" onclick="showTab(4)">Powder / Park Guide (6hrs)</a> · ¥98,000+ / Must be able to link smooth S-turns on a red run
+    Already can ski? → <a href="#booking" onclick="showTab(4)">Powder / Park Guide (6hrs)</a> · ¥98,000+ / Must be able to link smooth S-turns on a green run
   </div>
 </section>
 
@@ -519,12 +527,12 @@
     <div class="guarantee-box">
       <h3>Adult 1-Day S-Turn Guarantee</h3>
       <p class="guarantee-promise">Complete the full 6-hour 1-day course and still can't link S-turns on a beginner run — we give you 3 hours the next day, free of charge.</p>
-      <p class="guarantee-condition">Conditions: 1:1 or 1:2 only (not 1:3 or 1:4), complete beginner or only 1–2 prior sessions, in good health, full 6 hours completed, resort open and operating normally.</p>
+      <p class="guarantee-condition">Conditions: lessons at Hoshino TOMAMU or Asahikawa; 1:1 or 1:2 only (not 1:3 or 1:4), complete beginner or only 1–2 prior sessions, in good health, full 6 hours completed, resort open and operating normally.</p>
     </div>
     <div class="guarantee-box">
       <h3>Kids Hand-to-Solo Guarantee</h3>
       <p class="guarantee-promise">Your child completes the 6-hour 1:1 course but still can't ski independently and stop on their own — we add 3 hours the next day, free of charge.</p>
-      <p class="guarantee-condition">Conditions: child aged 10 or older, 1:1, full 6 hours completed. (Kids as young as 3 can enroll, but the guarantee applies from age 10 — please note this before booking.)</p>
+      <p class="guarantee-condition">Conditions: lessons at Hoshino TOMAMU or Asahikawa; child aged 10 or older, 1:1, full 6 hours completed. (Kids as young as 3 can enroll, but the guarantee applies from age 10 — please note this before booking.)</p>
     </div>
   </div>
 </section>
@@ -533,6 +541,7 @@
 <section class="pricing-section" id="pricing">
   <div class="section-label">PRICING</div>
   <h2 class="section-title">Full Price List</h2>
+  <p class="pricing-note resort-note">These prices apply at <b>Hoshino TOMAMU</b>, <b>Furano</b> and <b>Asahikawa</b>. The outcome guarantee is available at TOMAMU and Asahikawa.</p>
   <p class="pricing-note">
     * Prices cover lesson fees only — lift tickets and equipment not included. * Lesson hours are net on-snow hours (break time excluded). * "Per person" figures are the total divided by headcount; you are charged the group total.<br>
     Off-peak: 2026/12/01–12/22 · 2027/01/04–02/02 · 2027/02/16–02/25 · 2027/03/03–04/01 · 2027/04/07–season close.<br>
@@ -559,23 +568,22 @@
     </table>
   </div>
   <p class="pricing-note">Advanced courses (Powder / Park Guide · 6 hrs) use the same rates as the 6-hour introductory course — see the "6 hrs" column above.</p>
+
+  <details class="west-prices">
+    <summary>Western Hokkaido resorts (partner schools) ▸</summary>
+    <div class="west-body">
+      <p>Lessons at Teine, Sapporo Kokusai, Onze, Niseko, Rusutsu and Kiroro are taught by our partner schools. Price per instructor per day:</p>
+      <table class="price-table west-table">
+        <tr><th></th><th>Teine / Sapporo Kokusai / Onze</th><th>Niseko / Rusutsu</th><th>Kiroro</th></tr>
+        <tr><td>Full day 6 hrs</td><td>¥75,000</td><td>¥85,000</td><td>¥95,000</td></tr>
+        <tr><td>Half day 3 hrs</td><td>¥52,000</td><td>¥58,000</td><td>¥68,000</td></tr>
+      </table>
+      <p>Base price for 1–2 people; +¥5,000 for each extra person (3–4). Peak days (2026/12/23–2027/01/05, 2027/02/03–02/15, 2027/04/02–04/06) +¥5,000 per day. No 4-hour lessons and no outcome guarantee at western resorts.</p>
+    </div>
+  </details>
 </section>
 
-<!-- METHOD -->
-<section class="method-section" id="method">
-  <div class="section-label">HOW WE TEACH</div>
-  <h2 class="section-title">Hand-to-Solo — Our Kids' Ski Method</h2>
-  <p class="section-desc">The biggest risk on day one isn't a fall — it's a child who gets scared and never wants to ski again. This is Snowi's own named progression: five stages that take a child from held by two hands to skiing out on their own.</p>
-  <div class="method-grid">
-    <div class="method-step"><div class="method-num">01</div><h4>Feel the Glide</h4><p>Instructor holds the board with both hands and controls speed while coaching the child on how to stop</p></div>
-    <div class="method-step"><div class="method-num">02</div><h4>Ease the Grip</h4><p>Gradually reducing support so the child begins using their own leg strength</p></div>
-    <div class="method-step"><div class="method-num">03</div><h4>One Hand</h4><p>Child is managing most of the movement; instructor switches to single-hand assist</p></div>
-    <div class="method-step"><div class="method-num">04</div><h4>Fingertip Hold</h4><p>Instructor holds only the child's hand; the child is skiing independently</p></div>
-    <div class="method-step"><div class="method-num">05</div><h4>Fully Solo</h4><p>Child can ski and stop on their own — that's when we truly let go</p></div>
-    <div class="method-step"><div class="method-num">06</div><h4>Every Chairlift, Together</h4><p>Instructor accompanies the child on every single ride — no exceptions, no child left alone</p></div>
-  </div>
-  <p class="method-note">Exact timing depends on the child's confidence and muscle development. Most kids complete the five skiing stages within a 6-hour 1:1 day. Full chairlift escort is our safety promise to every child from start to finish. At the end of the lesson we tell you exactly which stage your child reached.</p>
-</section>
+
 
 <!-- ASSURANCE -->
 <section class="assurance-section" id="assurance">
@@ -620,7 +628,7 @@
     </div>
     <div class="faq-us-item">
       <div class="faq-us-q">Can adults and kids take lessons together?</div>
-      <div class="faq-us-a">Yes: book the <a href="#course-family">Family Day</a>. Two instructors teach at the same time, 1:1 for the child and 1:N for the adults, so the whole family skis at the same resort. The price is the child's 1:1 rate plus the adult group rate.</div>
+      <div class="faq-us-a">Yes: book the <a href="#course-family">Family Group Course</a>: one instructor teaches two of you together (for example 1 adult + 1 child) at the 1:2 rate. Larger families are split into pairs, each with its own instructor.</div>
     </div>
     <div class="faq-us-item">
       <div class="faq-us-q">How is the price calculated?</div>

@@ -19,38 +19,67 @@
   const COURSES = {
     adult6:  { h: 6, zh: '一日S彎課', en: 'One-Day S-Turn', szh: '大人新手・6小時', sen: 'Adult beginners · 6 hrs', adults: true, kids: true },
     kid6:    { h: 6, zh: '兒童牽手到放手', en: 'Kids Hand-Hold to Let-Go', szh: '只限1對1・6小時', sen: '1-on-1 only · 6 hrs', adults: false, kids: true },
-    family6: { h: 6, zh: '家庭同場課', en: 'Family Day', szh: '大人＋小孩・6小時', sen: 'Adults + kids · 6 hrs', adults: true, kids: true },
+    family6: { h: 6, zh: '家庭同場課', en: 'Family Group', szh: '一對二・大人＋小孩', sen: '1:2 · adult + child', adults: true, kids: true },
     try3:    { h: 3, zh: '3小時體驗', en: '3-Hour Taster', szh: '先試試看', sen: 'Try it first', adults: true, kids: true },
     second4: { h: 4, zh: '4小時鞏固課', en: '4-Hour Day Two', szh: '上過一日課的人', sen: 'After a full day', adults: true, kids: true },
     adv6:    { h: 6, zh: '進階嚮導', en: 'Advanced Guide', szh: '粉雪／公園・6小時', sen: 'Powder / park · 6 hrs', adults: true, kids: true },
   };
-  const RESORTS = ['星野TOMAMU', '富良野', '神居', '聖誕禮物公園', '旭岳', 'Pippu比布', 'Sahoro佐幌', 'Kamoi神威岳', 'Teine手稲', 'Sapporo Kokusai札幌國際', 'Kiroro', 'Rusutsu留壽都'];
-  const RESORTS_EN = ['Hoshino TOMAMU', 'Furano', 'Kamui', 'Santa Present Park', 'Asahidake', 'Pippu', 'Sahoro', 'Kamoi', 'Sapporo Teine', 'Sapporo Kokusai', 'Kiroro', 'Rusutsu'];
+  // [id, 中文, 英文, 西部價目等級(null＝自家價目表), 有成果保證]
+  const RESORTS = [['tomamu', '星野TOMAMU', 'Hoshino TOMAMU', null, 1], ['furano', '富良野', 'Furano', null, 0], ['asahikawa', '旭川', 'Asahikawa', null, 1],
+    ['teine', '手稻', 'Sapporo Teine', 'a', 0], ['kokusai', '札幌國際', 'Sapporo Kokusai', 'a', 0], ['onze', 'Onze 暑寒別', 'Onze', 'a', 0],
+    ['hirafu', '二世谷 Hirafu', 'Niseko Hirafu', 'b', 0], ['annupuri', '二世谷 Annupuri', 'Niseko Annupuri', 'b', 0], ['rusutsu', '留壽都', 'Rusutsu', 'b', 0], ['kiroro', '喜樂樂 Kiroro', 'Kiroro', 'c', 0]];
+  // 西部雪場（合作學校）：一位教練一天；1–2 人基礎價，3–4 人每多 1 人 +5,000；西部旺季每天 +5,000
+  const WEST = { a: { 6: 75000, 3: 52000 }, b: { 6: 85000, 3: 58000 }, c: { 6: 95000, 3: 68000 } };
+  const WPEAK = [['2026-12-23', '2027-01-05'], ['2027-02-03', '2027-02-15'], ['2027-04-02', '2027-04-06']];
   const LEVELS = [['none', '完全沒滑過', 'Never skied'], ['once', '滑過1–2次', '1–2 times'], ['turns', '會轉彎', 'Can turn'], ['adv', '中高階', 'Intermediate+']];
   const isPeak = d => PEAK.some(([a, b]) => d >= a && d <= b);
   const addDay = (d, n) => { const x = new Date(d + 'T00:00:00Z'); x.setUTCDate(x.getUTCDate() + n); return x.toISOString().slice(0, 10); };
+  const pairs = n => Array.from({ length: Math.ceil(n / 2) }, (_, i) => (i < Math.floor(n / 2) ? 2 : 1));
   const groups = n => { if (n <= 0) return []; const g = Math.ceil(n / 4), b = Math.floor(n / g), e = n % g; return Array.from({ length: g }, (_, i) => b + (i < e ? 1 : 0)); };
   const yen = n => '¥' + Number(n || 0).toLocaleString('en-US');
   const esc = s => String(s == null ? '' : s).replace(/[&<>"']/g, c => ({ '&': '&amp;', '<': '&lt;', '>': '&gt;', '"': '&quot;', "'": '&#39;' }[c]));
   const md = d => { const [, m, dd] = d.split('-'); return `${+m}/${+dd}`; };
 
+  const resortOf = () => RESORTS.find(r => r[0] === S.resort) || RESORTS[0];
   function quote() {
     const c = COURSES[S.course]; if (!c || !S.start) return null;
+    const R = resortOf(), tier = R[3];
+    if (tier && !WEST[tier][c.h]) return { error: 'no' + c.h };
     const A = S.adults, K = S.kids; const lines = []; let total = 0;
+    const gs = S.course === 'kid6' ? Array(K).fill(1) : S.course === 'family6' ? pairs(A + K) : groups(A + K);
     for (let i = 0; i < S.days; i++) {
-      const d = addDay(S.start, i), pk = isPeak(d), T = PRICES[pk ? 'peak' : 'low'], parts = [];
-      if (S.course === 'kid6') for (let k = 0; k < K; k++) parts.push({ r: 1, who: 'kid', p: T[1][6] });
-      else if (S.course === 'family6') { for (let k = 0; k < K; k++) parts.push({ r: 1, who: 'kid', p: T[1][6] }); groups(A).forEach(r => parts.push({ r, who: 'adult', p: T[r][6] })); }
-      else groups(A + K).forEach(r => parts.push({ r, who: 'all', p: T[r][c.h] }));
+      const d = addDay(S.start, i);
+      const pk = tier ? WPEAK.some(([a, b]) => d >= a && d <= b) : isPeak(d), T = PRICES[pk ? 'peak' : 'low'];
+      const parts = gs.map(r => ({ r, p: tier ? WEST[tier][c.h] + Math.max(0, r - 2) * 5000 + (pk ? 5000 : 0) : T[r][c.h] }));
       const t = parts.reduce((s, x) => s + x.p, 0); total += t; lines.push({ d, pk, parts, t });
     }
     return { total, lines };
   }
+  // 成果保證：符合就顯示提醒；接近但不符合時說明原因
+  function gInfo() {
+    const R = resortOf(), okResort = R[4] === 1;
+    if (S.course === 'adult6') {
+      if (!S.adults) return null;
+      if (!okResort) return { ok: false, t: L(`${R[1]}不適用成果保證（保證只在星野TOMAMU、旭川）。`, `The guarantee isn't available at ${R[2]} (TOMAMU and Asahikawa only).`) };
+      if (S.adults + S.kids > 2) return { ok: false, t: L('1對3以上不適用「大人一日S彎保證」（只限1對1、1對2）。', 'The One-Day S-Turn Guarantee is for 1:1 or 1:2 only.') };
+      return { ok: true, t: L('✓ 這個預約適用「大人一日S彎保證」：上完6小時，當天還不能在初級滑道連續轉彎，第二天加送3小時，不另外收費。', "✓ This booking qualifies for the One-Day S-Turn Guarantee: complete the 6 hours and still can't link turns on a beginner run? We add 3 hours free the next day.") };
+    }
+    if (S.course === 'kid6') {
+      if (!okResort) return { ok: false, t: L(`${R[1]}不適用成果保證（保證只在星野TOMAMU、旭川）。`, `The guarantee isn't available at ${R[2]} (TOMAMU and Asahikawa only).`) };
+      const kids = S.members.filter(m => m.kind === 'kid' && m.age !== '');
+      if (kids.some(m => +m.age >= 10)) return { ok: true, t: L('✓ 10歲以上的孩子適用「牽手到放手保證」：上完6小時還不能自己滑行和煞車，加送3小時，不另外收費。', "✓ Children 10+ qualify for the Hand-Hold to Let-Go Guarantee: can't glide and stop on their own after 6 hours? We add 3 hours free.") };
+      if (kids.length) return { ok: false, t: L('「牽手到放手保證」適用10歲以上的孩子，3–9歲可以上課但不適用保證。', 'The guarantee applies to children 10+. Ages 3–9 are welcome but not covered.') };
+    }
+    return null;
+  }
+  const gBox = () => { const g = gInfo(); return g ? `<div class="bk-g${g.ok ? '' : ' no'}">${g.t}</div>` : ''; };
+
 
   // ---------- 狀態 ----------
   const KEY = 'snowi-booking-v1';
   let S = {}; try { S = JSON.parse(sessionStorage.getItem(KEY) || '{}'); } catch (_) {}
-  S = Object.assign({ course: 'adult6', adults: 0, kids: 0, members: [], start: '', days: 1, slot: 'am', advType: 'park', resort: RESORTS[0], teachLang: '中文', transfer: false, coach: '', name: '', email: '', contact: '', note: '', optin: true }, S);
+  S = Object.assign({ course: 'adult6', adults: 0, kids: 0, members: [], start: '', days: 1, slot: 'am', advType: 'park', resort: 'tomamu', teachLang: '中文', transfer: false, coach: '', name: '', email: '', contact: '', note: '', optin: true }, S);
+  if (!RESORTS.some(r => r[0] === S.resort)) S.resort = 'tomamu';
   const save = () => { try { sessionStorage.setItem(KEY, JSON.stringify(S)); } catch (_) {} };
   function syncMembers() {
     const want = [...Array(S.adults).fill('adult'), ...Array(S.kids).fill('kid')];
@@ -100,6 +129,7 @@
   #snowi-booking .bk-est .tot{display:flex;justify-content:space-between;font-weight:900;font-size:1.25rem;margin-top:.7rem;color:var(--snow)}
   #snowi-booking .bk-est .dep{display:flex;justify-content:space-between;font-size:.88rem;color:var(--accent-bright);margin-top:.2rem}
   #snowi-booking .bk-est .note{font-size:.75rem;color:var(--muted);margin-top:.6rem}
+  #snowi-booking .bk-g.no{background:rgba(212,169,106,.12);color:var(--warm)}
   #snowi-booking .bk-g{font-size:.82rem;background:rgba(91,158,201,.12);border-radius:10px;padding:.6rem .8rem;margin-top:.7rem;color:var(--ice)}
   #snowi-booking .chk{display:flex;gap:.6rem;align-items:flex-start;font-size:.88rem;color:var(--ice);cursor:pointer;margin:.4rem 0}
   #snowi-booking .chk input{width:1.1rem;height:1.1rem;flex:none;margin-top:.2rem;accent-color:var(--accent)}
@@ -112,7 +142,7 @@
   function courseSec() {
     return `<div class="bk-sec"><div class="bk-h"><span class="n">1</span>${L('選課程', 'Choose a course')}</div>
       <div class="bk-courses">${Object.entries(COURSES).map(([k, c]) => `<button type="button" class="bk-course${S.course === k ? ' on' : ''}" data-c="${k}"><b>${EN ? c.en : c.zh}</b><span>${EN ? c.sen : c.szh}</span></button>`).join('')}</div>
-      ${S.course === 'adv6' ? `<div style="margin-top:.8rem" class="seg" data-k="advType"><button type="button" data-v="park" class="${S.advType === 'park' ? 'on' : ''}">${L('公園 Park', 'Park')}</button><button type="button" data-v="powder" class="${S.advType === 'powder' ? 'on' : ''}">${L('粉雪／樹林嚮導', 'Powder / trees')}</button></div><p class="bk-sub" style="margin:.5rem 0 0">${L('需具備紅（藍）線上能順暢 S Turn 的能力', 'You need to link smooth S-turns on a red (blue) run')}</p>` : ''}</div>`;
+      ${S.course === 'adv6' ? `<div style="margin-top:.8rem" class="seg" data-k="advType"><button type="button" data-v="park" class="${S.advType === 'park' ? 'on' : ''}">${L('公園 Park', 'Park')}</button><button type="button" data-v="powder" class="${S.advType === 'powder' ? 'on' : ''}">${L('粉雪／樹林嚮導', 'Powder / trees')}</button></div><p class="bk-sub" style="margin:.5rem 0 0">${L('需具備綠線上能順暢 S Turn 的能力', 'You need to link smooth S-turns on a green run')}</p>` : ''}</div>`;
   }
   function stepper(k, label, sub, min) {
     const v = S[k];
@@ -120,13 +150,15 @@
   }
   function countSec() {
     const c = COURSES[S.course];
-    const kidSub = S.course === 'kid6' || S.course === 'family6' ? L('3歲以上・每位小孩1位教練', '3+ yrs · 1 instructor each') : L('12歲以下', '12 and under');
+    const kidSub = S.course === 'kid6' ? L('3歲以上・每位小孩1位教練', '3+ yrs · 1 instructor each') : S.course === 'family6' ? L('3歲以上', '3+ yrs') : L('12歲以下', '12 and under');
     return `<div class="bk-sec"><div class="bk-h"><span class="n">2</span>${L('上課人數', 'How many students?')}</div>
       <p class="bk-sub">${L('選好人數後，下面會出現每一位學員要填的資料。', 'Pick the numbers and a short form appears for each student.')}</p>
       <div class="bk-count">${c.adults ? stepper('adults', L('大人', 'Adults'), L('13歲以上', '13+ yrs'), 0) : ''}${stepper('kids', L('小孩', 'Children'), kidSub, 0)}</div>
-      ${S.course === 'kid6' ? `<p class="bk-hint">${L('大人也要一起上課的話，請選「家庭同場課」。', 'If an adult wants lessons too, choose Family Day.')}</p>` : ''}
-      ${S.course === 'family6' && (!S.adults || !S.kids) ? `<p class="bk-hint">${L('家庭同場課需要大人和小孩各至少 1 位。', 'Family Day needs at least 1 adult and 1 child.')}</p>` : ''}
-      ${S.adults + S.kids > 4 && !['kid6', 'family6'].includes(S.course) ? `<p class="bk-hint">${L('超過 4 位會分成多組、由多位教練上課。', 'More than 4 students are split into groups with more instructors.')}</p>` : ''}</div>`;
+      ${S.course === 'kid6' ? `<p class="bk-hint">${L('大人也要一起上課的話，請選「家庭同場課」（一對二）。', 'If an adult wants lessons too, choose the Family Group course (1:2).')}</p>` : ''}
+      ${S.course === 'family6' && (!S.adults || !S.kids) ? `<p class="bk-hint">${L('家庭同場課需要大人和小孩各至少 1 位。', 'The Family Group course needs at least 1 adult and 1 child.')}</p>` : ''}
+      ${S.adults + S.kids > 4 && !['kid6', 'family6'].includes(S.course) ? `<p class="bk-hint">${L('超過 4 位會分成多組、由多位教練上課。', 'More than 4 students are split into groups with more instructors.')}</p>` : ''}
+      ${S.course === 'family6' && S.adults + S.kids > 2 ? `<p class="bk-hint">${L('家庭同場課每2人一組、各有一位教練。', 'Family Group lessons are 2 students per instructor; larger families get more instructors.')}</p>` : ''}
+      <div id="bk-g1">${gBox()}</div></div>`;
   }
   function memberCard(m, i) {
     const idx = S.members.slice(0, i).filter(x => x.kind === m.kind).length + 1;
@@ -155,7 +187,7 @@
       </div>
       ${S.course === 'try3' ? `<div class="fld" style="margin-bottom:.6rem"><span>${L('時段', 'Time')}</span><div class="seg" data-k="slot"><button type="button" data-v="am" class="${S.slot !== 'pm' ? 'on' : ''}">${L('上午 9:00–12:00', 'AM 9:00–12:00')}</button><button type="button" data-v="pm" class="${S.slot === 'pm' ? 'on' : ''}">${L('下午 13:00–16:00', 'PM 13:00–16:00')}</button></div></div>` : ''}
       <div class="bk-row two">
-        <label class="fld"><span>${L('雪場', 'Resort')}</span><select data-k="resort">${RESORTS.map((r, i) => `<option value="${r}"${S.resort === r ? ' selected' : ''}>${EN ? RESORTS_EN[i] : r}</option>`).join('')}</select></label>
+        <label class="fld"><span>${L('雪場', 'Resort')}</span><select data-k="resort"><optgroup label="${L('星野TOMAMU・富良野・旭川', 'TOMAMU · Furano · Asahikawa')}">${RESORTS.filter(r => !r[3]).map(r => `<option value="${r[0]}"${S.resort === r[0] ? ' selected' : ''}>${EN ? r[2] : r[1]}</option>`).join('')}</optgroup><optgroup label="${L('北海道西部（合作學校）', 'Western Hokkaido (partner schools)')}">${RESORTS.filter(r => r[3]).map(r => `<option value="${r[0]}"${S.resort === r[0] ? ' selected' : ''}>${EN ? r[2] : r[1]}</option>`).join('')}</optgroup></select></label>
         <label class="fld"><span>${L('教學語言', 'Teaching language')}</span><select data-k="teachLang">${[['中文', '中文 Chinese'], ['English', 'English'], ['日本語', '日本語 Japanese'], ['中英雙語', '中英雙語 Chinese + English']].map(o => `<option value="${o[0]}"${S.teachLang === o[0] ? ' selected' : ''}>${EN ? o[1] : o[0] === 'English' ? '英文' : o[0] === '日本語' ? '日文' : o[0]}</option>`).join('')}</select></label>
       </div>
       <p class="bk-sub" style="margin:-.2rem 0 .6rem">${L('不是連續上課的話，請在備註寫上每一天的日期。', 'Not consecutive days? Write the dates in the note.')}</p>
@@ -166,18 +198,17 @@
   }
   function estSec() {
     const q = quote();
-    if (!q) return `<div class="bk-sec bk-est"><div class="bk-h">${L('估價', 'Estimate')}</div><p class="bk-sub" style="margin:0">${L('選好日期後會自動算出價格。', 'Pick a date and the price appears here.')}</p></div>`;
-    const who = p => (S.course === 'family6' ? (p.who === 'kid' ? L('小孩 ', 'child ') : L('大人 ', 'adults ')) : '');
-    const g = S.course === 'adult6' && S.adults >= 1 && S.adults + S.kids <= 2
-      ? L('✓ 適用「大人一日S彎保證」：當天還不能在初級滑道連續轉彎，第二天加送 3 小時（條件見成果保證）。', '✓ Qualifies for the One-Day S-Turn Guarantee: can\'t link turns by day\'s end? We add 3 hours free the next day.')
-      : S.course === 'kid6' && S.members.some(m => m.kind === 'kid' && +m.age >= 10) ? L('✓ 10 歲以上的孩子適用「牽手到放手保證」。', '✓ Children 10+ qualify for the Hand-Hold to Let-Go Guarantee.') : '';
+    if (q && q.error) return `<div class="bk-sec bk-est"><div class="bk-h">${L('估價', 'Estimate')}</div><p class="bk-hint" style="margin:0">${L('西部雪場（合作學校）只有3小時和6小時課程，請改選其他課程或雪場。', 'Western resorts (partner schools) offer 3- and 6-hour lessons only. Please choose another course or resort.')}</p></div>`;
+    if (!q) return `<div class="bk-sec bk-est"><div class="bk-h">${L('估價', 'Estimate')}</div><p class="bk-sub" style="margin:0">${L('選好日期後會自動算出價格。', 'Pick a date and the price appears here.')}</p>${gBox()}</div>`;
+    const R = resortOf();
     return `<div class="bk-sec bk-est"><div class="bk-h">${L('估價', 'Estimate')}</div>
-      ${q.lines.map(l => `<div class="l"><span>${md(l.d)}${l.pk ? L('（旺季）', ' (peak)') : ''}</span><span>${l.parts.map(p => who(p) + '1:' + p.r + ' ' + yen(p.p)).join(' ＋ ')}</span></div>`).join('')}
+      ${q.lines.map(l => `<div class="l"><span>${md(l.d)}${l.pk ? L('（旺季）', ' (peak)') : ''}</span><span>${l.parts.map(p => '1:' + p.r + ' ' + yen(p.p)).join(' ＋ ')}</span></div>`).join('')}
       <div class="tot"><span>${L('總額', 'Total')}</span><span>${yen(q.total)}</span></div>
       <div class="dep"><span>${L('確認有教練後付 50% 訂金', '50% deposit once we confirm')}</span><span>${yen(Math.round(q.total / 2))}</span></div>
-      <p class="note">${L('只含課程費（不含雪票、裝備），整組價格、含稅。送出後不用先付款，我們確認教練排班後才會寄訂金連結。', 'Lesson fee only (no lift tickets or gear), per group, tax included. Nothing to pay now: we send the deposit link after confirming your instructor.')}</p>
-      ${g ? `<div class="bk-g">${g}</div>` : ''}</div>`;
+      <p class="note">${R[3] ? L('西部雪場由合作學校上課，價格為合作學校價目表。', 'Western resorts are taught by partner schools at their rates. ') : ''}${L('只含課程費（不含雪票、裝備），整組價格、含稅。送出後不用先付款，我們確認教練排班後才會寄訂金連結。', 'Lesson fee only (no lift tickets or gear), per group, tax included. Nothing to pay now: we send the deposit link after confirming your instructor.')}</p>
+      ${gBox()}</div>`;
   }
+
   function contactSec() {
     return `<div class="bk-sec"><div class="bk-h"><span class="n">5</span>${L('聯絡資料', 'Your details')}</div>
       <div class="bk-row two">
@@ -216,12 +247,12 @@
   });
   root.addEventListener('input', e => {
     const t = e.target;
-    if (t.dataset.m) { S.members[+t.closest('.bk-mem').dataset.i][t.dataset.m] = t.value; t.classList.remove('bad'); return save(); }
+    if (t.dataset.m) { S.members[+t.closest('.bk-mem').dataset.i][t.dataset.m] = t.value; t.classList.remove('bad'); if (t.dataset.m === 'age') { const g1 = document.getElementById('bk-g1'); if (g1) g1.innerHTML = gBox(); refreshEst(); } return save(); }
     if (t.dataset.k) {
       const k = t.dataset.k;
       S[k] = t.type === 'checkbox' ? t.checked : k === 'days' ? +t.value : t.value;
       t.classList.remove('bad');
-      if (k === 'start' || k === 'days') refreshEst(); else save();
+      if (k === 'start' || k === 'days' || k === 'resort') { refreshEst(); const g1 = document.getElementById('bk-g1'); if (g1) g1.innerHTML = gBox(); } else save();
     }
   });
   root.addEventListener('change', e => { if (e.target.dataset.m === 'level' || e.target.dataset.k === 'resort' || e.target.dataset.k === 'teachLang') save(); if (e.target.dataset.k === 'days') refreshEst(); });
@@ -238,6 +269,7 @@
       if (m.rent) ['height', 'weight', 'shoe'].forEach(f => { if (!m[f]) { bad.push(L('身高／體重／鞋子', 'height / weight / shoe')); mark(card + `[data-m="${f}"]`); } });
     });
     if (!S.start) { bad.push(L('上課日期', 'lesson date')); mark('[data-k="start"]'); }
+    const q0 = quote(); if (q0 && q0.error) { bad.push(L('課程和雪場（西部雪場沒有4小時課程）', 'course or resort (no 4-hour lessons at western resorts)')); mark('[data-k="resort"]'); }
     if (!S.name.trim()) { bad.push(L('姓名', 'name')); mark('[data-k="name"]'); }
     if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(S.email.trim())) { bad.push('Email'); mark('[data-k="email"]'); }
     if (bad.length) { err.textContent = L('請填寫：', 'Please fill in: ') + [...new Set(bad)].join(L('、', ', ')); const f = root.querySelector('.bad'); if (f) f.scrollIntoView({ behavior: 'smooth', block: 'center' }); return; }

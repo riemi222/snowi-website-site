@@ -270,6 +270,14 @@
 
   /* PRICING TABLES */
   .pricing-section{ padding:6rem 6vw; }
+  .west-prices{ max-width:760px; margin:1.2rem auto 0; font-size:.85rem; color:var(--muted); }
+  .west-prices summary{ cursor:pointer; text-align:right; color:var(--accent-bright); font-size:.8rem; list-style:none; }
+  .west-prices summary::-webkit-details-marker{ display:none; }
+  .west-prices .west-body{ margin-top:.8rem; padding:1rem; border:1px solid var(--line); border-radius:12px; }
+  .west-prices .west-body{ overflow-x:auto; }
+  .west-prices table.west-table{ font-size:.78rem; margin:.6rem 0; min-width:0; }
+  .west-prices table.west-table th, .west-prices table.west-table td{ padding:.5rem .4rem; }
+  .resort-note{ color:var(--ice) !important; }
   .pricing-note{ font-family:'Noto Sans TC', sans-serif; font-size:.85rem; color:var(--muted); line-height:1.9; margin-bottom:2rem; }
   .price-table-wrap{ overflow-x:auto; margin-bottom:3.5rem; }
   table.price-table{ border-collapse:collapse; width:100%; min-width:640px; font-family:'Noto Sans TC', sans-serif; font-size:.85rem; }
@@ -399,8 +407,8 @@
   <div class="hero-layout">
     <div class="hero-text">
       <div class="eyebrow cjk">星野TOMAMU官方註冊・只教新手的中文滑雪學校</div>
-      <h1 class="cjk">完全沒滑過也沒關係。<br><em>大人一天學會S彎</em>，孩子一天自己滑。</h1>
-      <p class="hero-sub cjk">中文教練一對一帶你從穿裝備、搭纜車開始，課後告訴你今天學到哪裡。</p>
+      <h1 class="cjk"><em>大人一天學會S彎</em>，<br>孩子一天自己滑。</h1>
+      <p class="hero-sub cjk">完全沒滑過也沒關係。中文教練一對一帶你從穿裝備、搭纜車開始，課後告訴你今天學到哪裡。</p>
 
       <!-- Mobile video: below sub, above choice cards -->
       <div class="hero-video-mobile">
@@ -641,29 +649,29 @@
 
     <!-- Family course -->
     <div class="course-card" id="course-family">
-      <div class="course-video-wrap landscape">
+      <div class="course-video-wrap">
         <video autoplay muted loop playsinline preload="metadata" poster="video/courses/family.jpg">
           <source src="video/courses/family.mp4" type="video/mp4">
         </video>
       </div>
       <div class="course-tag">家庭同場 · 6小時</div>
       <div class="course-name cjk">家庭同場課</div>
-      <div class="course-outcome-big cjk">孩子和大人同時上課，全家一起滑</div>
-      <div class="course-for cjk">兩位教練同步進行：兒童1對1＋大人1對N</div>
+      <div class="course-outcome-big cjk">一位教練同時帶大人和孩子，全家一起滑</div>
+      <div class="course-for cjk">一對二：1位教練帶2位學員（例如1位大人＋1位小孩）</div>
       <ul class="course-list cjk">
-        <li>兒童1對1（6小時）＋大人1對N（6小時）</li>
+        <li>1對2私人課程・6小時（人數較多時每2人一組）</li>
         <li>9:00–12:00＋13:00–16:00</li>
       </ul>
       <div class="course-includes cjk">
         <div class="inc-title">包含</div>
         <div class="inc-row">✓ 課前：裝備租借代訂</div>
         <div class="inc-row">✓ 課中：中文教練、全程陪同上下纜車</div>
-        <div class="inc-row">✓ 課後：分別告知成人和孩子今天的進度</div>
+        <div class="inc-row">✓ 課後：告訴你們每個人今天走到哪裡</div>
         <div class="inc-row">✓ 最高2億日圓意外保險</div>
         <div class="inc-row">✓ 旺季機場接送包車優先預約</div>
       </div>
       <div class="course-price-row">
-        <span class="course-price-text cjk">兒童1對1＋大人1對N<small>價格為兩者相加，依人數比與平旺季，見下方價格表</small></span>
+        <span class="course-price-text cjk">¥108,000起／平季・1對2<small>每組2人的價格，見下方價格表「1:2」</small></span>
       </div>
       <a class="course-cta buy cjk" href="#booking" onclick="showTab(3,'family6')">預約這個課程 →</a>
     </div>
@@ -699,7 +707,7 @@
 
   <!-- Advanced mini-block -->
   <div class="course-advanced-row">
-    已經會滑了？→ <a href="#booking" onclick="showTab(4)">粉雪／公園嚮導（6小時）</a>　¥98,000起／需具備紅線上能順暢S Turn
+    已經會滑了？→ <a href="#booking" onclick="showTab(4)">粉雪／公園嚮導（6小時）</a>　¥98,000起／需具備綠線上能順暢S Turn
   </div>
 </section>
 
@@ -711,12 +719,12 @@
     <div class="guarantee-box">
       <h3 class="cjk">大人一日S彎保證</h3>
       <p class="guarantee-promise cjk">上完 6 小時全天一日S彎課，當天還是沒辦法在初級滑道連續轉彎的話，第二天加送 3 小時課程，不另外收費。</p>
-      <p class="guarantee-condition cjk">條件：只限 1對1 或 1對2 的 6 小時全天課（1對3、1對4 不適用）、完全沒滑過或只滑過1–2次、身體健康、當天全程上完 6 小時，而且雪場有正常營業。</p>
+      <p class="guarantee-condition cjk">條件：在星野TOMAMU或旭川上課、只限 1對1 或 1對2 的 6 小時全天課（1對3、1對4 不適用）、完全沒滑過或只滑過1–2次、身體健康、當天全程上完 6 小時，而且雪場有正常營業。</p>
     </div>
     <div class="guarantee-box">
       <h3 class="cjk">兒童牽手到放手保證</h3>
       <p class="guarantee-promise cjk">孩子上完 6 小時一對一課程，還沒辦法自己滑行並自己煞車的話，加送 3 小時課程，不另外收費。</p>
-      <p class="guarantee-condition cjk">條件：孩子滿 10 歲以上、一對一、全程上完 6 小時。（兒童課 3 歲就可以報名，但 3–9 歲不適用保證，這點要先了解。）</p>
+      <p class="guarantee-condition cjk">條件：在星野TOMAMU或旭川上課、孩子滿 10 歲以上、一對一、全程上完 6 小時。（兒童課 3 歲就可以報名，但 3–9 歲不適用保證，這點要先了解。）</p>
     </div>
   </div>
 </section>
@@ -725,6 +733,7 @@
 <section class="pricing-section" id="pricing">
   <div class="section-label">PRICING</div>
   <h2 class="section-title">課程報價一覽</h2>
+  <p class="pricing-note cjk resort-note">以下價格適用於<b>星野TOMAMU</b>、<b>富良野</b>、<b>旭川</b>雪場。成果保證只適用星野TOMAMU和旭川。</p>
   <p class="pricing-note cjk">
     ＊以下費用為課程費用，不包含雪票及裝備。＊課程時數為實際上課時數，已扣除休息時間。＊「平均每人」為課程總費用除以人數，實際仍以整組報價收費。<br>
     平季時間：2026/12/01–12/22；2027/01/04–02/02；2027/02/16–02/25；2027/03/03–04/01；2027/04/07–雪場關閉。<br>
@@ -753,47 +762,22 @@
     </table>
   </div>
   <p class="pricing-note cjk">進階課程（公園Park／粉雪樹林嚮導・6小時）與初階6小時課程使用同一套報價，依教練：學員人數比與平旺季計算，詳見上表「6小時」欄位。</p>
+
+  <details class="west-prices">
+    <summary class="cjk">北海道西部雪場（合作學校）報價 ▸</summary>
+    <div class="west-body cjk">
+      <p>手稻、札幌國際、Onze、二世谷、留壽都、喜樂樂由合作滑雪學校上課，價格為一位教練一天：</p>
+      <table class="price-table west-table">
+        <tr><th></th><th>手稻／札幌國際／Onze</th><th>二世谷／留壽都</th><th>喜樂樂</th></tr>
+        <tr><td>全天 6小時</td><td>¥75,000</td><td>¥85,000</td><td>¥95,000</td></tr>
+        <tr><td>半天 3小時</td><td>¥52,000</td><td>¥58,000</td><td>¥68,000</td></tr>
+      </table>
+      <p>1–2 人為基礎價，3–4 人每多 1 人 +¥5,000；旺季（2026/12/23–2027/01/05、2027/02/03–02/15、2027/04/02–04/06）每天 +¥5,000。西部雪場沒有 4 小時課程，也不適用成果保證。</p>
+    </div>
+  </details>
 </section>
 
-<!-- METHOD -->
-<section class="method-section" id="method">
-  <div class="section-label">HOW WE TEACH</div>
-  <h2 class="section-title">牽手到放手——我們的兒童滑雪啟蒙方法</h2>
-  <p class="section-desc cjk">第一次讓孩子上雪，最怕的不是跌倒，是被嚇到後再也不想滑。這是Snowi自己發展、公開命名的教學法，讓孩子在第一天上雪就能循序漸進地從被牽著手，到自己滑出去。</p>
-  <div class="method-grid">
-    <div class="method-step">
-      <div class="method-num">01</div>
-      <h4 class="cjk">感受滑行</h4>
-      <p class="cjk">教練全程扶著雪板控制速度，同時用口令教孩子煞車</p>
-    </div>
-    <div class="method-step">
-      <div class="method-num">02</div>
-      <h4 class="cjk">慢慢放力</h4>
-      <p class="cjk">教練力道漸漸減少，讓孩子開始用自己的腿部力量滑動</p>
-    </div>
-    <div class="method-step">
-      <div class="method-num">03</div>
-      <h4 class="cjk">單手扶持</h4>
-      <p class="cjk">孩子已能自己控制大部分動作，教練改為單手輔助</p>
-    </div>
-    <div class="method-step">
-      <div class="method-num">04</div>
-      <h4 class="cjk">只牽著手</h4>
-      <p class="cjk">教練只牽著孩子的手，孩子自主滑行</p>
-    </div>
-    <div class="method-step">
-      <div class="method-num">05</div>
-      <h4 class="cjk">完全放手</h4>
-      <p class="cjk">孩子能自主滑行且會自己煞車，這才是真正的放手</p>
-    </div>
-    <div class="method-step">
-      <div class="method-num">06</div>
-      <h4 class="cjk">全程陪同上下纜車</h4>
-      <p class="cjk">教練保證全程陪孩子搭乘纜車，絕不讓孩子自己一個人，確保孩子安全</p>
-    </div>
-  </div>
-  <p class="method-note cjk">實際時間依孩子的勇氣和肌肉發展而不同，多數孩子一天（6小時一對一）內可以走完前五個滑行階段；而全程陪同上下纜車，是我們對每一位孩子從頭到尾的安全承諾。課程結束時，我們會告訴你孩子今天走到第幾階段。</p>
-</section>
+
 
 <!-- ASSURANCE -->
 <section class="assurance-section" id="assurance">
@@ -838,7 +822,7 @@
     </div>
     <div class="faq-us-item">
       <div class="faq-us-q cjk">大人和小孩可以一起上課嗎？</div>
-      <div class="faq-us-a cjk">可以，選<a href="#course-family">家庭同場課</a>：兩位教練同時上課，孩子1對1、大人1對N，全家在同一個雪場一起滑。價格是兒童1對1加上大人那一組的價格。</div>
+      <div class="faq-us-a cjk">可以，選<a href="#course-family">家庭同場課</a>：1位教練同時帶2位學員（例如1位大人＋1位小孩），用1對2的價格。人數較多時每2人一組，各有一位教練。</div>
     </div>
     <div class="faq-us-item">
       <div class="faq-us-q cjk">價格怎麼算？</div>
@@ -936,7 +920,7 @@
 
   <h3 class="cjk">雪況與安全聲明</h3>
   <p class="cjk">滑雪與滑雪板運動具有一定程度之風險，可能因雪況、天候、地形或個人體能狀況導致意外發生。我們會依現場實際雪況、能見度、雪崩風險評估等因素，保留調整、延後或取消當日課程的權利，以維護參與者安全為最優先考量。所有課程皆含最高2億日圓之意外保險，惟保險理賠條件與範圍以保險公司實際條款為準。</p>
-  <p class="cjk">參與者應如實告知自身健康狀況、既往傷病史及滑雪經驗程度，並自行評估是否適合參與特定難度之課程，尤其是進階（公園／粉雪樹林嚮導）課程須具備紅（藍）線上能順暢S Turn之能力。未成年參與者須由監護人陪同或授權同意方可報名。</p>
+  <p class="cjk">參與者應如實告知自身健康狀況、既往傷病史及滑雪經驗程度，並自行評估是否適合參與特定難度之課程，尤其是進階（公園／粉雪樹林嚮導）課程須具備綠線上能順暢S Turn之能力。未成年參與者須由監護人陪同或授權同意方可報名。</p>
 
   <h3 class="cjk">免責聲明</h3>
   <p class="cjk">本網站所載之課程內容、價格、雪場資訊與時程僅供參考，實際服務內容以正式確認之預約單為準。Snowi（合同会社Shinemi）對因不可抗力、第三方服務提供者（如雪場、纜車業者）之疏失、或參與者個人因素所導致之損失、傷害或延誤，不負連帶賠償責任，惟本公司將盡力協助處理相關事宜。</p>
