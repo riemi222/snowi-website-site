@@ -57,6 +57,8 @@
   .nav-links{ display:flex; gap:1.8rem; align-items:center; }
   .nav-links a{ color:var(--ice); font-size:.82rem; text-decoration:none; letter-spacing:.02em; opacity:.85; transition:opacity .2s;}
   .nav-links a:hover{ opacity:1; }
+  .nav-links a.keep{ display:flex !important; align-items:center; gap:.35rem; }
+  @media (max-width:560px){ .nav-links{ gap:1rem; } .nav-links a.acct span{ display:none; } .nav-links a.keep{ font-size:.78rem; } }
   .nav-cta{
     font-family:'DM Sans', sans-serif; font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase;
     color: var(--deep); background: var(--accent); padding:0.65rem 1.4rem; text-decoration:none;
@@ -380,12 +382,8 @@
   <div class="nav-links">
     <a href="blog.html" class="cjk">部落格</a>
     <a href="en.html" style="opacity:.7;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">EN</a>
-    <a href="https://line.me/R/ti/p/@snowi" target="_blank" rel="noopener" aria-label="加LINE好友" style="display:flex;align-items:center;opacity:.85;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
-        <path d="M12 2C6.48 2 2 5.69 2 10.24c0 4.08 3.54 7.5 8.32 8.15.32.07.76.21.87.49.1.25.06.65.03.9l-.14.86c-.04.25-.2.99.86.54 1.06-.45 5.73-3.37 7.82-5.77C21.24 13.63 22 12.03 22 10.24 22 5.69 17.52 2 12 2z" fill="#06C755"/>
-        <path d="M18.36 11.4h-1.34v1.9c0 .1-.08.18-.18.18h-.3c-.06 0-.11-.02-.15-.07l-1.44-1.95v1.85c0 .1-.08.19-.18.19h-.3c-.1 0-.18-.08-.18-.19V9.32c0-.1.08-.18.18-.18h.3c.06 0 .11.03.14.07l1.44 1.95V9.32c0-.1.08-.18.18-.18h.3c.1 0 .18.08.18.18v2.08zm-4.34 0c0 .1-.08.19-.18.19h-.3c-.1 0-.18-.08-.18-.19V9.32c0-.1.08-.18.18-.18h.3c.1 0 .18.08.18.18v2.08zm-1.11.02c0 .1-.08.18-.18.18H10.6c-.1 0-.18-.08-.18-.18v-.3c0-.1.08-.18.18-.18h1.75V9.32c0-.1.08-.18.18-.18h.3c.1 0 .18.08.18.18v2.1zm-2.35 0c0 .1-.08.18-.18.18H8.03c-.1 0-.18-.08-.18-.18V9.32c0-.1.08-.18.18-.18h.3c.1 0 .18.08.18.18v1.72h1.05c.1 0 .18.08.18.18v.2z" fill="#fff"/>
-      </svg>
-    </a>
+    <a href="#faq" class="cjk keep">常見問題</a>
+    <a href="account.html" class="cjk keep acct" aria-label="我的訂單"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span>我的訂單</span></a>
     <a class="nav-cta cjk" href="#booking">預約課程</a>
   </div>
 </nav>
@@ -609,7 +607,7 @@
       <div class="course-price-row">
         <span class="course-price cjk">¥98,000<small>起／平季・1對1（實際價格見下方價格表）</small></span>
       </div>
-      <a class="course-cta buy cjk" href="#booking" onclick="showTab(3)">預約這個課程 →</a>
+      <a class="course-cta buy cjk" href="#booking" onclick="showTab(3,'adult6')">預約這個課程 →</a>
     </div>
 
     <!-- Kids course -->
@@ -638,7 +636,7 @@
       <div class="course-price-row">
         <span class="course-price cjk">¥98,000<small>起／平季・1對1（實際價格見下方價格表）</small></span>
       </div>
-      <a class="course-cta buy cjk" href="#booking" onclick="showTab(3)">預約這個課程 →</a>
+      <a class="course-cta buy cjk" href="#booking" onclick="showTab(3,'kid6')">預約這個課程 →</a>
     </div>
 
     <!-- Family course -->
@@ -667,7 +665,7 @@
       <div class="course-price-row">
         <span class="course-price-text cjk">兒童1對1＋大人1對N<small>價格為兩者相加，依人數比與平旺季，見下方價格表</small></span>
       </div>
-      <a class="course-cta buy cjk" href="#booking" onclick="showTab(3)">預約這個課程 →</a>
+      <a class="course-cta buy cjk" href="#booking" onclick="showTab(3,'family6')">預約這個課程 →</a>
     </div>
   </div>
 
@@ -827,36 +825,56 @@
   <h2 class="section-title">常見問題</h2>
   <div class="faq-us-list">
     <div class="faq-us-item">
-      <div class="faq-us-q cjk">我完全沒滑過，而且年紀不小了，也可以嗎？</div>
-      <div class="faq-us-a cjk">可以。大部分學生都是第一次滑，我們會依你的體力調整節奏，建議先選一日S彎課或3小時體驗開始。年紀本身不是障礙，放鬆和信任教練比體能更重要。</div>
+      <div class="faq-us-q cjk">我完全沒滑過，年紀也不小了，可以上課嗎？</div>
+      <div class="faq-us-a cjk">可以。大部分學生都是第一次滑雪，教練會從穿裝備、搭纜車開始教，依你的體力調整節奏。想一天學會轉彎選<a href="#course-adult">一日S彎課</a>；想先試試看選3小時體驗。</div>
     </div>
     <div class="faq-us-item">
       <div class="faq-us-q cjk">一天真的能學會S turn嗎？</div>
-      <div class="faq-us-a cjk">多數成人新手可以在一天（6小時）內在初級滑道做出連續轉彎，實際進度依體力和膽量而定。如果沒達到，我們有<a href="#guarantee">成果保證</a>：1對1或1對2課程當天未達目標，隔天加送3小時，不另外收費。</div>
+      <div class="faq-us-a cjk">多數成人新手可以在一天（6小時）內，在初級滑道做出連續轉彎，實際進度依體力和膽量而定。1對1或1對2的一日S彎課有<a href="#guarantee">成果保證</a>：當天沒達到，第二天加送3小時，不另外收費。</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">孩子幾歲可以上課？</div>
+      <div class="faq-us-a cjk">3歲以上就可以報名「牽手到放手」兒童一日課，只開1對1，教練全程陪同上下纜車。成果保證（沒學會自己滑行和煞車就加送3小時）適用10歲以上的孩子。</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">大人和小孩可以一起上課嗎？</div>
+      <div class="faq-us-a cjk">可以，選<a href="#course-family">家庭同場課</a>：兩位教練同時上課，孩子1對1、大人1對N，全家在同一個雪場一起滑。價格是兒童1對1加上大人那一組的價格。</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">價格怎麼算？</div>
+      <div class="faq-us-a cjk">價格是整組的價格，依「教練：學員」人數比、時數和平季／旺季計算，人數越多、平均每人越便宜。超過4位學員會分成多組、由多位教練上課。只含課程費，不含雪票和裝備。在下方預約表單選好課程、人數和日期，就會馬上看到價格。</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">怎麼預約？什麼時候付款？</div>
+      <div class="faq-us-a cjk">填好預約表單送出，不用先付款。我們確認教練排班後（通常48小時內），會用Email寄50%訂金付款連結給你，付了就完成預約。尾款最晚在第一堂課前付清，也可以隨時在<a href="account.html">我的訂單</a>付款。</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">可以改期或取消嗎？</div>
+      <div class="faq-us-a cjk">要改期請直接傳LINE或WhatsApp給我們，我們會盡量幫你調整。取消的話：課程開始31天前取消退還已付款項50%，8–30天內退還30%，7天內或未到恕不退費，退款會扣除Stripe手續費。</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">需要自己準備雪具嗎？</div>
+      <div class="faq-us-a cjk">不用。預約表單上每位學員都可以選「幫我代訂雪具」，填上身高、體重和鞋子尺寸，我們會幫你安排。雪具和雪票的費用不含在課程費裡。</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q cjk">在哪個雪場上課？</div>
+      <div class="faq-us-a cjk">主要在星野TOMAMU上課，教練都很熟悉當地地形和雪況。想在其他雪場上課的話，可以在表單選擇或在備註告訴我們，我們會盡量安排。</div>
     </div>
     <div class="faq-us-item">
       <div class="faq-us-q cjk">教練會說中文嗎？</div>
-      <div class="faq-us-a cjk">會。創辦人與大部分合作教練皆能以中文授課；預約表單上可以填寫你希望的教學語言，我們會依此安排合適的教練。</div>
+      <div class="faq-us-a cjk">會。Snowi是中文滑雪學校，創辦人和大部分教練都能用中文上課，也可以選英文、日文或中英雙語。</div>
     </div>
     <div class="faq-us-item">
-      <div class="faq-us-q cjk">課程在哪個雪場上課？</div>
-      <div class="faq-us-a cjk">目前絕大多數課程都在星野TOMAMU進行，我們也長期熟悉當地地形與雪況。如果你有其他雪場的需求，歡迎在備注欄告訴我們，我們會盡量協助安排。</div>
+      <div class="faq-us-q cjk">有保險嗎？發生意外怎麼辦？</div>
+      <div class="faq-us-a cjk">所有課程都含最高2億日圓意外保險（理賠條件以保險公司條款為準）。萬一發生意外，教練會立刻處理並聯絡家長，必要時由Emi本人陪同就醫、擔任翻譯。</div>
     </div>
     <div class="faq-us-item">
-      <div class="faq-us-q cjk">雪況不好或天候不佳，課程會取消嗎？</div>
-      <div class="faq-us-a cjk">我們會依現場雪況與安全評估決定是否調整或延後課程，詳細規則請見下方「雪況與安全聲明」。安全永遠優先於課程照常進行。</div>
+      <div class="faq-us-q cjk">天氣不好會取消嗎？</div>
+      <div class="faq-us-a cjk">我們會依現場雪況和安全評估決定是否調整或延後，安全永遠優先。詳細規則見下方「雪況與安全聲明」。</div>
     </div>
     <div class="faq-us-item">
-      <div class="faq-us-q cjk">需要自己準備滑雪裝備嗎？</div>
-      <div class="faq-us-a cjk">不需要，裝備租借可透過我們代為安排；也可以在備註欄告訴我們你的需求。</div>
-    </div>
-    <div class="faq-us-item">
-      <div class="faq-us-q cjk">小孩可以參加課程嗎？</div>
-      <div class="faq-us-a cjk">可以，兒童一日課只開一對一，3 歲以上就可以報名。成果保證（達不到目標加送3小時）適用10歲以上、全程上完6小時的孩子。請在預約表單備註欄告訴我們孩子的年齡。</div>
-    </div>
-    <div class="faq-us-item">
-      <div class="faq-us-q cjk">付款方式有哪些？</div>
-      <div class="faq-us-a cjk">初階課程支援線上信用卡付款（Stripe安全加密），確認人數與日期後即可完成付款；進階課程因場地與教練安排較複雜，採先詢問、後付款的方式。</div>
+      <div class="faq-us-q cjk">要怎麼查看預約進度？</div>
+      <div class="faq-us-a cjk">點右上角的「我的訂單」，輸入預約時的Email，就會收到登入連結，可以看到預約內容、付款狀況和付款按鈕。</div>
     </div>
   </div>
 </section>
@@ -896,8 +914,7 @@
   <div class="section-label">ABOUT US</div>
   <h2 class="section-title">關於Snowi</h2>
   <div class="about-grid">
-    <p class="cjk">Snowi 由Emi 創立，是TOMAMU星野官方註冊滑雪學校，與其他雪場皆有配合的合法教練，教練皆持有國際證照，具備10年以上多語滑雪教學經驗。我們的教學範圍涵蓋北海道16個主要雪場，從神居、富良野到TOMAMU，不論你人在北海道哪個角落，都能找到適合的課程時段與教練。</p>
-    <p class="cjk resort-list-about">合作雪場：星野TOMAMU・富良野・神居・聖誕禮物公園・旭岳・Pippu比布・canmore・Sahoro佐幌・黑岳層雲峽・Kamoi神威岳・Teine手稲・Sapporo Kokusai札幌國際・Kiroro・Rusutsu留壽都・Hidaka日高國際</p>
+    <p class="cjk">Snowi 由 Emi 創立，是星野TOMAMU官方註冊、只教新手的中文滑雪學校，大人和小孩都適合。教練皆持有國際證照，具備10年以上多語教學經驗，課程主要在星野TOMAMU進行。</p>
     <p class="cjk">如果你這趟旅程除了上課，還需要機場接送、住宿安排、雪具倉儲與保養等一站式服務，歡迎參考我們的姊妹服務 <a href="https://www.yukiway.com" target="_blank" class="cjk">Hokkaido Powder Club（北海道粉雪俱樂部）</a></p>
   </div>
 </section>
@@ -932,260 +949,25 @@
   <div class="booking-inner">
     <div class="section-label">BOOKING</div>
     <h2 class="section-title">預約課程</h2>
-    <p class="section-desc cjk">選擇你要的課程時數，填寫下方表單，我們會在48小時內回覆確認。</p>
+    <p class="section-desc cjk">選課程和人數，馬上看到價格。送出不用先付款，我們確認教練後（通常 48 小時內）才寄訂金連結。</p>
 
-    <div class="tab-nav" id="tab-nav">
-      <button class="tab-btn active cjk" onclick="showTab(1)">3小時體驗</button>
-      <button class="tab-btn cjk" onclick="showTab(2)">4小時鞏固課</button>
-      <button class="tab-btn cjk" onclick="showTab(3)">一日S彎課／兒童一日課／家庭課（6小時）</button>
-      <button class="tab-btn cjk" onclick="showTab(4)">進階嚮導（6小時）</button>
-    </div>
+    <div id="snowi-booking"></div>
+    <noscript><p>請開啟 JavaScript 才能預約，或直接寄信到 snowisnowjp@gmail.com。</p></noscript>
 
-    <!-- FORM 1: 初階3小時 -->
-    <div class="form-wrap form-panel" id="form-1">
-      <div class="form-grid">
-        <input type="text" placeholder="代表人姓名" id="f1-name">
-        <input type="email" placeholder="Email" id="f1-email">
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="LINE / WhatsApp / WeChat（方便聯繫，選填）" id="f1-contact">
-        <select id="f1-language">
-          <option value="" disabled selected>希望教學語言</option>
-          <option>中文</option><option>英文</option><option>日文</option><option>中英雙語</option>
-        </select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text cjk">上課人數</span><input type="number" min="1" value="1" id="f1-total"></div>
-        <select id="f1-board">
-          <option value="" disabled selected>雙板／單板</option>
-          <option>單板 Snowboard</option><option>雙板 Ski</option>
-        </select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text cjk">成人人數</span><input type="number" min="0" value="1" id="f1-adults"></div>
-        <div class="date-field"><span class="date-label-text cjk">兒童人數</span><input type="number" min="0" value="0" id="f1-children"></div>
-      </div>
-      <div class="form-grid">
-        <select id="f1-resort">
-          <option value="" disabled selected>希望上課雪場</option>
-          <option>星野TOMAMU</option><option>神居</option><option>聖誕禮物公園</option>
-          <option>Pippu比布</option><option>富良野</option><option>南富良野</option>
-          <option>Sahoro佐幌</option><option>Kamoi神威岳</option><option>Teine手稲</option>
-          <option>Sapporo Kokusai札幌國際</option><option>Kiroro</option><option>Rusutsu留壽都</option>
-          <option>名寄</option><option>Hidaka日高國際</option>
-        </select>
-        <select id="f1-level">
-          <option value="" disabled selected>每位參加者程度（程度不同請於特殊需求說明）</option>
-          <option>完全沒經驗</option><option>初學（滑過1–2次）</option><option>中階</option><option>高階</option><option>程度混合</option>
-        </select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text cjk">上課日期</span><input type="date" id="f1-date" required></div>
-        <div class="date-field"><span class="date-label-text cjk">希望上課天數</span><input type="number" min="1" value="1" id="f1-days"></div>
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="指定教練（如有，選填）" id="f1-instructor">
-        <label class="checkbox-field cjk" for="f1-transfer"><input type="checkbox" id="f1-transfer"> 需要機場接送包車服務</label>
-      </div>
-
-      <textarea placeholder="特殊需求（孩童年齡、身體狀況、其他備注等）" id="f1-notes"></textarea>
-      <button class="btn-primary cjk" onclick="handleSubmit(1)">送出課程預約 →</button>
-      <p class="form-note cjk">確認人數與日期後，我們會提供Stripe付款連結。</p>
-    </div>
-
-    <!-- FORM 2: 初階4小時 -->
-    <div class="form-wrap form-panel" id="form-2" style="display:none;">
-      <div class="form-grid">
-        <input type="text" placeholder="代表人姓名" id="f2-name">
-        <input type="email" placeholder="Email" id="f2-email">
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="LINE / WhatsApp / WeChat（方便聯繫，選填）" id="f2-contact">
-        <select id="f2-language">
-          <option value="" disabled selected>希望教學語言</option>
-          <option>中文</option><option>英文</option><option>日文</option><option>中英雙語</option>
-        </select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text cjk">上課人數</span><input type="number" min="1" value="1" id="f2-total"></div>
-        <select id="f2-board">
-          <option value="" disabled selected>雙板／單板</option>
-          <option>單板 Snowboard</option><option>雙板 Ski</option>
-        </select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text cjk">成人人數</span><input type="number" min="0" value="1" id="f2-adults"></div>
-        <div class="date-field"><span class="date-label-text cjk">兒童人數</span><input type="number" min="0" value="0" id="f2-children"></div>
-      </div>
-      <div class="form-grid">
-        <select id="f2-resort">
-          <option value="" disabled selected>希望上課雪場</option>
-          <option>星野TOMAMU</option><option>神居</option><option>聖誕禮物公園</option>
-          <option>Pippu比布</option><option>富良野</option><option>南富良野</option>
-          <option>Sahoro佐幌</option><option>Kamoi神威岳</option><option>Teine手稲</option>
-          <option>Sapporo Kokusai札幌國際</option><option>Kiroro</option><option>Rusutsu留壽都</option>
-          <option>名寄</option><option>Hidaka日高國際</option>
-        </select>
-        <select id="f2-level">
-          <option value="" disabled selected>每位參加者程度（程度不同請於特殊需求說明）</option>
-          <option>完全沒經驗</option><option>初學（滑過1–2次）</option><option>中階</option><option>高階</option><option>程度混合</option>
-        </select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text cjk">上課日期</span><input type="date" id="f2-date" required></div>
-        <div class="date-field"><span class="date-label-text cjk">希望上課天數</span><input type="number" min="1" value="1" id="f2-days"></div>
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="指定教練（如有，選填）" id="f2-instructor">
-        <label class="checkbox-field cjk" for="f2-transfer"><input type="checkbox" id="f2-transfer"> 需要機場接送包車服務</label>
-      </div>
-
-      <textarea placeholder="特殊需求（孩童年齡、身體狀況、其他備注等）" id="f2-notes"></textarea>
-      <button class="btn-primary cjk" onclick="handleSubmit(2)">送出課程預約 →</button>
-      <p class="form-note cjk">確認人數與日期後，我們會提供Stripe付款連結。</p>
-    </div>
-
-    <!-- FORM 3: 初階6小時 -->
-    <div class="form-wrap form-panel" id="form-3" style="display:none;">
-      <div class="form-grid">
-        <input type="text" placeholder="代表人姓名" id="f3-name">
-        <input type="email" placeholder="Email" id="f3-email">
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="LINE / WhatsApp / WeChat（方便聯繫，選填）" id="f3-contact">
-        <select id="f3-language">
-          <option value="" disabled selected>希望教學語言</option>
-          <option>中文</option><option>英文</option><option>日文</option><option>中英雙語</option>
-        </select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text cjk">上課人數</span><input type="number" min="1" value="1" id="f3-total"></div>
-        <select id="f3-board">
-          <option value="" disabled selected>雙板／單板</option>
-          <option>單板 Snowboard</option><option>雙板 Ski</option>
-        </select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text cjk">成人人數</span><input type="number" min="0" value="1" id="f3-adults"></div>
-        <div class="date-field"><span class="date-label-text cjk">兒童人數</span><input type="number" min="0" value="0" id="f3-children"></div>
-      </div>
-      <div class="form-grid">
-        <select id="f3-resort">
-          <option value="" disabled selected>希望上課雪場</option>
-          <option>星野TOMAMU</option><option>神居</option><option>聖誕禮物公園</option>
-          <option>Pippu比布</option><option>富良野</option><option>南富良野</option>
-          <option>Sahoro佐幌</option><option>Kamoi神威岳</option><option>Teine手稲</option>
-          <option>Sapporo Kokusai札幌國際</option><option>Kiroro</option><option>Rusutsu留壽都</option>
-          <option>名寄</option><option>Hidaka日高國際</option>
-        </select>
-        <select id="f3-level">
-          <option value="" disabled selected>每位參加者程度（程度不同請於特殊需求說明）</option>
-          <option>完全沒經驗</option><option>初學（滑過1–2次）</option><option>中階</option><option>高階</option><option>程度混合</option>
-        </select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text cjk">上課日期</span><input type="date" id="f3-date" required></div>
-        <div class="date-field"><span class="date-label-text cjk">希望上課天數</span><input type="number" min="1" value="1" id="f3-days"></div>
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="指定教練（如有，選填）" id="f3-instructor">
-        <label class="checkbox-field cjk" for="f3-transfer"><input type="checkbox" id="f3-transfer"> 需要機場接送包車服務</label>
-      </div>
-
-      <textarea placeholder="特殊需求（孩童年齡、身體狀況、其他備注等）" id="f3-notes"></textarea>
-      <button class="btn-primary cjk" onclick="handleSubmit(3)">送出課程預約 →</button>
-      <p class="form-note cjk">確認人數與日期後，我們會提供Stripe付款連結。</p>
-    </div>
-
-    <!-- FORM 4: 進階6小時 -->
-    <div class="form-wrap form-panel" id="form-4" style="display:none;">
-      <div class="form-grid">
-        <input type="text" placeholder="代表人姓名" id="f4-name">
-        <input type="email" placeholder="Email" id="f4-email">
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="LINE / WhatsApp / WeChat（方便聯繫，選填）" id="f4-contact">
-        <select id="f4-language">
-          <option value="" disabled selected>希望教學語言</option>
-          <option>中文</option><option>英文</option><option>日文</option><option>中英雙語</option>
-        </select>
-      </div>
-      <div class="form-grid">
-        <select id="f4-type">
-          <option value="" disabled selected>課程類型</option>
-          <option>公園 Park</option>
-          <option>粉雪／樹林嚮導</option>
-        </select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text cjk">上課人數</span><input type="number" min="1" value="1" id="f4-total"></div>
-        <select id="f4-board">
-          <option value="" disabled selected>雙板／單板</option>
-          <option>單板 Snowboard</option><option>雙板 Ski</option>
-        </select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text cjk">成人人數</span><input type="number" min="0" value="1" id="f4-adults"></div>
-        <div class="date-field"><span class="date-label-text cjk">兒童人數</span><input type="number" min="0" value="0" id="f4-children"></div>
-      </div>
-      <div class="form-grid">
-        <select id="f4-resort">
-          <option value="" disabled selected>希望上課雪場（進階開班雪場）</option>
-          <option>星野TOMAMU</option><option>神居</option><option>旭岳</option>
-          <option>富良野</option><option>南富良野</option><option>Sahoro佐幌</option>
-          <option>黑岳・層雲峽</option><option>Kamoi神威岳</option><option>Teine手稲</option>
-          <option>Sapporo Kokusai札幌國際</option><option>Kiroro</option><option>Rusutsu留壽都</option>
-          <option>Hidaka日高國際</option>
-        </select>
-        <select id="f4-level">
-          <option value="" disabled selected>每位參加者程度（程度不同請於特殊需求說明）</option>
-          <option>完全沒經驗</option><option>初學（滑過1–2次）</option><option>中階</option><option>高階</option><option>程度混合</option>
-        </select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text cjk">上課日期</span><input type="date" id="f4-date" required></div>
-        <div class="date-field"><span class="date-label-text cjk">希望上課天數</span><input type="number" min="1" value="1" id="f4-days"></div>
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="指定教練（如有，選填）" id="f4-instructor">
-        <label class="checkbox-field cjk" for="f4-transfer"><input type="checkbox" id="f4-transfer"> 需要機場接送包車服務</label>
-      </div>
-      <p class="form-fieldnote cjk">＊須具備紅（藍）線上能順暢S Turn之能力</p>
-
-      <textarea placeholder="特殊需求（是否需要攝影紀錄加購、翻譯教練等）" id="f4-notes"></textarea>
-      <button class="btn-primary cjk" onclick="handleSubmit(4)">送出課程預約 →</button>
-      <p class="form-note cjk">進階課程需先確認雪況與教練排班，我們審核後會主動聯絡你，48小時內回覆。</p>
-    </div>
-
-    <div class="success-msg" id="success-msg">
-      ✓ &nbsp; 已收到你的預約需求，謝謝！我們會在48小時內回覆確認。有緊急問題也可以直接聯繫 <strong style="color:var(--accent-bright)">snowisnowjp@gmail.com</strong>
-    </div>
   </div>
 </section>
 
 
-<footer class="cjk">Snowi | TOMAMU星野官方註冊滑雪學校 | 合同会社Shinemi ｜ 姊妹服務 <a href="https://www.hokkaidopowderclub.com" target="_blank">Hokkaido Powder Club</a></footer>
+<footer class="cjk">Snowi | TOMAMU星野官方註冊滑雪學校 | 合同会社Shinemi ｜ 姊妹服務 <a href="https://yukiway.com" target="_blank">Hokkaido Powder Club</a></footer>
 
 <script>
-function showTab(n){
-  for(let i=1;i<=4;i++){
-    document.getElementById('form-'+i).style.display = (i===n) ? 'block' : 'none';
-  }
-  const btns = document.querySelectorAll('#tab-nav .tab-btn');
-  btns.forEach((b,idx)=> b.classList.toggle('active', idx === n-1));
-  document.getElementById('success-msg').style.display = 'none';
-  document.getElementById('booking').scrollIntoView({behavior:'smooth', block:'start'});
-}
-
+const TAB_COURSE = {1:'try3', 2:'second4', 3:'adult6', 4:'adv6'};
+const ID_COURSE = {'course-adult':'adult6', 'course-kid':'kid6', 'course-family':'family6'};
+function showTab(n, course){ if(window.SnowiBooking) SnowiBooking.select(course || TAB_COURSE[n]); }
 function goToCourse(courseId, tabNum) {
   const el = document.getElementById(courseId);
   if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-  // Pre-select the booking tab silently (no scroll to booking)
-  for(let i=1;i<=4;i++){
-    document.getElementById('form-'+i).style.display = (i===tabNum) ? 'block' : 'none';
-  }
-  const btns = document.querySelectorAll('#tab-nav .tab-btn');
-  btns.forEach((b,idx)=> b.classList.toggle('active', idx === tabNum-1));
+  if(window.SnowiBooking) SnowiBooking.select(ID_COURSE[courseId] || TAB_COURSE[tabNum], false);
 }
 
 function switchAdultVideo(type, btn) {
@@ -1213,85 +995,8 @@ if ('IntersectionObserver' in window) {
   }
 }
 
-// ⚠️ 部署前，把這裡換成你實際的 Railway 網址與路徑（例如 /snowi/submit-lead）
-const RAILWAY_URL = 'https://snowi-backend-production.up.railway.app';
-
-const COURSE_NAMES = {
-  1: '初階3小時',
-  2: '初階4小時',
-  3: '初階6小時',
-  4: '進階6小時（公園／粉雪樹林嚮導）'
-};
-
-function collectPanelSummary(panelId){
-  const panel = document.getElementById(panelId);
-  if(!panel) return '';
-  const fields = panel.querySelectorAll('input, select, textarea');
-  const lines = [];
-  fields.forEach(f => {
-    if(!f.id || f.id.endsWith('-name') || f.id.endsWith('-email')) return;
-    if(f.type === 'checkbox'){
-      lines.push(f.id + '：' + (f.checked ? '需要' : '不需要'));
-      return;
-    }
-    if(f.value) lines.push(f.id + '：' + f.value);
-  });
-  return lines.join('\n');
-}
-
-async function postToBackend(path, payload, btn, originalText, silent){
-  try{
-    const res = await fetch(RAILWAY_URL + path, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    if(!res.ok){ throw new Error('server error'); }
-    return true;
-  } catch(e){
-    console.error('送出失敗：', e);
-    if(btn){ btn.textContent = originalText; btn.disabled = false; }
-    if(!silent){
-      alert('送出時發生問題，請稍後再試，或直接聯繫我們：snowisnowjp@gmail.com');
-    }
-    return false;
-  }
-}
-
-function handleSubmit(n){
-  const name = document.getElementById('f'+n+'-name').value.trim();
-  const email = document.getElementById('f'+n+'-email').value.trim();
-  const preferredDate = document.getElementById('f'+n+'-date').value;
-  if(!name || !email){
-    alert('請至少填寫姓名與 Email');
-    return;
-  }
-  if(!preferredDate){
-    alert('請選擇預計上課日期');
-    return;
-  }
-  const btn = document.querySelector('#form-'+n+' .btn-primary');
-  const originalText = btn.textContent;
-  btn.textContent = '送出中…';
-  btn.disabled = true;
-
-  const notes = collectPanelSummary('form-'+n);
-
-  postToBackend('/snowi/submit-lead', {
-    name, email,
-    course: COURSE_NAMES[n],
-    sourceForm: '0' + n,
-    preferredDate,
-    notes,
-    lang: 'zh'
-  }, btn, originalText).then(ok => {
-    if(ok){
-      document.getElementById('form-'+n).style.display = 'none';
-      document.getElementById('success-msg').style.display = 'block';
-    }
-  });
-}
 </script>
+<script src="js/booking.js"></script>
 
 </body>
 </html>

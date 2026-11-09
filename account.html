@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>我的訂單｜Snowi</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&family=DM+Sans:wght@400;500;700&display=swap" rel="stylesheet">
+<style>
+:root{--snow:#F0EEE8;--ice:#C8D8E4;--deep:#0f2a44;--slate:#1e3f68;--accent:#5B9EC9;--accent-bright:#7DBDE8;--muted:#8A99A8;--line:rgba(138,153,168,.22)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--deep);color:var(--snow);font-family:'Noto Sans TC','DM Sans',-apple-system,sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased}
+body.lang-en .zh,body:not(.lang-en) .en{display:none!important}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;max-width:760px;margin:0 auto}
+.brand{color:var(--snow);text-decoration:none;font-weight:700;letter-spacing:.12em}.brand small{color:var(--accent-bright);font-weight:400;letter-spacing:.04em}
+.nl{display:flex;gap:16px}.nl a{color:var(--ice);font-size:14px;text-decoration:none;opacity:.85}
+.wrap{max-width:640px;margin:0 auto;padding:12px 16px 60px}
+h1{font-size:clamp(24px,5vw,30px);font-weight:900;margin:14px 0 6px}
+.lead{color:var(--ice);margin:0 0 18px}
+.card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:18px;margin:0 0 14px}
+label{display:block;font-size:13px;color:var(--muted);margin-bottom:6px}
+input[type=email]{width:100%;font:inherit;font-size:16px;padding:13px 14px;border-radius:12px;border:1px solid var(--line);background:var(--deep);color:var(--snow)}
+.btn{display:inline-block;background:var(--accent);color:var(--deep);font:inherit;font-weight:700;border:0;border-radius:999px;padding:12px 22px;text-decoration:none;cursor:pointer;text-align:center}
+.btn.full{width:100%;margin-top:12px}.btn.ghost{background:none;border:1px solid var(--accent);color:var(--accent-bright)}
+.link{background:none;border:0;color:var(--accent-bright);font:inherit;cursor:pointer;padding:0;text-decoration:underline}
+.err{color:#ff9fae;font-size:14px;min-height:1.2em;margin-top:8px}
+.hidden{display:none!important}
+.top{display:flex;justify-content:space-between;align-items:flex-end;gap:12px;flex-wrap:wrap;margin-bottom:12px}
+.who{font-size:13px;color:var(--muted)}
+.oh{display:flex;justify-content:space-between;gap:12px;align-items:flex-start}
+.oh h3{margin:0;font-size:18px}.sub{font-size:13px;color:var(--muted)}
+.tag{flex:none;font-size:12px;font-weight:700;border-radius:999px;padding:4px 10px}
+.t-wait{background:rgba(217,139,160,.18);color:#f3b5c4}.t-dep{background:rgba(91,158,201,.2);color:var(--accent-bright)}
+.t-paid{background:rgba(120,200,150,.18);color:#9fe0b6}.t-full{background:rgba(180,150,230,.2);color:#d3c0f5}
+.money{width:100%;border-collapse:collapse;margin:12px 0 4px;font-size:14px}.money td{padding:6px 0;border-bottom:1px solid var(--line)}.money td:last-child{text-align:right}
+.money tr.due td{color:var(--accent-bright);font-weight:700}
+details{margin-top:8px;font-size:14px}summary{cursor:pointer;color:var(--ice)}.members{margin:6px 0 0;padding-left:18px;color:var(--ice);font-size:13px}
+.acts{display:flex;gap:10px;flex-wrap:wrap;margin-top:12px}
+.cancel{font-size:13px;color:var(--muted);margin-top:12px}.cancel a{color:var(--accent-bright)}
+.side{display:flex;justify-content:space-between;gap:12px;align-items:center}
+.switch{position:relative;width:46px;height:26px;flex:none}.switch input{opacity:0;width:0;height:0}
+.switch span{position:absolute;inset:0;background:var(--slate);border-radius:99px;cursor:pointer;transition:.2s}
+.switch span:before{content:'';position:absolute;width:20px;height:20px;left:3px;top:3px;background:#fff;border-radius:50%;transition:.2s}
+.switch input:checked+span{background:var(--accent)}.switch input:checked+span:before{transform:translateX(20px)}
+.empty{text-align:center;color:var(--ice)}
+footer{text-align:center;font-size:12px;color:var(--muted);padding:20px}
+</style>
+</head>
+<body>
+<nav>
+  <a class="brand" href="index.html" id="home">SNOWI<small>｜SNOW IS NOW</small></a>
+  <div class="nl"><a href="index.html#faq" id="faqLink"><span class="zh">常見問題</span><span class="en">FAQ</span></a><a href="#" id="langLink">EN</a></div>
+</nav>
+<main class="wrap">
+  <section id="vLogin" class="hidden">
+    <h1><span class="zh">我的訂單</span><span class="en">My bookings</span></h1>
+    <p class="lead"><span class="zh">輸入預約時填的 Email，我們會寄一封登入連結給你，不用密碼。</span><span class="en">Enter the email you booked with and we'll send you a login link. No password needed.</span></p>
+    <form class="card" id="loginForm">
+      <label for="email">Email</label>
+      <input type="email" id="email" autocomplete="email" inputmode="email" required>
+      <button class="btn full" type="submit" id="loginBtn"><span class="zh">寄登入連結給我</span><span class="en">Email me a login link</span></button>
+      <div class="err" id="loginErr"></div>
+    </form>
+  </section>
+  <section id="vSent" class="hidden">
+    <div class="card" style="text-align:center">
+      <div style="font-size:40px">📩</div>
+      <h1><span class="zh">請到信箱收信</span><span class="en">Check your inbox</span></h1>
+      <p class="lead" style="margin:0"><span class="zh">登入連結已寄到 <b class="sentTo"></b>，1 小時內有效。沒看到的話，請檢查垃圾郵件，寄件者是 hello@snowisnow.com。</span><span class="en">We sent a login link to <b class="sentTo"></b>. It works for 1 hour. Can't find it? Check your spam folder. It's from hello@snowisnow.com.</span></p>
+      <p style="margin:16px 0 0"><button class="link" id="again"><span class="zh">換一個 Email</span><span class="en">Use a different email</span></button></p>
+    </div>
+  </section>
+  <section id="vLoading" class="hidden"><p class="lead" style="text-align:center;padding:40px 0"><span class="zh">載入中…</span><span class="en">Loading…</span></p></section>
+  <section id="vOrders" class="hidden">
+    <div class="top">
+      <h1 style="margin:0"><span class="zh">我的訂單</span><span class="en">My bookings</span></h1>
+      <div class="who"><b id="who"></b>・<button class="link" id="logout"><span class="zh">登出</span><span class="en">Log out</span></button></div>
+    </div>
+    <div id="orders"></div>
+    <div class="card side">
+      <div><b><span class="zh">開放預約與優惠通知</span><span class="en">Booking & offer updates</span></b><div class="who"><span class="zh">有開放預約或優惠時用 Email 通知你</span><span class="en">We'll email you when new dates or offers open</span></div></div>
+      <label class="switch" style="margin:0"><input type="checkbox" id="optin"><span></span></label>
+    </div>
+    <div class="acts" style="justify-content:center"><a class="btn ghost" id="bookLink" href="index.html#booking"><span class="zh">＋ 再預約一堂課</span><span class="en">＋ Book another lesson</span></a></div>
+  </section>
+</main>
+<footer><span class="zh">Snowi 滑雪學校｜星野TOMAMU官方註冊｜合同会社Shinemi</span><span class="en">Snowi Ski School · Hoshino TOMAMU registered · Shinemi GK</span></footer>
+<script>
+(function(){
+  const API = 'https://snowi-backend-production.up.railway.app';
+  const LINE = 'https://line.me/R/ti/p/@snowi', WA = 'https://wa.me/817044204150';
+  const p = new URLSearchParams(location.search);
+  const lang = p.get('lang') === 'en' ? 'en' : (p.get('lang') === 'zh' ? 'zh' : ((navigator.language || '').toLowerCase().startsWith('zh') ? 'zh' : 'en'));
+  const en = lang === 'en';
+  document.body.classList.toggle('lang-en', en);
+  document.documentElement.lang = en ? 'en' : 'zh-Hant';
+  document.title = en ? 'My bookings | Snowi' : '我的訂單｜Snowi';
+  const page = en ? 'en.html' : 'index.html';
+  document.getElementById('home').href = page;
+  document.getElementById('faqLink').href = page + '#faq';
+  document.getElementById('bookLink').href = page + '#booking';
+  const ll = document.getElementById('langLink'); ll.textContent = en ? '中文' : 'EN'; ll.href = 'account.html?lang=' + (en ? 'zh' : 'en') + location.hash;
+  const L = (z, e) => en ? e : z;
+  const yen = n => '¥' + Number(n || 0).toLocaleString('en-US');
+  const esc = s => String(s ?? '').replace(/[&<>"']/g, c => ({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
+  const KEY = 'snowi-session';
+  const get = () => { try { return localStorage.getItem(KEY) || ''; } catch (_) { return ''; } };
+  const set = v => { try { v ? localStorage.setItem(KEY, v) : localStorage.removeItem(KEY); } catch (_) {} };
+  const show = id => ['vLogin', 'vSent', 'vLoading', 'vOrders'].forEach(v => document.getElementById(v).classList.toggle('hidden', v !== id));
+  try { const e = localStorage.getItem('snowi-email'); if (e) document.getElementById('email').value = e; } catch (_) {}
+
+  document.getElementById('loginForm').onsubmit = async e => {
+    e.preventDefault();
+    const email = document.getElementById('email').value.trim(), err = document.getElementById('loginErr'), b = document.getElementById('loginBtn');
+    err.textContent = '';
+    if (!/^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email)) { err.textContent = L('請輸入正確的 Email。', 'Please enter a valid email.'); return; }
+    b.disabled = true; b.style.opacity = .6;
+    try {
+      const r = await fetch(API + '/api/login', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ email, lang }) });
+      if (!r.ok) throw 0;
+    } catch (_) { b.disabled = false; b.style.opacity = 1; err.textContent = L('暫時寄不出去，請稍後再試，或傳 LINE 給我們。', "Couldn't send right now. Please try again or message us."); return; }
+    b.disabled = false; b.style.opacity = 1;
+    document.querySelectorAll('.sentTo').forEach(x => x.textContent = email);
+    show('vSent');
+  };
+  document.getElementById('again').onclick = () => show('vLogin');
+  document.getElementById('logout').onclick = () => { set(''); show('vLogin'); };
+
+  const STATUS = {
+    '待確認': ['t-wait', '確認教練中', 'Confirming instructor'], '已寄訂金連結': ['t-dep', '待付訂金', 'Deposit due'],
+    '已付款': ['t-paid', '已付訂金・預約完成', 'Booked · deposit paid'], '已付清': ['t-full', '已付清', 'Fully paid']
+  };
+  const dates = o => o.start ? (o.end && o.end !== o.start ? `${o.start} → ${o.end}` : o.start) : '';
+  function card(o){
+    const st = STATUS[o.status] || ['t-wait', o.status, o.status];
+    const people = [o.adults ? L(`大人 ${o.adults}`, `${o.adults} adult${o.adults > 1 ? 's' : ''}`) : '', o.kids ? L(`小孩 ${o.kids}`, `${o.kids} child${o.kids > 1 ? 'ren' : ''}`) : ''].filter(Boolean).join(L('・', ', '));
+    const money = o.total ? `<table class="money">
+      <tr><td>${L('總價', 'Total')}</td><td>${yen(o.total)}</td></tr>
+      <tr><td>${L('已付', 'Paid')}</td><td>${yen(o.paid)}</td></tr>
+      ${o.due > 0 && o.payUrl ? `<tr class="due"><td>${o.status === '已付款' ? L('尾款', 'Balance') : L('訂金（50%）', 'Deposit (50%)')}</td><td>${yen(o.due)}</td></tr>` : ''}</table>` : '';
+    const members = o.members ? `<details><summary>${L('學員', 'Students')}</summary><ol class="members">${o.members.split('\n').filter(Boolean).map(m => `<li>${esc(m)}</li>`).join('')}</ol></details>` : '';
+    const note = o.status === '待確認' ? `<p class="sub" style="margin:8px 0 0">${L('我們正在確認教練排班，確認後會寄訂金連結給你（通常 48 小時內）。', "We're confirming your instructor and will email a deposit link soon (usually within 48 hours).")}</p>` : '';
+    const btn = o.payUrl ? `<div class="acts"><a class="btn" href="${o.payUrl}">${o.status === '已付款' ? L('付尾款 ', 'Pay balance ') : L('付訂金 ', 'Pay deposit ')}${yen(o.due)}</a></div>` : '';
+    return `<div class="card">
+      <div class="oh"><div><h3>${esc(en ? o.courseEn : o.course)}</h3><div class="sub">${esc(dates(o))}${o.resort ? '・' + esc(o.resort) : ''}${people ? '・' + people : ''}</div></div><span class="tag ${st[0]}">${L(st[1], st[2])}</span></div>
+      ${money}${members}${note}${btn}
+      <div class="cancel">${L('要改期或取消，請', 'To change or cancel, please ')}<a href="${en ? WA : LINE}" target="_blank" rel="noopener">${L('聯絡我們', 'message us')}</a>${L('。', '.')}</div></div>`;
+  }
+  async function load(){
+    const s = get(); if (!s) return show('vLogin');
+    show('vLoading');
+    try {
+      const r = await fetch(API + '/api/orders', { headers: { Authorization: 'Bearer ' + s } });
+      if (r.status === 401) { set(''); return show('vLogin'); }
+      const j = await r.json(); if (!j.ok) throw 0;
+      document.getElementById('who').textContent = j.email;
+      document.getElementById('orders').innerHTML = j.orders.length ? j.orders.map(card).join('') : `<div class="card empty">${L('目前沒有預約。', 'No bookings yet.')}</div>`;
+      document.getElementById('optin').checked = !!j.optin;
+      show('vOrders');
+    } catch (_) {
+      show('vOrders');
+      document.getElementById('orders').innerHTML = `<div class="card empty">${L('暫時載入不了，請稍後再試。', "Couldn't load your bookings. Please try again later.")}</div>`;
+    }
+  }
+  document.getElementById('optin').onchange = async e => {
+    try { await fetch(API + '/api/optin', { method: 'POST', headers: { 'Content-Type': 'application/json', Authorization: 'Bearer ' + get() }, body: JSON.stringify({ on: e.target.checked }) }); } catch (_) {}
+  };
+  const m = /#t=([^&]+)/.exec(location.hash);
+  if (m) {
+    history.replaceState(null, '', location.pathname + location.search);
+    show('vLoading');
+    fetch(API + '/api/session', { method: 'POST', headers: { 'Content-Type': 'application/json' }, body: JSON.stringify({ t: m[1] }) })
+      .then(r => r.json()).then(j => { if (j.ok) { set(j.session); load(); } else { show('vLogin'); document.getElementById('loginErr').textContent = L('登入連結已過期，請重新申請。', 'That login link has expired. Please request a new one.'); } })
+      .catch(() => show('vLogin'));
+  } else load();
+})();
+</script>
+</body>
+</html>

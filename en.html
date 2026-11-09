@@ -55,6 +55,8 @@
   .nav-links{ display:flex; gap:1.8rem; align-items:center; }
   .nav-links a{ color:var(--ice); font-size:.82rem; text-decoration:none; letter-spacing:.02em; opacity:.85; transition:opacity .2s;}
   .nav-links a:hover{ opacity:1; }
+  .nav-links a.keep{ display:flex !important; align-items:center; gap:.35rem; }
+  @media (max-width:560px){ .nav-links{ gap:1rem; } .nav-links a.acct span{ display:none; } .nav-links a.keep{ font-size:.78rem; } }
   .nav-cta{
     font-size:0.75rem; letter-spacing:0.08em; text-transform:uppercase;
     color: var(--deep); background: var(--accent); padding:0.65rem 1.4rem; text-decoration:none;
@@ -276,9 +278,8 @@
   <div class="nav-links">
     <a href="blog-en.html">Blog</a>
     <a href="index.html" style="opacity:.7;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.7">中文</a>
-    <a href="https://line.me/R/ti/p/@snowi" target="_blank" rel="noopener" aria-label="LINE" style="display:flex;align-items:center;opacity:.85;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=0.85">
-      <svg width="20" height="20" viewBox="0 0 24 24" fill="none"><path d="M12 2C6.48 2 2 5.69 2 10.24c0 4.08 3.54 7.5 8.32 8.15.32.07.76.21.87.49.1.25.06.65.03.9l-.14.86c-.04.25-.2.99.86.54 1.06-.45 5.73-3.37 7.82-5.77C21.24 13.63 22 12.03 22 10.24 22 5.69 17.52 2 12 2z" fill="#06C755"/><path d="M18.36 11.4h-1.34v1.9c0 .1-.08.18-.18.18h-.3c-.06 0-.11-.02-.15-.07l-1.44-1.95v1.85c0 .1-.08.19-.18.19h-.3c-.1 0-.18-.08-.18-.19V9.32c0-.1.08-.18.18-.18h.3c.06 0 .11.03.14.07l1.44 1.95V9.32c0-.1.08-.18.18-.18h.3c.1 0 .18.08.18.18v2.08zm-4.34 0c0 .1-.08.19-.18.19h-.3c-.1 0-.18-.08-.18-.19V9.32c0-.1.08-.18.18-.18h.3c.1 0 .18.08.18.18v2.08zm-1.11.02c0 .1-.08.18-.18.18H10.6c-.1 0-.18-.08-.18-.18v-.3c0-.1.08-.18.18-.18h1.75V9.32c0-.1.08-.18.18-.18h.3c.1 0 .18.08.18.18v2.1zm-2.35 0c0 .1-.08.18-.18.18H8.03c-.1 0-.18-.08-.18-.18V9.32c0-.1.08-.18.18-.18h.3c.1 0 .18.08.18.18v1.72h1.05c.1 0 .18.08.18.18v.2z" fill="#fff"/></svg>
-    </a>
+    <a href="#faq" class="keep">FAQ</a>
+    <a href="account.html?lang=en" class="keep acct" aria-label="My bookings"><svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="8" r="4"/><path d="M4 21c0-4 4-6 8-6s8 2 8 6"/></svg><span>My bookings</span></a>
     <a class="nav-cta" href="#booking">Book a Course</a>
   </div>
 </nav>
@@ -423,7 +424,7 @@
         <div class="inc-row">✓ Up to ¥200M accident insurance</div>
       </div>
       <div class="course-price-row"><span class="course-price">¥98,000<small>+ / off-peak · 1:1 (see full price table below)</small></span></div>
-      <a class="course-cta buy" href="#booking" onclick="showTab(3)">Book this course →</a>
+      <a class="course-cta buy" href="#booking" onclick="showTab(3,'adult6')">Book this course →</a>
     </div>
 
     <div class="course-card" id="course-kid">
@@ -449,7 +450,7 @@
         <div class="inc-row">✓ Up to ¥200M accident insurance</div>
       </div>
       <div class="course-price-row"><span class="course-price">¥98,000<small>+ / off-peak · 1:1 (see price table below)</small></span></div>
-      <a class="course-cta buy" href="#booking" onclick="showTab(3)">Book this course →</a>
+      <a class="course-cta buy" href="#booking" onclick="showTab(3,'kid6')">Book this course →</a>
     </div>
 
     <div class="course-card" id="course-family">
@@ -475,7 +476,7 @@
         <div class="inc-row">✓ Peak-season airport transfer priority booking</div>
       </div>
       <div class="course-price-row"><span class="course-price-text">Kids 1:1 + Adults 1:N<small>Priced separately and combined — see table below for breakdown</small></span></div>
-      <a class="course-cta buy" href="#booking" onclick="showTab(3)">Book this course →</a>
+      <a class="course-cta buy" href="#booking" onclick="showTab(3,'family6')">Book this course →</a>
     </div>
   </div>
 
@@ -606,36 +607,56 @@
   <h2 class="section-title">Frequently Asked Questions</h2>
   <div class="faq-us-list">
     <div class="faq-us-item">
-      <div class="faq-us-q">I've never skied before and I'm not in my twenties — is that okay?</div>
-      <div class="faq-us-a">Absolutely. Most of our students are first-timers. We adjust pace to your energy — relaxed and confident beats fit and tense every time. If you want to try before committing, start with the 3-hour taster.</div>
+      <div class="faq-us-q">I've never skied and I'm not young. Can I still learn?</div>
+      <div class="faq-us-a">Yes. Most of our students are first-timers. We start with putting on gear and riding the lift, and adjust to your energy. To link turns in a day, take the <a href="#course-adult">One-Day S-Turn Course</a>; to try it first, take the 3-hour taster.</div>
     </div>
     <div class="faq-us-item">
-      <div class="faq-us-q">Can adults really learn S-turns in one day?</div>
-      <div class="faq-us-a">Most adult beginners can link turns on a beginner run within 6 hours. It depends on your body awareness and confidence. If you don't get there, our <a href="#guarantee">S-Turn Guarantee</a> gives you 3 hours the next day at no extra charge (1:1 or 1:2 only).</div>
+      <div class="faq-us-q">Can I really link S-turns in one day?</div>
+      <div class="faq-us-a">Most adult beginners link turns on a beginner run within one 6-hour day; progress depends on fitness and confidence. The One-Day S-Turn Course at 1:1 or 1:2 comes with our <a href="#guarantee">guarantee</a>: not there by day's end? We add 3 hours free the next day.</div>
     </div>
     <div class="faq-us-item">
-      <div class="faq-us-q">Will the instructor speak English / Chinese?</div>
-      <div class="faq-us-a">Yes. The founder and most of our partner instructors can teach in Chinese or English. Tell us your preference in the booking form and we'll match you with the right instructor.</div>
+      <div class="faq-us-q">How old do children need to be?</div>
+      <div class="faq-us-a">Kids can join the Hand-Hold to Let-Go day from age 3. It's 1:1 only and the instructor rides every lift with your child. The guarantee (an extra 3 hours if they can't glide and stop on their own) applies from age 10.</div>
     </div>
     <div class="faq-us-item">
-      <div class="faq-us-q">Which resort do lessons take place at?</div>
-      <div class="faq-us-a">The majority of lessons run at Hoshino TOMAMU. We also partner with 15 other Hokkaido resorts. If you have a specific resort in mind, let us know in the notes field.</div>
+      <div class="faq-us-q">Can adults and kids take lessons together?</div>
+      <div class="faq-us-a">Yes: book the <a href="#course-family">Family Day</a>. Two instructors teach at the same time, 1:1 for the child and 1:N for the adults, so the whole family skis at the same resort. The price is the child's 1:1 rate plus the adult group rate.</div>
     </div>
     <div class="faq-us-item">
-      <div class="faq-us-q">What if conditions are bad or the resort is closed?</div>
-      <div class="faq-us-a">We reserve the right to adjust, postpone, or cancel lessons based on on-site snow conditions, visibility, and avalanche risk. Safety always comes before lesson continuity. See the Snow & Safety Statement below for details.</div>
+      <div class="faq-us-q">How is the price calculated?</div>
+      <div class="faq-us-a">Prices are per group, based on the instructor-to-student ratio, hours and low/peak season, so the more people, the less each person pays. Groups of more than 4 are split with more instructors. Lesson fee only: lift tickets and gear are extra. Pick a course, group size and date in the booking form below to see the price right away.</div>
     </div>
     <div class="faq-us-item">
-      <div class="faq-us-q">Do I need to bring my own gear?</div>
-      <div class="faq-us-a">No. We can arrange rental equipment for you. Just tell us in the notes field and we'll sort it out ahead of your lesson.</div>
+      <div class="faq-us-q">How do I book, and when do I pay?</div>
+      <div class="faq-us-a">Send the booking form; nothing to pay yet. Once we confirm your instructor (usually within 48 hours), we email you a link to pay a 50% deposit, and you're booked. Pay the balance before your first lesson, any time from <a href="account.html?lang=en">My bookings</a>.</div>
     </div>
     <div class="faq-us-item">
-      <div class="faq-us-q">Can children join lessons?</div>
-      <div class="faq-us-a">Yes. The kids' day course is 1:1 only, open from age 3. Our outcome guarantee (free 3-hour add-on if the goal isn't reached) applies from age 10. Please note your child's age in the booking form.</div>
+      <div class="faq-us-q">Can I change or cancel?</div>
+      <div class="faq-us-a">To change dates, message us on WhatsApp or LINE and we'll do our best. Cancellations: 31+ days before the lesson, 50% of the amount paid is refunded; 8–30 days, 30%; within 7 days or no-show, no refund. Stripe fees are deducted from refunds.</div>
     </div>
     <div class="faq-us-item">
-      <div class="faq-us-q">How do I pay?</div>
-      <div class="faq-us-a">Introductory courses (3hr, 4hr, 6hr) accept secure online payment via Stripe after we confirm your dates and group size. Advanced courses are quoted individually — we contact you first, then send payment details.</div>
+      <div class="faq-us-q">Do I need my own gear?</div>
+      <div class="faq-us-a">No. In the booking form, choose "Need rental gear arranged" for each student and add height, weight and shoe size, and we'll arrange it. Gear and lift tickets aren't included in the lesson fee.</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q">Which resort are lessons at?</div>
+      <div class="faq-us-a">Mainly Hoshino TOMAMU, where our instructors know the terrain and snow well. If you'd like another resort, choose it in the form or tell us in the note and we'll try to arrange it.</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q">What languages do instructors speak?</div>
+      <div class="faq-us-a">Snowi is a Chinese-speaking ski school, and lessons are also available in English, Japanese, or Chinese + English.</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q">Is insurance included? What if there's an accident?</div>
+      <div class="faq-us-a">Every lesson includes accident insurance up to ¥200 million (claims follow the insurer's terms). If anything happens, the instructor responds right away and contacts you, and Emi herself can go to the hospital with you to translate.</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q">What if the weather is bad?</div>
+      <div class="faq-us-a">We adjust or postpone based on snow conditions and safety. Safety always comes first. See the Snow Conditions & Safety section below.</div>
+    </div>
+    <div class="faq-us-item">
+      <div class="faq-us-q">How do I check my booking?</div>
+      <div class="faq-us-a">Tap "My bookings" at the top, enter the email you booked with, and we'll send you a login link to see your booking, payment status and payment button.</div>
     </div>
   </div>
 </section>
@@ -675,8 +696,7 @@
   <div class="section-label">ABOUT US</div>
   <h2 class="section-title">About Snowi</h2>
   <div class="about-grid">
-    <p>Snowi was founded by Emi and is an officially registered ski school at Hoshino TOMAMU. All instructors hold internationally recognised certifications and bring over 10 years of multilingual ski teaching experience across 16 Hokkaido resorts — from Kamui to Furano to TOMAMU. Wherever you are in Hokkaido, we can find a slot and an instructor that works for you.</p>
-    <p class="resort-list-about">Partner resorts: Hoshino TOMAMU · Furano · Kamui · Christmas Tree Park · Asahidake · Pippu · Canmore · Sahoro · Kurodake Sounkyo · Kamoi · Teine · Sapporo Kokusai · Kiroro · Rusutsu · Hidaka International</p>
+    <p>Snowi was founded by Emi and is an officially registered ski school at Hoshino TOMAMU that teaches beginners only, adults and kids. Our instructors hold international certifications and have over 10 years of multilingual teaching experience. Lessons are mainly at Hoshino TOMAMU.</p>
     <p>Looking for airport transfers, accommodation, gear storage and servicing, or a fully joined-up Hokkaido ski trip? Check out our sister service <a href="https://www.yukiway.com" target="_blank">Hokkaido Powder Club</a>.</p>
   </div>
 </section>
@@ -706,186 +726,24 @@
   <div class="booking-inner">
     <div class="section-label">BOOKING</div>
     <h2 class="section-title">Book a Course</h2>
-    <p class="section-desc">Choose your course length, fill in the form, and we'll confirm within 48 hours.</p>
+    <p class="section-desc">Pick a course and the number of students, and you'll see the price right away. Nothing to pay now: we confirm your instructor first (usually within 48 hours).</p>
 
-    <div class="tab-nav" id="tab-nav">
-      <button class="tab-btn active" onclick="showTab(1)">3hr Taster</button>
-      <button class="tab-btn" onclick="showTab(2)">4hr Foundation</button>
-      <button class="tab-btn" onclick="showTab(3)">Full-Day Course (6hr)</button>
-      <button class="tab-btn" onclick="showTab(4)">Advanced Guide (6hr)</button>
-    </div>
+    <div id="snowi-booking"></div>
+    <noscript><p>Please enable JavaScript to book, or email snowisnowjp@gmail.com.</p></noscript>
 
-    <!-- FORM 1 -->
-    <div class="form-wrap form-panel" id="form-1">
-      <div class="form-grid">
-        <input type="text" placeholder="Name (lead booker)" id="f1-name">
-        <input type="email" placeholder="Email" id="f1-email">
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="LINE / WhatsApp / WeChat (optional)" id="f1-contact">
-        <select id="f1-language"><option value="" disabled selected>Preferred teaching language</option><option>Chinese</option><option>English</option><option>Japanese</option><option>Chinese & English</option></select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text">Total participants</span><input type="number" min="1" value="1" id="f1-total"></div>
-        <select id="f1-board"><option value="" disabled selected>Snowboard / Ski</option><option>Snowboard</option><option>Ski</option></select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text">Adults</span><input type="number" min="0" value="1" id="f1-adults"></div>
-        <div class="date-field"><span class="date-label-text">Children</span><input type="number" min="0" value="0" id="f1-children"></div>
-      </div>
-      <div class="form-grid">
-        <select id="f1-resort"><option value="" disabled selected>Preferred resort</option><option>Hoshino TOMAMU</option><option>Kamui</option><option>Christmas Tree Park</option><option>Pippu</option><option>Furano</option><option>Minami Furano</option><option>Sahoro</option><option>Kamoi</option><option>Teine</option><option>Sapporo Kokusai</option><option>Kiroro</option><option>Rusutsu</option><option>Nayoro</option><option>Hidaka International</option></select>
-        <select id="f1-level"><option value="" disabled selected>Experience level</option><option>Complete beginner</option><option>Beginner (1–2 prior sessions)</option><option>Intermediate</option><option>Advanced</option><option>Mixed levels</option></select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text">Lesson date</span><input type="date" id="f1-date" required></div>
-        <div class="date-field"><span class="date-label-text">Number of days</span><input type="number" min="1" value="1" id="f1-days"></div>
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="Preferred instructor (optional)" id="f1-instructor">
-        <label class="checkbox-field" for="f1-transfer"><input type="checkbox" id="f1-transfer"> Airport transfer / shuttle service needed</label>
-      </div>
-      <textarea placeholder="Notes (child ages, health conditions, any other requests)" id="f1-notes"></textarea>
-      <button class="btn-primary" onclick="handleSubmit(1)">Submit Booking Request →</button>
-      <p class="form-note">After confirming your group size and dates, we'll send a Stripe payment link.</p>
-    </div>
-
-    <!-- FORM 2 -->
-    <div class="form-wrap form-panel" id="form-2" style="display:none;">
-      <div class="form-grid">
-        <input type="text" placeholder="Name (lead booker)" id="f2-name">
-        <input type="email" placeholder="Email" id="f2-email">
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="LINE / WhatsApp / WeChat (optional)" id="f2-contact">
-        <select id="f2-language"><option value="" disabled selected>Preferred teaching language</option><option>Chinese</option><option>English</option><option>Japanese</option><option>Chinese & English</option></select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text">Total participants</span><input type="number" min="1" value="1" id="f2-total"></div>
-        <select id="f2-board"><option value="" disabled selected>Snowboard / Ski</option><option>Snowboard</option><option>Ski</option></select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text">Adults</span><input type="number" min="0" value="1" id="f2-adults"></div>
-        <div class="date-field"><span class="date-label-text">Children</span><input type="number" min="0" value="0" id="f2-children"></div>
-      </div>
-      <div class="form-grid">
-        <select id="f2-resort"><option value="" disabled selected>Preferred resort</option><option>Hoshino TOMAMU</option><option>Kamui</option><option>Christmas Tree Park</option><option>Pippu</option><option>Furano</option><option>Minami Furano</option><option>Sahoro</option><option>Kamoi</option><option>Teine</option><option>Sapporo Kokusai</option><option>Kiroro</option><option>Rusutsu</option><option>Nayoro</option><option>Hidaka International</option></select>
-        <select id="f2-level"><option value="" disabled selected>Experience level</option><option>Complete beginner</option><option>Beginner (1–2 prior sessions)</option><option>Intermediate</option><option>Advanced</option><option>Mixed levels</option></select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text">Lesson date</span><input type="date" id="f2-date" required></div>
-        <div class="date-field"><span class="date-label-text">Number of days</span><input type="number" min="1" value="1" id="f2-days"></div>
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="Preferred instructor (optional)" id="f2-instructor">
-        <label class="checkbox-field" for="f2-transfer"><input type="checkbox" id="f2-transfer"> Airport transfer / shuttle service needed</label>
-      </div>
-      <textarea placeholder="Notes (child ages, health conditions, any other requests)" id="f2-notes"></textarea>
-      <button class="btn-primary" onclick="handleSubmit(2)">Submit Booking Request →</button>
-      <p class="form-note">After confirming your group size and dates, we'll send a Stripe payment link.</p>
-    </div>
-
-    <!-- FORM 3 -->
-    <div class="form-wrap form-panel" id="form-3" style="display:none;">
-      <div class="form-grid">
-        <input type="text" placeholder="Name (lead booker)" id="f3-name">
-        <input type="email" placeholder="Email" id="f3-email">
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="LINE / WhatsApp / WeChat (optional)" id="f3-contact">
-        <select id="f3-language"><option value="" disabled selected>Preferred teaching language</option><option>Chinese</option><option>English</option><option>Japanese</option><option>Chinese & English</option></select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text">Total participants</span><input type="number" min="1" value="1" id="f3-total"></div>
-        <select id="f3-board"><option value="" disabled selected>Snowboard / Ski</option><option>Snowboard</option><option>Ski</option></select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text">Adults</span><input type="number" min="0" value="1" id="f3-adults"></div>
-        <div class="date-field"><span class="date-label-text">Children</span><input type="number" min="0" value="0" id="f3-children"></div>
-      </div>
-      <div class="form-grid">
-        <select id="f3-resort"><option value="" disabled selected>Preferred resort</option><option>Hoshino TOMAMU</option><option>Kamui</option><option>Christmas Tree Park</option><option>Pippu</option><option>Furano</option><option>Minami Furano</option><option>Sahoro</option><option>Kamoi</option><option>Teine</option><option>Sapporo Kokusai</option><option>Kiroro</option><option>Rusutsu</option><option>Nayoro</option><option>Hidaka International</option></select>
-        <select id="f3-level"><option value="" disabled selected>Experience level</option><option>Complete beginner</option><option>Beginner (1–2 prior sessions)</option><option>Intermediate</option><option>Advanced</option><option>Mixed levels</option></select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text">Lesson date</span><input type="date" id="f3-date" required></div>
-        <div class="date-field"><span class="date-label-text">Number of days</span><input type="number" min="1" value="1" id="f3-days"></div>
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="Preferred instructor (optional)" id="f3-instructor">
-        <label class="checkbox-field" for="f3-transfer"><input type="checkbox" id="f3-transfer"> Airport transfer / shuttle service needed</label>
-      </div>
-      <textarea placeholder="Notes (child ages, health conditions, any other requests)" id="f3-notes"></textarea>
-      <button class="btn-primary" onclick="handleSubmit(3)">Submit Booking Request →</button>
-      <p class="form-note">After confirming your group size and dates, we'll send a Stripe payment link.</p>
-    </div>
-
-    <!-- FORM 4 -->
-    <div class="form-wrap form-panel" id="form-4" style="display:none;">
-      <div class="form-grid">
-        <input type="text" placeholder="Name (lead booker)" id="f4-name">
-        <input type="email" placeholder="Email" id="f4-email">
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="LINE / WhatsApp / WeChat (optional)" id="f4-contact">
-        <select id="f4-language"><option value="" disabled selected>Preferred teaching language</option><option>Chinese</option><option>English</option><option>Japanese</option><option>Chinese & English</option></select>
-      </div>
-      <div class="form-grid">
-        <select id="f4-type"><option value="" disabled selected>Course type</option><option>Park</option><option>Powder / Tree Run Guide</option></select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text">Total participants</span><input type="number" min="1" value="1" id="f4-total"></div>
-        <select id="f4-board"><option value="" disabled selected>Snowboard / Ski</option><option>Snowboard</option><option>Ski</option></select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text">Adults</span><input type="number" min="0" value="1" id="f4-adults"></div>
-        <div class="date-field"><span class="date-label-text">Children</span><input type="number" min="0" value="0" id="f4-children"></div>
-      </div>
-      <div class="form-grid">
-        <select id="f4-resort"><option value="" disabled selected>Preferred resort (advanced courses)</option><option>Hoshino TOMAMU</option><option>Kamui</option><option>Asahidake</option><option>Furano</option><option>Minami Furano</option><option>Sahoro</option><option>Kurodake Sounkyo</option><option>Kamoi</option><option>Teine</option><option>Sapporo Kokusai</option><option>Kiroro</option><option>Rusutsu</option><option>Hidaka International</option></select>
-        <select id="f4-level"><option value="" disabled selected>Experience level</option><option>Complete beginner</option><option>Beginner (1–2 prior sessions)</option><option>Intermediate</option><option>Advanced</option><option>Mixed levels</option></select>
-      </div>
-      <div class="form-grid">
-        <div class="date-field"><span class="date-label-text">Lesson date</span><input type="date" id="f4-date" required></div>
-        <div class="date-field"><span class="date-label-text">Number of days</span><input type="number" min="1" value="1" id="f4-days"></div>
-      </div>
-      <div class="form-grid">
-        <input type="text" placeholder="Preferred instructor (optional)" id="f4-instructor">
-        <label class="checkbox-field" for="f4-transfer"><input type="checkbox" id="f4-transfer"> Airport transfer / shuttle service needed</label>
-      </div>
-      <p class="form-fieldnote">* Must be able to link smooth S-turns on a red (blue) run</p>
-      <textarea placeholder="Notes (filming add-on, any other requests)" id="f4-notes"></textarea>
-      <button class="btn-primary" onclick="handleSubmit(4)">Submit Booking Request →</button>
-      <p class="form-note">Advanced courses are confirmed individually — we'll review and contact you within 48 hours.</p>
-    </div>
-
-    <div class="success-msg" id="success-msg">
-      ✓ &nbsp; We've received your request — thank you! We'll be in touch within 48 hours to confirm. Urgent? Reach us at <strong style="color:var(--accent-bright)">snowisnowjp@gmail.com</strong>
-    </div>
   </div>
 </section>
 
-<footer>Snowi | Hoshino TOMAMU Official Ski School | Shinemi GK ｜ Sister service: <a href="https://www.hokkaidopowderclub.com" target="_blank">Hokkaido Powder Club</a></footer>
+<footer>Snowi | Hoshino TOMAMU Official Ski School | Shinemi GK ｜ Sister service: <a href="https://yukiway.com" target="_blank">Hokkaido Powder Club</a></footer>
 
 <script>
-function showTab(n){
-  for(let i=1;i<=4;i++){
-    document.getElementById('form-'+i).style.display = (i===n) ? 'block' : 'none';
-  }
-  const btns = document.querySelectorAll('#tab-nav .tab-btn');
-  btns.forEach((b,idx)=> b.classList.toggle('active', idx === n-1));
-  document.getElementById('success-msg').style.display = 'none';
-  document.getElementById('booking').scrollIntoView({behavior:'smooth', block:'start'});
-}
-
+const TAB_COURSE = {1:'try3', 2:'second4', 3:'adult6', 4:'adv6'};
+const ID_COURSE = {'course-adult':'adult6', 'course-kid':'kid6', 'course-family':'family6'};
+function showTab(n, course){ if(window.SnowiBooking) SnowiBooking.select(course || TAB_COURSE[n]); }
 function goToCourse(courseId, tabNum) {
   const el = document.getElementById(courseId);
   if(el) el.scrollIntoView({behavior:'smooth', block:'start'});
-  for(let i=1;i<=4;i++){
-    document.getElementById('form-'+i).style.display = (i===tabNum) ? 'block' : 'none';
-  }
-  const btns = document.querySelectorAll('#tab-nav .tab-btn');
-  btns.forEach((b,idx)=> b.classList.toggle('active', idx === tabNum-1));
+  if(window.SnowiBooking) SnowiBooking.select(ID_COURSE[courseId] || TAB_COURSE[tabNum], false);
 }
 
 function switchAdultVideo(type, btn) {
@@ -912,84 +770,8 @@ if ('IntersectionObserver' in window) {
   }
 }
 
-const RAILWAY_URL = 'https://snowi-backend-production.up.railway.app';
-
-const COURSE_NAMES = {
-  1: '初階3小時',
-  2: '初階4小時',
-  3: '初階6小時',
-  4: '進階6小時（公園／粉雪樹林嚮導）'
-};
-
-function collectPanelSummary(panelId){
-  const panel = document.getElementById(panelId);
-  if(!panel) return '';
-  const fields = panel.querySelectorAll('input, select, textarea');
-  const lines = [];
-  fields.forEach(f => {
-    if(!f.id || f.id.endsWith('-name') || f.id.endsWith('-email')) return;
-    if(f.type === 'checkbox'){
-      lines.push(f.id + ': ' + (f.checked ? 'yes' : 'no'));
-      return;
-    }
-    if(f.value) lines.push(f.id + ': ' + f.value);
-  });
-  return lines.join('\n');
-}
-
-async function postToBackend(path, payload, btn, originalText, silent){
-  try{
-    const res = await fetch(RAILWAY_URL + path, {
-      method: 'POST',
-      headers: { 'Content-Type': 'application/json' },
-      body: JSON.stringify(payload)
-    });
-    if(!res.ok){ throw new Error('server error'); }
-    return true;
-  } catch(e){
-    console.error('Submit failed:', e);
-    if(btn){ btn.textContent = originalText; btn.disabled = false; }
-    if(!silent){
-      alert('Something went wrong. Please try again or email us at snowisnowjp@gmail.com');
-    }
-    return false;
-  }
-}
-
-function handleSubmit(n){
-  const name = document.getElementById('f'+n+'-name').value.trim();
-  const email = document.getElementById('f'+n+'-email').value.trim();
-  const preferredDate = document.getElementById('f'+n+'-date').value;
-  if(!name || !email){
-    alert('Please fill in at least your name and email.');
-    return;
-  }
-  if(!preferredDate){
-    alert('Please select a preferred lesson date.');
-    return;
-  }
-  const btn = document.querySelector('#form-'+n+' .btn-primary');
-  const originalText = btn.textContent;
-  btn.textContent = 'Sending…';
-  btn.disabled = true;
-
-  const notes = collectPanelSummary('form-'+n);
-
-  postToBackend('/snowi/submit-lead', {
-    name, email,
-    course: COURSE_NAMES[n],
-    sourceForm: '0' + n,
-    preferredDate,
-    notes,
-    lang: 'en'
-  }, btn, originalText).then(ok => {
-    if(ok){
-      document.getElementById('form-'+n).style.display = 'none';
-      document.getElementById('success-msg').style.display = 'block';
-    }
-  });
-}
 </script>
+<script src="js/booking.js"></script>
 
 </body>
 </html>

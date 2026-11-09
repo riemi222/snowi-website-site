@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>已收到你的預約｜Snowi</title>
+<meta name="robots" content="noindex">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Noto+Sans+TC:wght@400;500;700;900&display=swap" rel="stylesheet">
+<style>
+:root{--snow:#F0EEE8;--ice:#C8D8E4;--deep:#0f2a44;--accent:#5B9EC9;--accent-bright:#7DBDE8;--muted:#8A99A8;--line:rgba(138,153,168,.22)}
+*{box-sizing:border-box}
+body{margin:0;background:var(--deep);color:var(--snow);font-family:'Noto Sans TC',-apple-system,sans-serif;line-height:1.75;-webkit-font-smoothing:antialiased}
+body.lang-en .zh,body:not(.lang-en) .en{display:none!important}
+nav{display:flex;justify-content:space-between;align-items:center;padding:16px 20px;max-width:760px;margin:0 auto}
+.brand{color:var(--snow);text-decoration:none;font-weight:700;letter-spacing:.12em}.brand small{color:var(--accent-bright);font-weight:400;letter-spacing:.04em}
+.nl{display:flex;gap:16px}.nl a{color:var(--ice);font-size:14px;text-decoration:none;opacity:.85}
+.wrap{max-width:560px;margin:0 auto;padding:24px 16px 60px;text-align:center}
+.ok{width:64px;height:64px;border-radius:50%;background:var(--accent);color:var(--deep);display:grid;place-items:center;font-size:32px;font-weight:900;margin:10px auto 18px}
+h1{font-size:clamp(24px,5vw,30px);font-weight:900;margin:0 0 6px}
+.lead{color:var(--ice);margin:0 0 26px}
+.card{background:rgba(255,255,255,.04);border:1px solid var(--line);border-radius:18px;padding:20px;margin:0 0 14px;text-align:left}
+.card h2{font-size:18px;margin:0 0 6px}.card p{margin:0;color:var(--ice);font-size:15px}
+ol{margin:6px 0 0;padding-left:20px;color:var(--ice);font-size:15px}
+.b{display:block;text-align:center;color:#fff;font-weight:900;text-decoration:none;padding:15px;border-radius:14px;margin:12px 0 0;font-size:16px}
+.line{background:#06C755}.wa{background:#25D366}
+.warn{border-color:rgba(212,169,106,.5);background:rgba(212,169,106,.08)}
+.back{display:inline-block;margin-top:18px;color:var(--accent-bright);font-size:14px}
+footer{text-align:center;font-size:12px;color:var(--muted);padding:20px}
+</style>
+</head>
+<body>
+<nav>
+  <a class="brand" href="index.html" id="home">SNOWI<small>｜SNOW IS NOW</small></a>
+  <div class="nl"><a href="account.html" id="acct"><span class="zh">我的訂單</span><span class="en">My bookings</span></a><a href="#" id="langLink">EN</a></div>
+</nav>
+<main class="wrap">
+  <div class="ok">✓</div>
+  <h1><span class="zh">已收到你的預約，確認信寄出了</span><span class="en">Got it! Your confirmation email is on its way</span></h1>
+  <p class="lead"><span class="zh">通常 5 分鐘內會收到，信裡有你的預約內容和估價。</span><span class="en">It usually arrives within 5 minutes, with your booking details and price.</span></p>
+
+  <div class="card">
+    <h2><span class="zh">接下來</span><span class="en">What happens next</span></h2>
+    <ol>
+      <li><span class="zh">我們確認教練排班（通常 48 小時內）。</span><span class="en">We confirm your instructor (usually within 48 hours).</span></li>
+      <li><span class="zh">確認後寄 50% 訂金付款連結給你，付了就完成預約。</span><span class="en">Then we email you a link to pay a 50% deposit. Pay it and you're booked.</span></li>
+      <li><span class="zh">隨時可以在「我的訂單」查看進度。</span><span class="en">Check progress any time in My bookings.</span></li>
+    </ol>
+  </div>
+
+  <div class="card">
+    <h2><span class="zh">想更快得到回覆？</span><span class="en">Want a faster answer?</span></h2>
+    <p><span class="zh">加我們的 LINE 或 WhatsApp，傳「姓名＋上課日期」，問題直接在聊天裡回答，也能更快幫你確認教練。</span><span class="en">Message us on WhatsApp or LINE with your name and lesson date. We'll answer questions in chat and can confirm your instructor faster.</span></p>
+    <a class="b line" href="https://line.me/R/ti/p/@snowi" target="_blank" rel="noopener"><span class="zh">加 LINE 好友</span><span class="en">Message us on LINE</span></a>
+    <a class="b wa" href="https://wa.me/817044204150" target="_blank" rel="noopener"><span class="zh">用 WhatsApp 聯絡我們</span><span class="en">Message us on WhatsApp</span></a>
+  </div>
+
+  <div class="card warn">
+    <h2>⚠️ <span class="zh">沒看到確認信？</span><span class="en">Can't see the email?</span></h2>
+    <p><span class="zh">請檢查「垃圾郵件」或「促銷內容」資料夾。寄件者是 hello@snowisnow.com，找到後請標記為「不是垃圾郵件」，之後的訂金連結才收得到。</span><span class="en">Check your Spam or Promotions folder. It's from hello@snowisnow.com. Mark it "Not spam" so you receive your deposit link.</span></p>
+  </div>
+  <a class="back" id="back" href="index.html"><span class="zh">← 回到首頁</span><span class="en">← Back to the homepage</span></a>
+</main>
+<footer><span class="zh">Snowi 滑雪學校｜星野TOMAMU官方註冊｜姊妹服務 Hokkaido Powder Club</span><span class="en">Snowi Ski School · Hoshino TOMAMU registered · Sister service Hokkaido Powder Club</span></footer>
+<script>
+(function(){
+  const p = new URLSearchParams(location.search), en = p.get('lang') === 'en';
+  document.body.classList.toggle('lang-en', en);
+  document.documentElement.lang = en ? 'en' : 'zh-Hant';
+  document.title = en ? 'Booking received | Snowi' : '已收到你的預約｜Snowi';
+  document.getElementById('home').href = document.getElementById('back').href = en ? 'en.html' : 'index.html';
+  document.getElementById('acct').href = 'account.html' + (en ? '?lang=en' : '');
+  const ll = document.getElementById('langLink'); ll.textContent = en ? '中文' : 'EN'; ll.href = 'thanks.html' + (en ? '' : '?lang=en');
+  if (typeof fbq === 'function') fbq('track', 'Lead');
+})();
+</script>
+</body>
+</html>
