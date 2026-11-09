@@ -215,7 +215,7 @@
         <label class="fld"><span>${L('代表人姓名', 'Your name')}</span><input type="text" data-k="name" autocomplete="name" value="${esc(S.name)}"></label>
         <label class="fld"><span>Email</span><input type="email" data-k="email" autocomplete="email" value="${esc(S.email)}"></label>
       </div>
-      <label class="fld" style="margin-bottom:.6rem"><span>${L('LINE／WhatsApp／WeChat ID（選填）', 'WhatsApp / LINE / WeChat (optional)')}</span><input type="text" data-k="contact" value="${esc(S.contact)}"></label>
+      <label class="fld" style="margin-bottom:.6rem"><span>${L('LINE／WhatsApp／WeChat ID（選填）', 'WhatsApp number (optional)')}</span><input type="text" data-k="contact" value="${esc(S.contact)}"></label>
       <label class="fld"><span>${L('備註（身體狀況、不連續的日期、其他需求）', 'Notes (health, non-consecutive dates, anything else)')}</span><textarea data-k="note" rows="3">${esc(S.note)}</textarea></label>
       <label class="chk"><input type="checkbox" data-k="optin" ${S.optin ? 'checked' : ''}> ${L('有開放預約或優惠時，用 Email 通知我', 'Email me when new dates or deals open')}</label>
       <input class="hp" type="text" name="website" tabindex="-1" autocomplete="off" id="bk-hp">
