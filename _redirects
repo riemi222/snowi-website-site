@@ -1,0 +1,4 @@
+/blog.html      https://info.snowisnow.com/blog.html     301!
+/blog-en.html   https://info.snowisnow.com/blog-en.html  301!
+/blog           https://info.snowisnow.com/blog.html     301!
+/blog/*         https://info.snowisnow.com/blog.html     301!
